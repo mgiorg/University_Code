@@ -1,0 +1,2 @@
+{'nome': 'Massimo', 'data': '02/03/2003', 'totale': 3050.0}
+{'nome': 'Luigi ', 'data': '02/05/1945', 'totale': 32.94}

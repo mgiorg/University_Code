@@ -2,10 +2,8 @@
  * 	Scrivere una funzione dist2d(x1, x2, y1, y2) che calcoli e restituisca la distanza tra i due punti
 	passati come parametri (numeri in virgola mobile)
  */
-#include <math.h>
-
 #include <stdio.h>
-
+#include <math.h>
 
 float distanza(int x1, int x2, int y1, int y2);
 

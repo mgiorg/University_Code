@@ -10,7 +10,7 @@ void printArray(int arr[], int size);
 
 int main()
 {
-	int array[] = {5, 4, 8, 5, 89, 4, 2, 7, 48, 1};
+	int array[] = {5, 4, 8, 5, 89, 4, 2, 7, 48, 1, 100, 53, 64, 72, 478};
 	int size = sizeof(array)/sizeof(array[0]);
 	printf("L'array assegnato è:\n");
 	printArray(array, size);
