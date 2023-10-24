@@ -1,5 +1,13 @@
 def A_Ex6(s):
-    """MODIFICARE IL CONTENUTO DI QUESTA FUNZIONE PER SVOLGERE L'ESERCIZIO"""
+    max = 0
+    x = 0
+    for i in s:
+        if ord(i)>=65 and ord(i)<=90:
+            if s.count(i) >= max:
+                max = s.count(i)
+            
+        
+    return max
 	
 	
 ###############################################################################

@@ -1,5 +1,18 @@
 def A_Ex7(b1,b2):
-    """MODIFICARE IL CONTENUTO DI QUESTA FUNZIONE PER SVOLGERE L'ESERCIZIO"""
+    #b1 = una stringa qualunque
+    #b2 = una stringa qualsiasi
+    #restituisce una stringa che rappresenta il risultato dell'operazione
+    if len(b1) == 0:
+        return '0'*len(b2)
+    elif len(b2) == 0:
+        return '0'*len(b1)
+    else:
+        if len(b1) > len(b2):
+            max_len = len(b1)
+        else:
+            max_len = len(b2)
+    
+        
 
 
 ###############################################################################
