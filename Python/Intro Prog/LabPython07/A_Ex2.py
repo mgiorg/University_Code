@@ -1,5 +1,12 @@
 def A_Ex2(l):
     """MODIFICARE IL CONTENUTO DI QUESTA FUNZIONE PER SVOLGERE L'ESERCIZIO"""
+    insieme = set()
+    if l != []:
+        for i in l:
+            conto = l.count(i)
+            insieme.add((i, conto))
+
+    return insieme
 
 ###############################################################################
 

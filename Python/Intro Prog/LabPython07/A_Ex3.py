@@ -1,5 +1,18 @@
 def A_Ex3(a,b):
     """MODIFICARE IL CONTENUTO DI QUESTA FUNZIONE PER SVOLGERE L'ESERCIZIO"""
+    insieme = set()
+    if a != set() and b != set():
+        for i in a:
+            nome = i[0]
+            citta = i[1]
+
+            for j in b:
+                if citta == j[0]:
+                    regione = j[1]
+                    insieme.add((nome, regione))
+    
+    return insieme
+
 
 ###############################################################################
 

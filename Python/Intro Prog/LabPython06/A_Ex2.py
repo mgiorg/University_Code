@@ -1,5 +1,19 @@
 def A_Ex2(start,n):
     """MODIFICARE IL CONTENUTO DI QUESTA FUNZIONE PER SVOLGERE L'ESERCIZIO"""
+    lista = []
+    if n == 0: 
+        return lista
+    else:
+        if start == 0:
+            c = 1
+        else:
+            c = start
+        for i in range(n):
+            while c%2 == 0:
+                c = c+1
+            lista.append(c)
+            c = c+1
+        return lista
 
 
 ###############################################################################

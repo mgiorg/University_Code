@@ -2,6 +2,13 @@ def Ex2(file):
     import re
     """MODIFICARE IL CONTENUTO DI QUESTA FUNZIONE PER SVOLGERE L'ESERCIZIO"""
 
+    f = open(file, 'r', encoding='utf-8')
+
+    line = f.readLine()
+    lista = line.strip().split()
+    f.close()
+
+
 ###############################################################################
 
 """NON MODIFICARE IL CODICE (codice di test della funzione)"""

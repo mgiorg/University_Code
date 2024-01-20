@@ -1,5 +1,15 @@
 def A_Ex10(l):
     """MODIFICARE IL CONTENUTO DI QUESTA FUNZIONE PER SVOLGERE L'ESERCIZIO"""
+    if l == []:
+        return set()
+    else:
+        insieme = set()
+        for i in range(len(l)):
+            for j in range(len(l)):
+                if l[i] != l[j] and len(l[i]) == len(l[j]):
+                    insieme.add((l[i], l[j]))
+
+        return insieme
 
 ###############################################################################
 

@@ -1,5 +1,15 @@
 def A_Ex1(l1, l2):
     """MODIFICARE IL CONTENUTO DI QUESTA FUNZIONE PER SVOLGERE L'ESERCIZIO"""
+    #len(l2) >= len(l1)
+    lista = []
+    if len(l2) == 0 and len(l1) == 0:
+        return lista
+    else:
+        for i in range(len(l1)):
+            lista.append(l1[i] + l2[i])
+        for i in range(len(l1), len(l2)):
+            lista.append(l2[i])
+        return lista
 
 
 ###############################################################################

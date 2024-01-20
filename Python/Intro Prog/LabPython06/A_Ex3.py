@@ -1,5 +1,17 @@
 def A_Ex3(l,n):
     """MODIFICARE IL CONTENUTO DI QUESTA FUNZIONE PER SVOLGERE L'ESERCIZIO"""
+    if l == []:
+        return ''
+    else:
+        s = ''
+        for i in range(len(l)):
+            if n>=len(l[i]):
+                s = s + '!'
+            else:
+                prova = l[i]
+                s = s + prova[n]
+        return s
+
 
 
 ###############################################################################

@@ -1,5 +1,14 @@
 def A_Ex4(l,c,n):
     """MODIFICARE IL CONTENUTO DI QUESTA FUNZIONE PER SVOLGERE L'ESERCIZIO"""
+    temp = []
+
+    if l != []:
+        for i in l:
+            if i.count(c) < n:
+                temp.append(i)
+
+    return temp
+    
 
 ###############################################################################
 

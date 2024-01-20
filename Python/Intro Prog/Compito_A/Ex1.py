@@ -1,5 +1,13 @@
 def Ex1(s,c1,c2):
-    """MODIFICARE IL CONTENUTO DI QUESTA FUNZIONE PER SVOLGERE L'ESERCIZIO"""
+    """La sottostringa più lunga nella stringa S"""
+    maxlen = 0
+
+    for i in range(len(s)): #primo ciclo dentro la stringa S
+        for j in range(i+1, len(s)): #secondo ciclo annidato per creare la sottostringa
+            parte = s[i:j+1] #creata la sottostringa con lo slicing
+            if j+1-i > maxlen and parte.count(c1) == parte.count(c2) and parte.count(c1) > 0:
+                maxlen = len(parte)
+    return maxlen
 
 ###############################################################################
 

@@ -1,6 +1,12 @@
 def A_Ex4(l):
     """MODIFICARE IL CONTENUTO DI QUESTA FUNZIONE PER SVOLGERE L'ESERCIZIO"""
-
+    s = ''
+    for i in range(len(l)):
+        if int(l[i])%2 == 0:
+            s+= 'P'
+        else:
+            s+= 'D'
+    return s
 
 ###############################################################################
 
