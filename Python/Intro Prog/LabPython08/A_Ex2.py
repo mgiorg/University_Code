@@ -25,7 +25,7 @@ if __name__ == '__main__':
     counter_test_positivi = 0
     total_tests = 5
 
-    counter_test_positivi += tester_fun(A_Ex2, ["/Users/massimogiordano/Desktop/Programmazione/University_Code/Python/Intro Prog/LabPython08/esami1.csv"], [('1345','Fisica'),('1346','Analisi'),('1896','Geometria'),('1753','Fisica')])
+    counter_test_positivi += tester_fun(A_Ex2, ["/home/massimogiordano/Desktop/Repository/University_Code/Python/Intro Prog/LabPython08/esami1.csv"], [('1345','Fisica'),('1346','Analisi'),('1896','Geometria'),('1753','Fisica')])
     counter_test_positivi += tester_fun(A_Ex2, ["/Users/massimogiordano/Desktop/Programmazione/University_Code/Python/Intro Prog/LabPython08/esami2.csv"], [('1346','Analisi')])
     counter_test_positivi += tester_fun(A_Ex2, ["/Users/massimogiordano/Desktop/Programmazione/University_Code/Python/Intro Prog/LabPython08/esami3.csv"], [('1347', 'Analisi'), ('1348', 'Analisi'), ('1347', 'Ricerca Operativa'), ('1349', 'Ricerca Operativa')])
     counter_test_positivi += tester_fun(A_Ex2, ["/Users/massimogiordano/Desktop/Programmazione/University_Code/Python/Intro Prog/LabPython08/esami4.csv"], [('1100', 'Basi di Dati'), ('1012', 'Basi di Dati'), ('1021', 'Analisi')])

@@ -26,10 +26,10 @@ if __name__ == '__main__':
     counter_test_positivi = 0
     total_tests = 5
 
-    counter_test_positivi += tester_fun(A_Ex1, ["/Users/massimogiordano/Desktop/Programmazione/University_Code/Python/Intro Prog/LabPython08/Esempio1.txt"], 7)
-    counter_test_positivi += tester_fun(A_Ex1, ["/Users/massimogiordano/Desktop/Programmazione/University_Code/Python/Intro Prog/LabPython08/Esempio2.txt"], 53)
-    counter_test_positivi += tester_fun(A_Ex1, ["/Users/massimogiordano/Desktop/Programmazione/University_Code/Python/Intro Prog/LabPython08/Esempio3.txt"], 26)
-    counter_test_positivi += tester_fun(A_Ex1, ["/Users/massimogiordano/Desktop/Programmazione/University_Code/Python/Intro Prog/LabPython08/I_Malavoglia_50.txt"], 11808)
-    counter_test_positivi += tester_fun(A_Ex1, ["/Users/massimogiordano/Desktop/Programmazione/University_Code/Python/Intro Prog/LabPython08/I_Malavoglia.txt"], 382468)
+    counter_test_positivi += tester_fun(A_Ex1, ["/home/massimogiordano/Desktop/Repository/University_Code/Python/Intro Prog/LabPython08/Esempio1.txt"], 7)
+    counter_test_positivi += tester_fun(A_Ex1, ["/home/massimogiordano/Desktop/Repository/University_Code/Python/Intro Prog/LabPython08/Esempio2.txt"], 53)
+    counter_test_positivi += tester_fun(A_Ex1, ["/home/massimogiordano/Desktop/Repository/University_Code/Python/Intro Prog/LabPython08/Esempio3.txt"], 26)
+    counter_test_positivi += tester_fun(A_Ex1, ["/home/massimogiordano/Desktop/Repository/University_Code/Python/Intro Prog/LabPython08/I_Malavoglia_50.txt"], 11808)
+    counter_test_positivi += tester_fun(A_Ex1, ["/home/massimogiordano/Desktop/Repository/University_Code/Python/Intro Prog/LabPython08/I_Malavoglia.txt"], 382468)
 
     print('La funzione',A_Ex1.__name__,'ha superato',counter_test_positivi,'test su',total_tests)
