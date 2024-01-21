@@ -1,20 +1,21 @@
 def A_Ex2(fileName):
     """MODIFICARE IL CONTENUTO DI QUESTA FUNZIONE PER SVOLGERE L'ESERCIZIO"""
     f = open(fileName, encoding = 'UTF-8')
-    linea = f.readLine() #Riga titolo
+    c = 0
+
     temp = []
 
-    while linea != '':
-        linea = f.readLine()
-        lista = linea.split()
+    for elem in f:
+        linea = elem.split(',')
 
-        if int(lista[1]) >= 18:
-            temp.append((lista[0], lista[2]))
+        if c!= 0:
+            if int(linea[1]) >= 18:
+                temp.append((linea[0], linea[2].strip()))
+        c = c + 1
     f.close()
-    
-    return temp
-            
 
+    return temp
+    
 ###############################################################################
 
 """NON MODIFICARE, codice di testing della funzione"""
