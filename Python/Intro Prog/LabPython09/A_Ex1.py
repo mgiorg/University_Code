@@ -1,5 +1,12 @@
 def A_Ex1(l):
     """MODIFICARE IL CONTENUTO DI QUESTA FUNZIONE PER SVOLGERE L'ESERCIZIO"""
+    diz = {}
+
+    for i in l:
+        if i not in diz:
+            diz[i] = l.count(i)
+    
+    return diz
     
  
 ###############################################################################
