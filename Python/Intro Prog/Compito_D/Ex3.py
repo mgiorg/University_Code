@@ -1,4 +1,4 @@
-def Ex3(file):
+def Ex3(file,n):
     """MODIFICARE IL CONTENUTO DI QUESTA FUNZIONE PER SVOLGERE L'ESERCIZIO"""
 
 ###############################################################################
@@ -13,11 +13,16 @@ if __name__ == '__main__':
 
     # test distribuzione
 
-    counter_test_positivi += tester_fun(Ex3, ['giochi1.csv'],{'G1', 'G4', 'G3'})   
-    counter_test_positivi += tester_fun(Ex3, ['giochi2.csv'],{'G1', 'G4', 'G3'})
-    counter_test_positivi += tester_fun(Ex3, ['giochi3.csv'],{'G1', 'G4', 'G3'})
-    counter_test_positivi += tester_fun(Ex3, ['giochi4.csv'],{'G1', 'G3', 'G5'})
-    counter_test_positivi += tester_fun(Ex3, ['giochi5.csv'],{'G1', 'G3', 'G7'})
+    # counter_test_positivi += tester_fun(Ex3, ['mosse1.csv',10],'Paolo')    
+    # counter_test_positivi += tester_fun(Ex3, ['mosse1.csv',8],'Miriam')    
+    # counter_test_positivi += tester_fun(Ex3, ['mosse2.csv',10],'Paolo')    
+    # counter_test_positivi += tester_fun(Ex3, ['mosse2.csv',9],'Flavio')    
+    # counter_test_positivi += tester_fun(Ex3, ['mosse2.csv',7],'Paolo')  
+    counter_test_positivi += tester_fun(Ex3, ['mosse1.csv',10],'Paolo')    
+    counter_test_positivi += tester_fun(Ex3, ['mosse1.csv',8],'Nessuno')    
+    counter_test_positivi += tester_fun(Ex3, ['mosse2.csv',10],'Paolo')    
+    counter_test_positivi += tester_fun(Ex3, ['mosse2.csv',9],'Flavio')    
+    counter_test_positivi += tester_fun(Ex3, ['mosse2.csv',7],'Paolo')         
     
     print('La funzione',Ex3.__name__,'ha superato',counter_test_positivi,'test su',total_tests)
 

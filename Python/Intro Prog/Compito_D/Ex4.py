@@ -4,7 +4,7 @@ def veroFalso():
     # Ad esempio, se pensate che B, C, e D siano vere la funzione deve restituire 'BCD'
     ##############################################################################################
 
-    d=eval(open('veroFalsoD.txt',encoding="UTF-8").read())
+    d=eval(open('VeroFalsoD.txt',encoding="UTF-8").read())
     for dom in 'ABCDEFGH':
         print(dom+')', end='')
         print(d[dom]['premessa'])

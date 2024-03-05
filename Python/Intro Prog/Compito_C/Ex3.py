@@ -1,7 +1,8 @@
-def Ex3(file1,n):
-
+def Ex3(file,n):
+    """MODIFICARE IL CONTENUTO DI QUESTA FUNZIONE PER SVOLGERE L'ESERCIZIO"""
 
 ###############################################################################
+
 """NON MODIFICARE IL CODICE (codice di test della funzione)"""
 
 if __name__ == '__main__':
@@ -12,11 +13,10 @@ if __name__ == '__main__':
 
     # test distribuzione
 
-    counter_test_positivi += tester_fun(Ex3, ['esempio1c.txt',3],2)
-    counter_test_positivi += tester_fun(Ex3, ['esempio1c.txt',4],1) 
-    counter_test_positivi += tester_fun(Ex3, ['esempio1c.txt',2],3) 
-    counter_test_positivi += tester_fun(Ex3, ['esempio1c.txt',1],2) 
-    counter_test_positivi += tester_fun(Ex3, ['esempio2c.txt',5],2) 
+    counter_test_positivi += tester_fun(Ex3, ['mosse1.csv',10],'Carla')    
+    counter_test_positivi += tester_fun(Ex3, ['mosse1.csv',8],'Paolo')    
+    counter_test_positivi += tester_fun(Ex3, ['mosse2.csv',10],'Nessuno')    
+    counter_test_positivi += tester_fun(Ex3, ['mosse2.csv',9],'Miriam')    
+    counter_test_positivi += tester_fun(Ex3, ['mosse2.csv',7],'Miriam')       
 
-    
     print('La funzione',Ex3.__name__,'ha superato',counter_test_positivi,'test su',total_tests)

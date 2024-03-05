@@ -1,5 +1,19 @@
 def Ex1(l):
     """MODIFICARE IL CONTENUTO DI QUESTA FUNZIONE PER SVOLGERE L'ESERCIZIO"""
+    if l == []:
+        return -1
+    maggiori = set()
+    for i in range(len(l)):
+        k = l[i].count(l[i][0])
+        if i+k < len(l) and l[i+k].count(l[i+k][0]) == k:
+            if i+k in maggiori:
+                continue
+            else:
+                maggiori.add(i+k)
+
+    print(len(maggiori))
+
+
 
 ###############################################################################
 
@@ -13,10 +27,10 @@ if __name__ == '__main__':
 
     # test distribuzione
 
-    counter_test_positivi += tester_fun(Ex1, [["da","ab","cc","ce","ea","ad","eb","ba","ag"]],4)
-    counter_test_positivi += tester_fun(Ex1, [["da","ab","cc","ce","ea","ae","eb","ba","ag"]],7)
-    counter_test_positivi += tester_fun(Ex1, [["da"]],1)
-    counter_test_positivi += tester_fun(Ex1, [["da","ab","ad","eb","ba","ag"]],3)
-    counter_test_positivi += tester_fun(Ex1, [[]],0)
+    counter_test_positivi += tester_fun(Ex1, [ ['oro','mio','alla','mio','ara','mio']],1)
+    counter_test_positivi += tester_fun(Ex1, [ []],-1)
+    counter_test_positivi += tester_fun(Ex1, [ ['allegra brigata','b','c','f','elemento soave','e','f']],1)
+    counter_test_positivi += tester_fun(Ex1, [ ['ioi','mioo','tuu','ioo','il','i']],0)
+    counter_test_positivi += tester_fun(Ex1, [ ['oo','a','ii']],1)
 
     print('La funzione',Ex1.__name__,'ha superato',counter_test_positivi,'test su',total_tests)
