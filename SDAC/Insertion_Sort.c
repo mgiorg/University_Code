@@ -25,7 +25,6 @@ static void infila(int i, int ultimo) {
 }
 /* esercizio assegnato: realizzare infila ricorsivamente */
 
-
 int ordina(int primo, int ultimo) {
     //infila elemento A[primo] nella parte ordinata che va da A[primo+1] a A[ultimo]
     if(ultimo > primo) {
