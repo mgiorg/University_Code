@@ -5,19 +5,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define NUM 5
+
 int main() {
-	/*int i = 5;
-	printf("Valore di i: %d, indirizzo di i: %p\n", i, &i);*/
 
+	int f[NUM] = {0};
+	int* g = f;
+	for(int i = 0; i < NUM; i++){
+		*(g+i) = i;
+		printf("%d\n", *(g+i));
+		
+	}
 
-	/*int i = 10;
-	int* p = &i;
-	*p = 100; //modifica la variabile i
-	printf("%d", i);
-	print("%d", *p); */
-
-	int*p;
-	p = 0x122605df0;
-	*p = 100; //modifica la variabile
 	return 0;
 }
