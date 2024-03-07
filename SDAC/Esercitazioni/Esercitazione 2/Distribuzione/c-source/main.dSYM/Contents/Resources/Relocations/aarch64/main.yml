@@ -1,0 +1,16 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     main
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003B38, symSize: 0x1AC }
+  - { offsetInCU: 0x46, offset: 0x46, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003B38, symSize: 0x1AC }
+  - { offsetInCU: 0x6E, offset: 0x6E, size: 0x8, addend: 0x0, symName: __Z11read_mat_ffPKc, symObjAddr: 0x1AC, symBinAddr: 0x100003CE4, symSize: 0x134 }
+  - { offsetInCU: 0x26, offset: 0x330, size: 0x8, addend: 0x0, symName: __Z18matrice_sparsa_newii, symObjAddr: 0x0, symBinAddr: 0x100003E18, symSize: 0x18 }
+  - { offsetInCU: 0x33, offset: 0x33D, size: 0x8, addend: 0x0, symName: __Z18matrice_sparsa_newii, symObjAddr: 0x0, symBinAddr: 0x100003E18, symSize: 0x18 }
+  - { offsetInCU: 0x6D, offset: 0x377, size: 0x8, addend: 0x0, symName: __Z21matrice_sparsa_deleteP14matrice_sparsa, symObjAddr: 0x18, symBinAddr: 0x100003E30, symSize: 0x10 }
+  - { offsetInCU: 0x95, offset: 0x39F, size: 0x8, addend: 0x0, symName: __Z11get_num_rowP14matrice_sparsa, symObjAddr: 0x28, symBinAddr: 0x100003E40, symSize: 0x14 }
+  - { offsetInCU: 0xC1, offset: 0x3CB, size: 0x8, addend: 0x0, symName: __Z11get_num_colP14matrice_sparsa, symObjAddr: 0x3C, symBinAddr: 0x100003E54, symSize: 0x14 }
+  - { offsetInCU: 0xED, offset: 0x3F7, size: 0x8, addend: 0x0, symName: __Z7mat_setP14matrice_sparsaiii, symObjAddr: 0x50, symBinAddr: 0x100003E68, symSize: 0x1C }
+  - { offsetInCU: 0x13F, offset: 0x449, size: 0x8, addend: 0x0, symName: __Z7mat_getP14matrice_sparsaii, symObjAddr: 0x6C, symBinAddr: 0x100003E84, symSize: 0x1C }
+  - { offsetInCU: 0x187, offset: 0x491, size: 0x8, addend: 0x0, symName: __Z9mat_printP14matrice_sparsa, symObjAddr: 0x88, symBinAddr: 0x100003EA0, symSize: 0x10 }
+...

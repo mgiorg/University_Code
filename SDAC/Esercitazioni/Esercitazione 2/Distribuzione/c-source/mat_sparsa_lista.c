@@ -3,15 +3,42 @@
 #include <stdio.h>
 
 typedef struct elem {
+	int i; //indice della riga
+	int j; //indice della colonna
+	int x; //valore dell'elemento
 
+	struct elem *next;
 } elem;
 
 struct matrice_sparsa {
+	int m; //numero righe
+	int n; //numero colonne
 
+	elem *head;
 };
 
 matrice_sparsa* matrice_sparsa_new(int m, int n) {
 	// TODO: Implement here
+	matrice_sparsa *mat;
+	mat -> m = m;
+	mat -> n = n;
+	
+	struct elem e;
+	mat->head=&e;
+
+	struct elem temp=*mat->head;
+
+	for (int i = 1; i <= m; ++i)
+	{
+		for (int j = 1; j <= n; ++j)
+		{
+			e.j = j;
+			e.i = i;
+			e.x = 0;
+
+			mat-> head = &e.next;
+		}
+	}
 	return NULL;
 }
 

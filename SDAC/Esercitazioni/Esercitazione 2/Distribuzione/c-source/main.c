@@ -2,13 +2,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "mat_sparsa_lista.c"
 
 matrice_sparsa* read_mat_ff(const char* file_name);
 
 int main() {
-	matrice_sparsa* mat1 = read_mat_ff("mat.dat");
+	//matrice_sparsa* mat1 = read_mat_ff("mat.dat");
 
-	printf("Original Matrix:\n");
+	/*printf("Original Matrix:\n");
 	mat_print(mat1);
 	printf("\n");
 	printf("########################################");
@@ -38,7 +39,12 @@ int main() {
 	printf("Added -> 18,17,12\n");
 	mat_set(mat1, 18, 17, 12);
 	mat_print(mat1);
-	printf("\n");
+	printf("\n");*/
+	struct matrice_sparsa *mat = matrice_sparsa_new(3, 4);
+	while(mat-> head -> elem -> next)
+	{
+
+	}
 }
 
 matrice_sparsa* read_mat_ff(const char* file_name){
