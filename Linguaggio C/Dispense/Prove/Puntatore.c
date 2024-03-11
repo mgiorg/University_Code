@@ -27,7 +27,7 @@ int main() {
 	for(int i = 0; i < NUM; ++i){
 		p[i] = malloc(NUM*sizeof(int));
 		for(int j = 0; j < NUM; ++j){
-			p[i][j] = i+1;
+			p[i][j] = i;
 		}
 	}
 
