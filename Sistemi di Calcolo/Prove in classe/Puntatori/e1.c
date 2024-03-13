@@ -6,6 +6,6 @@ void times2_int(short* p) {
 	short* a = p;
 	short cx = *a;
 
-	cx = cx*2;
+	cx = cx * 2;
 	*a = cx;
 }

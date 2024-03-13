@@ -7,9 +7,8 @@ void swap_short(short* x, short* y);
 
 int main() {
 	short x = 10;
-	short y = 15;
-	swap_short(&x, &y);
-	printf("x = %d, y = %d\n", x, y);
+	times2_int(&x);
+	printf("x = %d\n", x);
 
 	return 0;
 }

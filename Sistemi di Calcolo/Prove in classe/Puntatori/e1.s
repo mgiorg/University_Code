@@ -1,6 +1,6 @@
-.globl times2
+.globl times2_int
 
-times2:
+times2_int:
 	movl 4(%esp), %eax
 	movw (%eax), %cx
 	imulw $2, %cx
