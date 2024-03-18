@@ -41,10 +41,14 @@ int main() {
 	mat_print(mat1);
 	printf("\n");*/
 	struct matrice_sparsa *mat = matrice_sparsa_new(3, 4);
-	while(mat-> head -> elem -> next)
-	{
+	mat_print(mat);
+	printf("%d\n\n", mat_get(mat, 1, 1));
+	mat_set(mat, 1, 1, 38);
+	printf("%d\n\n", mat_get(mat, 1, 1));
+	mat_print(mat);
 
-	}
+	matrice_sparsa_delete(mat);
+	return 0;
 }
 
 matrice_sparsa* read_mat_ff(const char* file_name){

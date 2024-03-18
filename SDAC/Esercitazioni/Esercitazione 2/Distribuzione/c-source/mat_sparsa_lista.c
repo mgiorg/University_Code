@@ -2,20 +2,20 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef struct elem {
+struct elem {
 	int i; //indice della riga
 	int j; //indice della colonna
 	int x; //valore dell'elemento
 
 	struct elem *next;
-} elem;
+};
 
-struct matrice_sparsa {
+typedef struct matrice_sparsa {
 	int m; //numero righe
 	int n; //numero colonne
 
-	elem *head;
-};
+	struct elem *head;
+}matrice_sparsa;
 
 matrice_sparsa* matrice_sparsa_new(int m, int n) {
 	// TODO: Implement here
@@ -23,48 +23,89 @@ matrice_sparsa* matrice_sparsa_new(int m, int n) {
 	mat -> m = m;
 	mat -> n = n;
 	
-	struct elem e;
-	mat->head=&e;
+	mat-> head = (struct elem*)malloc(sizeof(struct elem));
+	struct elem* temp = mat-> head;
+	int contatore = 0;
 
-	struct elem temp=*mat->head;
-
-	for (int i = 1; i <= m; ++i)
-	{
-		for (int j = 1; j <= n; ++j)
-		{
-			e.j = j;
-			e.i = i;
-			e.x = 0;
-
-			mat-> head = &e.next;
+	for (int i = 0; i < m; ++i) {
+		for (int j = 0; j < n; ++j) {
+			contatore++;
+			temp-> i = i;
+			temp-> j = j;
+			temp-> x = i+j;
+			temp-> next = (struct elem*)malloc(sizeof(struct elem));
+			temp = temp-> next;
 		}
 	}
-	return NULL;
+	return mat;
 }
 
 void matrice_sparsa_delete(matrice_sparsa* mat) {
 	// TODO: Implement here
+	struct elem* temp = mat-> head;
+	for(int i = 0; i < mat-> m; ++i) {
+		for(int j = 0; j < mat-> n; ++j) {
+			struct elem* p = temp;
+			temp = temp-> next;
+			free(p);
+		}
+
+	}
 }
 
 int get_num_row(matrice_sparsa* mat) {
 	// TODO: Implement here
-	return 0;
+	return mat-> m;
 }
 
 int get_num_col(matrice_sparsa* mat) {
 	// TODO: Implement here
-	return 0;
+	return mat->n;
 }
 
 void mat_set(matrice_sparsa* mat, int i, int j, int x) {
 	// TODO: Implement here
+	struct elem* temp = mat-> head;
+	for(int riga = 0; riga < mat->m; riga++) {
+		for(int colonna = 0; colonna < mat-> n; colonna++) {
+			if(temp-> i == i && temp-> j == j) {
+				temp-> x = x;
+				return;
+			}
+			else {
+				temp = temp-> next;
+			}
+		}
+	}
 }
 
 int mat_get(matrice_sparsa* mat, int i, int j) {
 	// TODO: Implement here
-	return 0;
+	struct elem *temp = mat->head;
+	for (int riga = 0; riga <= mat->m; ++riga)
+	{
+		for (int colonna = 0; colonna <= mat->n; ++colonna)
+		{
+			if (temp->i == i && temp->j == j)
+				return temp-> x;
+			else{
+				temp = temp->next;
+			}
+		}
+	}
+	//ERRORE
+	return -1;
 }
 
 void mat_print(matrice_sparsa* mat) {
 	// TODO: Implement here
+	struct elem* temp = mat-> head;
+	for(int i = 0; i < mat->m; ++i) {
+		for(int j = 0; j < mat->n; ++j) {
+			printf("%d ", temp-> x);
+			temp = temp-> next;
+		}
+		printf("\n");
+	}
+	printf("\n");
 }
