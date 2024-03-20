@@ -12,7 +12,7 @@ int nextInt(int max);
 
 /* sorting algs - aggiungerne nuovi se utile*/
 
-void merge(int arr[], int left, int right); 
+void merge(int arr[], int left, int mid, int right); 
 void mergeSort_aus(int arr[], int left, int right);
 void mergeSort(array *);
 
