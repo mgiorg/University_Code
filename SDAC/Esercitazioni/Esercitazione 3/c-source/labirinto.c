@@ -11,15 +11,32 @@ typedef struct {
 
 labirinto * labirinto_new(int n) {
     // TODO: Da completare
-	return NULL;
+    labirinto_struct* l1 = (labirinto_struct* )malloc(sizeof(labirinto_struct));
+    labirinto *l = (labirinto* )l1;
+    l1-> matrix = (int** )malloc(n*sizeof(int*));
+    l1-> marcata = (int **)malloc(n * sizeof(int *));
+    for(int i = 0; i < n; ++i) {
+        l1->matrix[i] = (int* )malloc(n*sizeof(int));
+        l1-> marcata[i] = (int *)malloc(n * sizeof(int));
+    }
+    for(int i = 0; i < n; ++i) {
+        for(int j = 0; j < n; ++j) {
+            l1-> matrix[i][j] = LABIRINTO_VUOTA;
+            l1-> marcata[i][j] = LABIRINTO_VUOTA;
+        }
+    }
+	return l;
 }
 
 void labirinto_delete(labirinto * lab) {
     // TODO: Da completare
+    
 }
 
 void labirinto_setpiena(labirinto * lab, int r, int c) {
     // TODO: Da completare
+    labirinto_struct* temp = (labirinto_struct* )lab;
+    temp->matrix[r][c] = LABIRINTO_PIENA;
 }
 
 int labirinto_uscita(labirinto * lab, int r, int c) {

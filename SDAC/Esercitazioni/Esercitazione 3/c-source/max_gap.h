@@ -7,6 +7,6 @@
  * If there are less than two intergers in the considered portion
  * of the array, then -1 is returned.
  */
-int maxGap(int * array, int start, int end);
+int maxGap(int* array, int start, int end);
 
 #endif	/* MAX_GAP_H */

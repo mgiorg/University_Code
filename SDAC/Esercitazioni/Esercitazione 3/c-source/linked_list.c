@@ -2,17 +2,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef struct linked_list_node {
-    int value;
-    struct linked_list_node *next;
-} linked_list_node;
-    
-struct linked_list{
-    linked_list_node *head;
-    linked_list_node *tail;
-    int size;
-};
-
 int linked_list_get(linked_list * ll, int index, int *value) {
     linked_list *ptr = (linked_list *) ll;
     if (index < 0 || index >= ptr->size)
@@ -121,6 +110,24 @@ int linked_list_iterator_getvalue(linked_list_iterator *iter) {
     return ptr->value;
 }
 
-void inverti_lista(linked_list * list) {
-	//TODO: Da completare
+linked_list* inverti_lista_aus(linked_list* list, linked_list_node* head, linked_list_node* tail) {
+    linked_list_node* temp_head = head;
+    linked_list_node* temp_tail = tail;
+    if (temp_tail <= temp_head)
+    {
+        return list;
+    }
+    else {
+        int temp = temp_head-> value;
+        temp_head-> value = temp_tail-> value;
+        temp_tail-> value = temp;
+        return inverti_lista_aus(list, temp_head->next, --temp_tail);
+    }
+}
+
+
+linked_list *inverti_lista(linked_list *list)
+{
+    //TODO: Da completare
+    return inverti_lista_aus(list, list-> head, list-> tail);
 }

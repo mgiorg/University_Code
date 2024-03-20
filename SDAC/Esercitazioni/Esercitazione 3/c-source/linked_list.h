@@ -3,8 +3,20 @@
     
 #define LINKED_LIST_OK 0
 #define LINKED_LIST_NOK -1
-    
-typedef struct linked_list linked_list;
+
+typedef struct linked_list_node
+{
+	int value;
+	struct linked_list_node *next;
+} linked_list_node;
+
+typedef struct linked_list
+{
+	linked_list_node *head;
+	linked_list_node *tail;
+	int size;
+} linked_list;
+
 typedef void linked_list_iterator;
     
 /*
@@ -61,7 +73,8 @@ int linked_list_iterator_getvalue(linked_list_iterator *iter);
 /*
 * Inverts the values of the list given as parameters with side effect
 */
-void inverti_lista(linked_list* lista);
+linked_list *inverti_lista_aus(linked_list *list, linked_list_node *head, linked_list_node *tail);
+linked_list* inverti_lista(linked_list *list);
 
 #endif	/* LINKED_LIST_H */
 
