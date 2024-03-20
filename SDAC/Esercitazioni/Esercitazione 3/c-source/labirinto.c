@@ -1,5 +1,5 @@
 #include "labirinto.h"
-
+#include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
 
@@ -21,10 +21,11 @@ labirinto * labirinto_new(int n) {
     }
     for(int i = 0; i < n; ++i) {
         for(int j = 0; j < n; ++j) {
-            l1-> matrix[i][j] = LABIRINTO_VUOTA;
-            l1-> marcata[i][j] = LABIRINTO_VUOTA;
+            l1->matrix[i][j] = NULL;
+            l1->marcata[i][j] = NULL;
         }
     }
+    l1-> n = n;
 	return l;
 }
 
@@ -41,22 +42,48 @@ void labirinto_setpiena(labirinto * lab, int r, int c) {
 
 int labirinto_uscita(labirinto * lab, int r, int c) {
     // TODO: Da completare
-	return 0;
+    labirinto_struct* l = (labirinto_struct*) lab;
+    if(r == l->n-1 && c == l->n-1) return 1;
+    else return 0; 
 }
 
 int labirinto_percorribile(labirinto * lab, int r, int c) {
     // TODO: Da completare
-	return 0;
+    labirinto_struct *l = (labirinto_struct *)lab;
+    if(r < 0 || r >= l-> n || c < 0 || c >= l-> n) {
+        return 0;
+    }
+    if(l-> matrix[r][c] == LABIRINTO_PIENA) {
+        return 0;
+    }
+    else return 1;
 }
 
 int labirinto_uscitaraggiungibileda(labirinto * lab, int r, int c) {
     // TODO: Da completare
-	return 0;
+    labirinto_struct *l = (labirinto_struct *)lab;
+    if(labirinto_percorribile(lab, r, c) == 0) {
+        return 0;
+    }
+    if(labirinto_uscita(lab, r, c))
+    {
+        return 1;
+    }
+    
+    if(l-> marcata[r][c] == 0) {
+        l-> marcata[r][c] = 1;
+        return labirinto_uscitaraggiungibileda(lab, r-1, c) ||
+               labirinto_uscitaraggiungibileda(lab, r+1, c) ||
+               labirinto_uscitaraggiungibileda(lab, r, c-1) ||
+               labirinto_uscitaraggiungibileda(lab, r, c+1); 
+    }
+    return 0;
 }
 
 int labirinto_risolvibile(labirinto * lab) {
     // TODO: Da completare
-	return 0;
+    if(labirinto_uscitaraggiungibileda(lab, 0, 0)) return 1;
+	else return 0;
 }
 
 void labirinto_tostring(labirinto * lab, char * buffer, int buffer_size) {
