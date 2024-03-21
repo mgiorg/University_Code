@@ -91,19 +91,84 @@ void heapSort(array *a) {
 }
 
 //---------------------INSERTION SORT-------------------------------
+void insertionSortRicorsivo(int arr[], int n) {
+    if(n <= 1) return;
+
+    //Ordino ricorsivamente il sottoaray escludendo l'ultimo elemento
+    insertionSortRicorsivo(arr, n-1);
+
+    int last = arr[n-1];
+    int j = n-2;
+
+    //Sposta gli elemento maggiori di last verso destra
+    while(j >= 0 && arr[j] > last) {
+        arr[j+1] = arr[j];
+        j--;
+    }
+    arr[j+1] = last;
+}
 
 void insertionSort(array *a) {
-    fprintf(stdout, "insertionSort currently not implemented.\n");
+    insertionSortRicorsivo(a-> arr, a-> size);
     return;
+}
+
+//------------------------SELECTION SORT------------------------------
+void selectionSortRecursive(int arr[], int n, int index) {
+    // Caso base: se l'indice è uguale alla dimensione dell'array, l'ordinamento è completo
+    if (index == n - 1)
+        return;
+
+    // Trova l'indice del minimo elemento nel sottoarray non ordinato
+    int minIndex = index;
+    for (int i = index + 1; i < n; i++) {
+        if (arr[i] < arr[minIndex])
+            minIndex = i;
+    }
+
+    // Scambia l'elemento minimo con l'elemento corrente
+    swap(&arr[index], &arr[minIndex]);
+
+    for(int i = 0; i < n; ++i) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    // Ordina ricorsivamente il sottoarray escludendo l'elemento appena ordinato
+    selectionSortRecursive(arr, n, index + 1);
 }
 
 void selectionSort(array *a) {
-    fprintf(stdout, "selectionSort currently not implemented.\n");
+    selectionSortRecursive(a-> arr, a-> size, 0);
+
     return;
 }
 
+//--------------------------QUICK SORT------------------------------
+int partition(int arr[], int low, int high) {
+    int pivot = arr[high];
+    int i = low - 1;
+
+    for (int j = low; j <= high - 1; j++) {
+        if (arr[j] < pivot) {
+            i++;
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    swap(&arr[i + 1], &arr[high]);
+    return i + 1;
+}
+
+void quickSortRecursive(int arr[], int low, int high) {
+    if (low < high) {
+        int pi = partition(arr, low, high);
+
+        quickSortRecursive(arr, low, pi - 1);
+        quickSortRecursive(arr, pi + 1, high);
+    }
+}
 void quickSort(array *a) {
-    fprintf(stdout, "quickSort currently not implemented.\n");
+    quickSortRecursive(a-> arr, 0, a-> size-1);
     return;
 }
 
