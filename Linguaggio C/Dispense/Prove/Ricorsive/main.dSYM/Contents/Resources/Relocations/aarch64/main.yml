@@ -1,0 +1,16 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     main
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003BE4, symSize: 0x80 }
+  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003BE4, symSize: 0x80 }
+  - { offsetInCU: 0x9C, offset: 0x9C, size: 0x8, addend: 0x0, symName: _muovi, symObjAddr: 0x80, symBinAddr: 0x100003C64, symSize: 0xB0 }
+  - { offsetInCU: 0x1AB, offset: 0x1AB, size: 0x8, addend: 0x0, symName: _fattoriale, symObjAddr: 0x130, symBinAddr: 0x100003D14, symSize: 0x1C }
+  - { offsetInCU: 0x1D2, offset: 0x1D2, size: 0x8, addend: 0x0, symName: _somma, symObjAddr: 0x14C, symBinAddr: 0x100003D30, symSize: 0x14 }
+  - { offsetInCU: 0x206, offset: 0x206, size: 0x8, addend: 0x0, symName: _prodotto, symObjAddr: 0x160, symBinAddr: 0x100003D44, symSize: 0x38 }
+  - { offsetInCU: 0x25F, offset: 0x25F, size: 0x8, addend: 0x0, symName: _potenza, symObjAddr: 0x198, symBinAddr: 0x100003D7C, symSize: 0x38 }
+  - { offsetInCU: 0x2B8, offset: 0x2B8, size: 0x8, addend: 0x0, symName: _fibonacci, symObjAddr: 0x1D0, symBinAddr: 0x100003DB4, symSize: 0x40 }
+  - { offsetInCU: 0x2EE, offset: 0x2EE, size: 0x8, addend: 0x0, symName: _stampa_stringa, symObjAddr: 0x210, symBinAddr: 0x100003DF4, symSize: 0x38 }
+  - { offsetInCU: 0x313, offset: 0x313, size: 0x8, addend: 0x0, symName: _stampa_array, symObjAddr: 0x248, symBinAddr: 0x100003E2C, symSize: 0x58 }
+  - { offsetInCU: 0x347, offset: 0x347, size: 0x8, addend: 0x0, symName: _muoviUnDisco, symObjAddr: 0x2A0, symBinAddr: 0x100003E84, symSize: 0x40 }
+...
