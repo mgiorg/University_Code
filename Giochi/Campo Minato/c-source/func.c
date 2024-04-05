@@ -66,17 +66,22 @@ void print_board(CampoMinato *campo, char c)
 	}
 	if (c == 'M') {
 		printf("-----Marcata-----\n");
-		for (int i = 0; i < campo->n; ++i)
+		for (int i = 0; i <= campo->n; ++i)
 		{
-			for (int j = 0; j < campo->n; ++j)
+			for (int j = 0; j <= campo->n; ++j)
 			{
-				if (campo->campo_minato[i][j] == true)
-					printf("X ");
-				else if(campo->marcata[i][j] == true) 
-					printf("* ");
-				else printf(". ");
+				if(i == 0 && j == 0) printf(" \t");
+				else if(i == 0) printf("%d\t", j-1);
+				else if(j == 0) printf("%d\t", i-1);
+				else {
+					if (campo->campo_minato[i-1][j-1] == true)
+						printf("X\t");
+					else if(campo->marcata[i-1][j-1] == true) 
+						printf("*\t");
+					else printf(".\t");
+				}
 			}
-			printf("\n");
+			printf("\n\n");
 		}
 	}
 	if (c == 'R') {
