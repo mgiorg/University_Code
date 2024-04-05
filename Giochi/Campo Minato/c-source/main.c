@@ -5,7 +5,7 @@
 int main()
 {
 	int row = 0, col = 0;
-	CampoMinato* campo = initBoard(8, 40);
+	CampoMinato* campo = initBoard(8, 30);
 	generateMines(campo);
 	print_board(campo, 'C');
 

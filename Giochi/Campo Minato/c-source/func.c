@@ -52,7 +52,8 @@ void print_board(CampoMinato *campo, char c)
 		{
 			for (int j = 0; j < campo->n; ++j)
 			{
-				printf("%d ", campo->campo_minato[i][j]);
+				if (campo->campo_minato[i][j] == true) printf("X ");
+				else printf("* ");
 			}
 			printf("\n");
 		}
@@ -63,7 +64,11 @@ void print_board(CampoMinato *campo, char c)
 		{
 			for (int j = 0; j < campo->n; ++j)
 			{
-				printf("%d ", campo->marcata[i][j]);
+				if (campo->campo_minato[i][j] == true)
+					printf("X ");
+				else if(campo->marcata[i][j] == true) 
+					printf("* ");
+				else printf(". ");
 			}
 			printf("\n");
 		}
