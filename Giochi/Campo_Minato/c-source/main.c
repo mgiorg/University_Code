@@ -35,8 +35,6 @@ int main()
 				print_board(campo, 'C');
 				break;
 			}
-
-			print_board(campo, 'M');
 			print_board(campo, 'R');
 		}
 	}

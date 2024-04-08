@@ -1,10 +1,8 @@
 import java.util.*;
-import javax.swing.Timer;
 
 public class Cronometro {
 	private static int seconds = 0;
 	private static Timer timer;
-	private CronometroThread cronometroThread;
 
 	public Cronometro() {
 		timer = new Timer();
