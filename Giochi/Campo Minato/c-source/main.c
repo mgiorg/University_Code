@@ -5,9 +5,9 @@
 int main()
 {
 	int row = 0, col = 0;
-	CampoMinato* campo = initBoard(5, 10);
+	CampoMinato* campo = initBoard();
 	generateMines(campo);
-	print_board(campo, 'C');
+	print_board(campo, 'R');
 
 	while(1) {
 
@@ -23,20 +23,21 @@ int main()
 				printf("Hai trovato una bomba\nGame Over!\n");
 				break;
 			}
-			if(completato(campo)) {
-				printf("BRAVO, HAI COMPLETATO IL GIOCO!!!\n");
-				print_board(campo, 'C');
-				break;
-			}
 			if (cercaVuoti(campo, row, col))
 			{
 				printf("BRAVO, HAI COMPLETATO IL GIOCO!!!\n");
 				print_board(campo, 'C');
 				break;
 			}
+			if (completato(campo))
+			{
+				printf("BRAVO, HAI COMPLETATO IL GIOCO!!!\n");
+				print_board(campo, 'C');
+				break;
+			}
+
 			print_board(campo, 'M');
-			//campo-> risultato[row][col] = contaBombe(campo, row, col);
-			//print_board(campo, 'R');
+			print_board(campo, 'R');
 		}
 	}
 	
