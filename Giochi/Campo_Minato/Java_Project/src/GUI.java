@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.*;
 
 public class GUI extends JFrame{
 
@@ -16,7 +17,10 @@ public class GUI extends JFrame{
 	final JPanel LowerPanel = new JPanel();
 	final JPanel FieldPanel = new JPanel();
 
-	TicketCell b[][] = new TicketCell[10][10];
+	public LinkedList<Box> griglia=new LinkedList<Box>();
+	public LinkedList<JPanel> righe = new LinkedList<JPanel>();
+
+	//TicketCell b[][] = new TicketCell[10][10];
 	
 	public GUI() {
 		//! TITOLO DELLA FINESTRA
@@ -25,7 +29,7 @@ public class GUI extends JFrame{
 		this.getContentPane().setLayout(new BorderLayout());
 
 		UpperPanel.setLayout(new FlowLayout());
-		MiddlePanel.setLayout(new FlowLayout());
+		MiddlePanel.setLayout(new BoxLayout(MiddlePanel, BoxLayout.Y_AXIS));
 		LowerPanel.setLayout(new FlowLayout());
 		FieldPanel.setLayout(new GridLayout(10, 10));
 		FieldPanel.setPreferredSize(new Dimension(500, 500));
@@ -42,16 +46,19 @@ public class GUI extends JFrame{
 		UpperPanel.add(endButton);
 
 
+
 		for (int i = 0; i < 10; ++i) {
+			JPanel p=new JPanel(new FlowLayout());
+			p.setSize(100,10);
+			MiddlePanel.add(p);
 			for (int j = 0; j < 10; ++j) {
-				b[i][j] = new TicketCell();
-				b[i][j].setBorder(BorderFactory.createLineBorder(Color.GRAY));
-				FieldPanel.add(b[i][j]);
+				p.add(new Box());
 			}
 		}
-		FieldPanel.setSize(450, 450);
-		MiddlePanel.add(FieldPanel);
+		//FieldPanel.setSize(450, 450);
+		//MiddlePanel.add(FieldPanel);
 		
+
 		
 		setSize(600, 1000);
 		setVisible(true);
