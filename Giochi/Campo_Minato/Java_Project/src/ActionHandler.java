@@ -6,15 +6,26 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class ActionHandler implements ActionListener {
 	public GUI frame;
-	public Game g;
+
+	Integer DIMENSIONE_CAMPO;
+    Integer NUMERO_BOMBE;
+    
+    ArrayList<Integer> list = new ArrayList<Integer>();
+    LinkedList<Box> listaBox = new LinkedList<Box>();
+
 
 	public ActionHandler(GUI frame) {
 		this.frame = frame;
-		
+		this.DIMENSIONE_CAMPO = frame.getDimension();
+		this.NUMERO_BOMBE = frame.getNumBombe();
 	}	
 
 	@Override
@@ -29,30 +40,65 @@ public class ActionHandler implements ActionListener {
 					end();
 					break;
 				case "Reset":
+					reset();
 					break;
 			}
 			
 		}
 		if(actionEvent.getSource().getClass().equals(Box.class)) {
 			Box box = (Box) actionEvent.getSource();
-			System.out.println(box.getColonna());
+			System.out.println(box.isBomb());
 
 		}
 
     }
 
-	void start() {
-		//Game game = new Game();
+	public void start() {
+		
+		DIMENSIONE_CAMPO = frame.getDimension();
+		System.out.println(DIMENSIONE_CAMPO.toString());
+        NUMERO_BOMBE = frame.getNumBombe();
+		System.out.println(NUMERO_BOMBE.toString());
+		System.out.println(list.size());
+        
+        Random random = new Random();
+       // Genera gli indici casuali per le bombe
+	   int i = 0;
+        while (list.size() < NUMERO_BOMBE) {
+			
+            int randomIndex = random.nextInt(DIMENSIONE_CAMPO*DIMENSIONE_CAMPO);
+            if (!list.contains(randomIndex)) {
+                list.add(randomIndex);
+				System.out.println(list.get(i));
+				++i;
+            }
+			
+        }
+    
+        // for (Box b : listaBox) {
+		// 	int index = listaBox.indexOf(b);
+        //     b.setChecked(false);
+        //     b.setMark(false);
+        //     if (list.contains(index)) {
+        //         b.setBomb(true);
+        //     }
 
+
+        //     listaBox.add(b);
+        // }
 		frame.setStatus(true, false, false);
 		frame.log.setText(null);
-		frame.write("----gioco iniziato----\n\n");
+		System.out.println("----gioco iniziato----\n\n");
 
-		//return game;
 	}
-	void end() {
-		frame.setStatus(false, true);
-		frame.write("----gioco stoppato----\n\n");
+	public void end() {
+		frame.setStatus(false, true, false);
+		System.out.println("----gioco stoppato----\n\n");
+	}
+	public void reset() {
+		frame.setStatus(false, false, true);
+		frame.log.setText(null);
+		System.out.println("----gioco resettato----\n\n");
 	}
 
 }

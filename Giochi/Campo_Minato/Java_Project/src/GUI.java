@@ -25,10 +25,9 @@ public class GUI extends JFrame{
 	private Boolean GameEnd = false;
 	private Boolean GameReset = false;
 
-	public LinkedList<Box> griglia=new LinkedList<Box>();
-	public LinkedList<JPanel> righe = new LinkedList<JPanel>();
+	public LinkedList<Box> listaBox=new LinkedList<Box>();
 
-	int dimension, bomb;
+	int DIMENSIONE_CAMPO, NUMERO_BOMBE;
 
 	
 	
@@ -77,6 +76,7 @@ public class GUI extends JFrame{
 				// 	}
 				// });
 				box.addActionListener(act);
+				listaBox.add(box);
 				panel.add(box);
 			}
 			MiddlePanel.add(panel);
@@ -88,6 +88,9 @@ public class GUI extends JFrame{
 		this.GameRun  = false;
 		this.GameReset = false;
 		this.GameEnd  = false;
+
+		this.DIMENSIONE_CAMPO = dim;
+		this.NUMERO_BOMBE = b;
 	}
 	
 	public void write(String s) {
@@ -115,5 +118,14 @@ public class GUI extends JFrame{
 			resetButton.setEnabled(false);
 			endButton.setEnabled(true);
 		}
+	}
+	public int getDimension() {
+		return DIMENSIONE_CAMPO;
+	}
+	public int getNumBombe() {
+		return NUMERO_BOMBE;
+	}
+	public Box getListaIndex(int i) {
+		return listaBox.get(i);
 	}
 }
