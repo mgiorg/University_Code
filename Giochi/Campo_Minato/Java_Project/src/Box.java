@@ -7,16 +7,19 @@ public class Box extends JButton{
 	Integer nbombe;
 	Integer riga;
 	Integer colonna;
+	Integer index;
 	
 
 	public Box(int riga, int colonna) {
+		this.riga = riga;
+		this.colonna = colonna;
+		init();
+	}
+	public void init() {
 		this.checked = false;
 		this.mark = false;
 		this.bomb = false;
-		this.nbombe = 0;
-		
-		this.riga = riga;
-		this.colonna = colonna;
+		this.nbombe = -1;
 	}
 
 	public boolean isChecked() {
@@ -30,7 +33,7 @@ public class Box extends JButton{
 	}
 	public void setMark(boolean mark) {
 		this.mark = mark;
-	}
+	} 
 	public boolean isBomb() {
 		return this.bomb;
 	}
@@ -40,12 +43,30 @@ public class Box extends JButton{
 	public Integer getBombe() {
 		return this.nbombe;
 	}
+	public Integer getNumBombe() {
+		return this.nbombe;
+	}
+	public void setNumBombe(int i) {
+		this.nbombe = i;
+	}
 	public Integer getRiga() {
 		return this.riga;
 	}
 	public Integer getColonna() {
 		return this.colonna;
 	}
-
-
+	public Integer getIndex() {
+		return this.index;
+	}
+	public void setIndex(int i) {
+		this.index = i;
+	}
+	
+//	@Override
+//	protected void paintComponent(Graphics gr) {
+//		super.paintComponents(gr);
+//		
+//		gr.setColor(Color.GREEN);
+//		gr.fillRect(0,  0,  getWidth(), getHeight());
+//	}
 }

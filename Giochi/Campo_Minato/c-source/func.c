@@ -142,7 +142,7 @@ bool completato(CampoMinato *campo) {
 	else return false;
 }
 
-int percorribile(CampoMinato *campo, int row, int col) {
+bool percorribile(CampoMinato *campo, int row, int col) {
 	if (cellaCorretta(campo, row, col) && is_bomb(campo, row, col) == false) 
 		return true;
 	else return false;

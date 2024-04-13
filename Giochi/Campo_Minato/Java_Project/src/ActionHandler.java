@@ -1,5 +1,6 @@
 import javax.swing.*;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,18 +15,12 @@ import java.util.Scanner;
 
 public class ActionHandler implements ActionListener {
 	public GUI frame;
-
-	Integer DIMENSIONE_CAMPO;
-    Integer NUMERO_BOMBE;
-    
-    ArrayList<Integer> list = new ArrayList<Integer>();
-    LinkedList<Box> listaBox = new LinkedList<Box>();
+	public Game g;
+	
 
 
 	public ActionHandler(GUI frame) {
 		this.frame = frame;
-		this.DIMENSIONE_CAMPO = frame.getDimension();
-		this.NUMERO_BOMBE = frame.getNumBombe();
 	}	
 
 	@Override
@@ -34,7 +29,7 @@ public class ActionHandler implements ActionListener {
 			JButton button = (JButton) actionEvent.getSource();
 			switch(button.getText()) {
 				case "Start":
-					start();
+					g = start();
 					break;
 				case "End":
 					end();
@@ -46,56 +41,28 @@ public class ActionHandler implements ActionListener {
 			
 		}
 		if(actionEvent.getSource().getClass().equals(Box.class)) {
-			Box box = (Box) actionEvent.getSource();
-			System.out.println(box.isBomb());
-
+			Box b = (Box) actionEvent.getSource();
 		}
 
     }
 
-	public void start() {
+	public Game start() {
 		
-		DIMENSIONE_CAMPO = frame.getDimension();
-		System.out.println(DIMENSIONE_CAMPO.toString());
-        NUMERO_BOMBE = frame.getNumBombe();
-		System.out.println(NUMERO_BOMBE.toString());
-		System.out.println(list.size());
-        
-        Random random = new Random();
-       // Genera gli indici casuali per le bombe
-	   int i = 0;
-        while (list.size() < NUMERO_BOMBE) {
-			
-            int randomIndex = random.nextInt(DIMENSIONE_CAMPO*DIMENSIONE_CAMPO);
-            if (!list.contains(randomIndex)) {
-                list.add(randomIndex);
-				System.out.println(list.get(i));
-				++i;
-            }
-			
-        }
-    
-        // for (Box b : listaBox) {
-		// 	int index = listaBox.indexOf(b);
-        //     b.setChecked(false);
-        //     b.setMark(false);
-        //     if (list.contains(index)) {
-        //         b.setBomb(true);
-        //     }
-
-
-        //     listaBox.add(b);
-        // }
+		Game g = new Game(this.frame);
+		
 		frame.setStatus(true, false, false);
 		frame.log.setText(null);
 		System.out.println("----gioco iniziato----\n\n");
-
+        
+		return g;
 	}
 	public void end() {
+		g.init();
 		frame.setStatus(false, true, false);
 		System.out.println("----gioco stoppato----\n\n");
 	}
 	public void reset() {
+		
 		frame.setStatus(false, false, true);
 		frame.log.setText(null);
 		System.out.println("----gioco resettato----\n\n");

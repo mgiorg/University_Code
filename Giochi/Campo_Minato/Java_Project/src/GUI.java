@@ -25,7 +25,7 @@ public class GUI extends JFrame{
 	private Boolean GameEnd = false;
 	private Boolean GameReset = false;
 
-	public LinkedList<Box> listaBox=new LinkedList<Box>();
+	public LinkedList<Box> listaBox = new LinkedList<Box>();
 
 	int DIMENSIONE_CAMPO, NUMERO_BOMBE;
 
@@ -34,8 +34,6 @@ public class GUI extends JFrame{
 	public GUI(int dim, int b) {
 		//! TITOLO DELLA FINESTRA
 		super("Campo Minato");
-		setSize(600, 600);
-		setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.getContentPane().setLayout(new BorderLayout());
 
@@ -61,23 +59,17 @@ public class GUI extends JFrame{
 		resetButton.addActionListener(act);
 		endButton.addActionListener(act);
 
-
+		int c = 0;
 		for (int i = 0; i < 10; ++i) {
 			JPanel panel = new JPanel(new FlowLayout());
 			for (int j = 0; j < 10; ++j) {
 				Box box = new Box(i, j);
+				box.setIndex(c);
 				box.setPreferredSize(new Dimension(30, 30));
-				// boxArea[i][j].addActionListener(new ActionListener() {
-				// 	@Override
-				// 	public void actionPerformed(ActionEvent e) {
-				// 		Box clickedButton = (Box) e.getSource();
-				// 		log.append("Riga: "+clickedButton.getRiga()+", Colonna: "+clickedButton.getColonna()+"\n");
-						
-				// 	}
-				// });
 				box.addActionListener(act);
 				listaBox.add(box);
 				panel.add(box);
+				c++;
 			}
 			MiddlePanel.add(panel);
 		}
@@ -88,9 +80,16 @@ public class GUI extends JFrame{
 		this.GameRun  = false;
 		this.GameReset = false;
 		this.GameEnd  = false;
+		startButton.setEnabled(true);
+		resetButton.setEnabled(false);
+		endButton.setEnabled(false);
 
 		this.DIMENSIONE_CAMPO = dim;
-		this.NUMERO_BOMBE = b;
+		this.NUMERO_BOMBE = b; 
+		
+		setSize(600, 600);
+		setVisible(true);
+		this.setLocationRelativeTo(null);
 	}
 	
 	public void write(String s) {
@@ -110,13 +109,22 @@ public class GUI extends JFrame{
 		}
 		if(GameEnd) {
 			startButton.setEnabled(true);
-			resetButton.setEnabled(true);
+			resetButton.setEnabled(false);
 			endButton.setEnabled(false);
 		}
 		if(GameReset) {
-			startButton.setEnabled(true);
-			resetButton.setEnabled(false);
+			startButton.setEnabled(false);
+			resetButton.setEnabled(true);
 			endButton.setEnabled(true);
+		}
+		
+		for(Box b : this.listaBox) {
+			if(!b.isMarked()) {
+				b.setBackground(Color.WHITE);
+			}
+			if(b.isBomb()) {
+				b.setBackground(Color.BLACK);
+			}
 		}
 	}
 	public int getDimension() {
@@ -127,5 +135,11 @@ public class GUI extends JFrame{
 	}
 	public Box getListaIndex(int i) {
 		return listaBox.get(i);
+	}
+	public LinkedList<Box> getListaBox() {
+		return this.listaBox;
+	}
+	public void setListaBox(LinkedList<Box> lista) {
+		this.listaBox = lista;
 	}
 }
