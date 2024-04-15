@@ -42,6 +42,8 @@ public class ActionHandler implements ActionListener {
 		}
 		if(actionEvent.getSource().getClass().equals(Box.class)) {
 			Box b = (Box) actionEvent.getSource();
+			g.cercaVuoti(b.getRiga(), b.getColonna());
+			frame.update();
 		}
 
     }

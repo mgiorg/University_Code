@@ -120,11 +120,12 @@ public class GUI extends JFrame{
 		
 		for(Box b : this.listaBox) {
 			if(!b.isMarked()) {
-				b.setBackground(Color.WHITE);
-			}
-			if(b.isBomb()) {
-				b.setBackground(Color.BLACK);
-			}
+				b.setBackground(Color.GREEN);
+			} else b.setBackground(Color.WHITE);
+//			if(b.isBomb()) {
+//				b.setBackground(Color.BLACK);
+//			}
+			
 		}
 	}
 	public int getDimension() {

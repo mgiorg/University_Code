@@ -51,7 +51,7 @@ public class Game {
 	            System.out.println("Bomba true");
 	        }
 	    }
-	    frame.update();
+	    //frame.update();
 	}
 	
 	public void init() {
