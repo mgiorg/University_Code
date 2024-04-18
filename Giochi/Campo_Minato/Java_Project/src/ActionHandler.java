@@ -42,11 +42,18 @@ public class ActionHandler implements ActionListener {
 		}
 		if(actionEvent.getSource().getClass().equals(Box.class)) {
 			Box b = (Box) actionEvent.getSource();
-			g.cercaVuoti(b.getRiga(), b.getColonna());
+			if(b.isBomb()) {
+				System.out.println("Hai preso una bomba, Game Over!!!\n");
+			}
+			else{
+				if(g.cercaVuoti(b.getRiga(), b.getColonna())) {
+					System.out.println("Completato");
+				}
+			}
+			System.out.println("Bomba "+b.getIndex()+ " ha intorno "+b.getNumBombe()+ " bombe");
 			frame.update();
 		}
-
-    }
+	}
 
 	public Game start() {
 		

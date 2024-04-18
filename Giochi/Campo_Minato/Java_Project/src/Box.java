@@ -40,9 +40,6 @@ public class Box extends JButton{
 	public void setBomb(boolean bomb) {
 		this.bomb = bomb;
 	}
-	public Integer getBombe() {
-		return this.nbombe;
-	}
 	public Integer getNumBombe() {
 		return this.nbombe;
 	}

@@ -117,6 +117,7 @@ public class Game {
 				
 				if(b.getNumBombe() == -1 && b.isMarked()) {
 					b.setNumBombe(0);
+					System.out.println("Conta Bombe");
 					b.setNumBombe(	contaBombe(row + 1, col - 1) +
 							 		contaBombe(row, col - 1) +
 							 		contaBombe(row - 1, col - 1) +
@@ -141,12 +142,14 @@ public class Game {
 					
 					if(!b.isMarked()) {
 						b.setMark(true); 
+						System.out.println("Bomba marcata");
 						
 						if ((isBombCiclo(row - 1, col - 1) || isBombCiclo(row - 1, col) || isBombCiclo(row - 1, col + 1) ||
 								isBombCiclo(row, col - 1) 	 || isBombCiclo(row, col + 1) ||
 								isBombCiclo(row + 1, col - 1) || isBombCiclo(row + 1, col) || isBombCiclo(row + 1, col + 1)) == false) {
 							
 							
+							System.out.println("Cerca Vuoti");
 							return 	cercaVuoti(row-1, col-1) ||
 									cercaVuoti(row, col-1) ||
 									cercaVuoti(row+1, col-1) ||
@@ -161,6 +164,6 @@ public class Game {
 				}
 			}
 		}
-		return null;
+		return false;
 	}
 }

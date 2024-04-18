@@ -122,10 +122,12 @@ public class GUI extends JFrame{
 			if(!b.isMarked()) {
 				b.setBackground(Color.GREEN);
 			} else b.setBackground(Color.WHITE);
-//			if(b.isBomb()) {
-//				b.setBackground(Color.BLACK);
-//			}
-			
+			if(b.isBomb()) {
+				b.setBackground(Color.BLACK);
+			}
+			if(b.getNumBombe() > 0) {
+				b.add(new JLabel(b.getNumBombe().toString()));
+			}
 		}
 	}
 	public int getDimension() {
