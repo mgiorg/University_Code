@@ -1,6 +1,6 @@
 import javax.swing.*;
-import java.awt.*;
-public class Box extends JButton{
+
+public class Box extends JButton {
 	boolean checked = false;
 	boolean mark = false;
 	boolean bomb = false;
@@ -9,7 +9,6 @@ public class Box extends JButton{
 	Integer colonna;
 	Integer index;
 	
-
 	public Box(int riga, int colonna) {
 		this.riga = riga;
 		this.colonna = colonna;
@@ -58,12 +57,9 @@ public class Box extends JButton{
 	public void setIndex(int i) {
 		this.index = i;
 	}
-	
-//	@Override
-//	protected void paintComponent(Graphics gr) {
-//		super.paintComponents(gr);
-//		
-//		gr.setColor(Color.GREEN);
-//		gr.fillRect(0,  0,  getWidth(), getHeight());
-//	}
+	// public void write() {	
+	// 	if(this.nbombe > 0) {
+	// 		this.setText(this.nbombe.toString());
+	// 	}
+	// }
 }

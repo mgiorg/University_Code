@@ -1,8 +1,8 @@
-import javax.swing.*;
+
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.*;
+
+import javax.swing.*;
 
 public class GUI extends JFrame{
 
@@ -29,9 +29,8 @@ public class GUI extends JFrame{
 
 	int DIMENSIONE_CAMPO, NUMERO_BOMBE;
 
-	
-	
 	public GUI(int dim, int b) {
+
 		//! TITOLO DELLA FINESTRA
 		super("Campo Minato");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -40,8 +39,6 @@ public class GUI extends JFrame{
 		UpperPanel.setLayout(new FlowLayout());
 		MiddlePanel.setLayout(new BoxLayout(MiddlePanel, BoxLayout.Y_AXIS));
 		LowerPanel.setLayout(new FlowLayout());
-		// FieldPanel.setLayout(new GridLayout(10, 10));
-		// FieldPanel.setPreferredSize(new Dimension(500, 500));
 
 		this.getContentPane().add(UpperPanel, BorderLayout.NORTH);
 		this.getContentPane().add(MiddlePanel, BorderLayout.CENTER);
@@ -64,8 +61,12 @@ public class GUI extends JFrame{
 			JPanel panel = new JPanel(new FlowLayout());
 			for (int j = 0; j < 10; ++j) {
 				Box box = new Box(i, j);
+				box.setOpaque(true);
+				box.setVisible(true);
+				box.setBorderPainted(false);
 				box.setIndex(c);
-				box.setPreferredSize(new Dimension(30, 30));
+				box.setPreferredSize(new Dimension(60, 60));
+				box.setFont(new Font("Times New Roman", Font.BOLD, 20));
 				box.addActionListener(act);
 				listaBox.add(box);
 				panel.add(box);
@@ -74,7 +75,7 @@ public class GUI extends JFrame{
 			MiddlePanel.add(panel);
 		}
 		
-		log.setPreferredSize(new Dimension(100, 80));
+		log.setPreferredSize(new Dimension(200, 80));
 		LowerPanel.add(log);
 
 		this.GameRun  = false;
@@ -87,7 +88,7 @@ public class GUI extends JFrame{
 		this.DIMENSIONE_CAMPO = dim;
 		this.NUMERO_BOMBE = b; 
 		
-		setSize(600, 600);
+		setSize(800, 800);
 		setVisible(true);
 		this.setLocationRelativeTo(null);
 	}
@@ -109,7 +110,7 @@ public class GUI extends JFrame{
 		}
 		if(GameEnd) {
 			startButton.setEnabled(true);
-			resetButton.setEnabled(false);
+			resetButton.setEnabled(true);
 			endButton.setEnabled(false);
 		}
 		if(GameReset) {
@@ -122,11 +123,9 @@ public class GUI extends JFrame{
 			if(!b.isMarked()) {
 				b.setBackground(Color.GREEN);
 			} else b.setBackground(Color.WHITE);
-			if(b.isBomb()) {
-				b.setBackground(Color.BLACK);
-			}
-			if(b.getNumBombe() > 0) {
-				b.add(new JLabel(b.getNumBombe().toString()));
+			// b.write();
+			if(b.getNumBombe() >= 1) {
+				b.setText(b.getNumBombe().toString());
 			}
 		}
 	}

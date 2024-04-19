@@ -27,16 +27,11 @@ public class Game {
 		System.out.println(list.size());
 		
 		Random random = new Random();
-	    // Genera gli indici casuali per le bombe
-	    int i = 0;
 	    while (list.size() < BOMBE) {
-			
 	        int randomIndex = random.nextInt(DIM * DIM);
 	        if (!list.contains(randomIndex)) {
 	            list.add(randomIndex);
-				++i;
 	        }
-			
 	    }
 	    
 	    this.listaBox = frame.getListaBox();
@@ -51,7 +46,7 @@ public class Game {
 	            System.out.println("Bomba true");
 	        }
 	    }
-	    //frame.update();
+		frame.update();
 	}
 	
 	public void init() {

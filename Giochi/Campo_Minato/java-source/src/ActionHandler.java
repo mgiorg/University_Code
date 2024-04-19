@@ -1,23 +1,11 @@
 import javax.swing.*;
 
-import java.awt.Color;
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.io.PrintStream;
-import java.net.Socket;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
 
 public class ActionHandler implements ActionListener {
 	public GUI frame;
 	public Game g;
-	
-
 
 	public ActionHandler(GUI frame) {
 		this.frame = frame;
@@ -38,21 +26,20 @@ public class ActionHandler implements ActionListener {
 					reset();
 					break;
 			}
-			
 		}
 		if(actionEvent.getSource().getClass().equals(Box.class)) {
 			Box b = (Box) actionEvent.getSource();
-			if(b.isBomb()) {
-				System.out.println("Hai preso una bomba, Game Over!!!\n");
-			}
-			else{
-				if(g.cercaVuoti(b.getRiga(), b.getColonna())) {
-					System.out.println("Completato");
+			
+			if (b.isBomb()) {
+				frame.write("Hai preso una bomba, Game Over!!!\n");
+			} else {
+				if (g.cercaVuoti(b.getRiga(), b.getColonna())) {
+					frame.write("Completato");
 				}
 			}
-			System.out.println("Bomba "+b.getIndex()+ " ha intorno "+b.getNumBombe()+ " bombe");
-			frame.update();
+			frame.write("Bomba " + b.getIndex() + " ha intorno " + b.getNumBombe() + " bombe");
 		}
+		frame.update();
 	}
 
 	public Game start() {
@@ -76,5 +63,4 @@ public class ActionHandler implements ActionListener {
 		frame.log.setText(null);
 		System.out.println("----gioco resettato----\n\n");
 	}
-
 }
