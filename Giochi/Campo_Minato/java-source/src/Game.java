@@ -39,7 +39,6 @@ public class Game {
 	    	
 		 	int index = b.getIndex();
 		 	System.out.println(index);
-	        b.setChecked(false);
 	        b.setMark(false);
 	        if (list.contains(index)) {
 	            b.setBomb(true);
@@ -52,6 +51,18 @@ public class Game {
 	public void init() {
 		for(Box b : listaBox) {
 			b.init();
+		}
+	}
+	public void reset() {
+		for(Box b : listaBox) {
+			b.setMark(false);
+			b.setNumBombe(-1);
+		}
+	}
+	public void end() {
+		for (Box b : listaBox) {
+			b.setMark(false);
+			b.setNumBombe(-1);
 		}
 	}
 	

@@ -27,9 +27,9 @@ public class GUI extends JFrame{
 
 	public LinkedList<Box> listaBox = new LinkedList<Box>();
 
-	int DIMENSIONE_CAMPO, NUMERO_BOMBE;
+	Integer DIMENSIONE_CAMPO, NUMERO_BOMBE;
 
-	public GUI(int dim, int b) {
+	public GUI(String dim, String bombe) {
 
 		//! TITOLO DELLA FINESTRA
 		super("Campo Minato");
@@ -56,10 +56,13 @@ public class GUI extends JFrame{
 		resetButton.addActionListener(act);
 		endButton.addActionListener(act);
 
+		this.DIMENSIONE_CAMPO = Integer.valueOf(dim);
+		this.NUMERO_BOMBE = Integer.valueOf(bombe);
+
 		int c = 0;
-		for (int i = 0; i < 10; ++i) {
+		for (int i = 0; i < DIMENSIONE_CAMPO; ++i) {
 			JPanel panel = new JPanel(new FlowLayout());
-			for (int j = 0; j < 10; ++j) {
+			for (int j = 0; j < DIMENSIONE_CAMPO; ++j) {
 				Box box = new Box(i, j);
 				box.setOpaque(true);
 				box.setVisible(true);
@@ -84,9 +87,6 @@ public class GUI extends JFrame{
 		startButton.setEnabled(true);
 		resetButton.setEnabled(false);
 		endButton.setEnabled(false);
-
-		this.DIMENSIONE_CAMPO = dim;
-		this.NUMERO_BOMBE = b; 
 		
 		setSize(800, 800);
 		setVisible(true);
@@ -126,7 +126,7 @@ public class GUI extends JFrame{
 			// b.write();
 			if(b.getNumBombe() >= 1) {
 				b.setText(b.getNumBombe().toString());
-			}
+			} else b.setText("");
 		}
 	}
 	public int getDimension() {

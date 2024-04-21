@@ -53,12 +53,14 @@ public class ActionHandler implements ActionListener {
 		return g;
 	}
 	public void end() {
+
 		g.init();
 		frame.setStatus(false, true, false);
 		System.out.println("----gioco stoppato----\n\n");
 	}
 	public void reset() {
 		
+		g.reset();
 		frame.setStatus(false, false, true);
 		frame.log.setText(null);
 		System.out.println("----gioco resettato----\n\n");

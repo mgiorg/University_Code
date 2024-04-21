@@ -1,7 +1,6 @@
 import javax.swing.*;
 
 public class Box extends JButton {
-	boolean checked = false;
 	boolean mark = false;
 	boolean bomb = false;
 	Integer nbombe;
@@ -15,17 +14,9 @@ public class Box extends JButton {
 		init();
 	}
 	public void init() {
-		this.checked = false;
 		this.mark = false;
 		this.bomb = false;
 		this.nbombe = -1;
-	}
-
-	public boolean isChecked() {
-		return this.checked;
-	}
-	public void setChecked(boolean checked) {
-		this.checked = checked;
 	}
 	public boolean isMarked() {
 		return this.mark;
