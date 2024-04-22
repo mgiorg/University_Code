@@ -78,9 +78,9 @@ public class Game {
 
 	public void end() {
 		frame.boxEnabled(false);
-		JOptionPane.showMessageDialog(null, "Hai perso, FROCIO!", "Errore", JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Hai perso, Stupido!", "Errore", JOptionPane.ERROR_MESSAGE);
 		frame.deleteBoxPanel();
-		frame.setStatus(false, true, false);
+		frame.setStatus(false, true);
 	}
 	
 	public Boolean isCellaCorretta(Box b) {

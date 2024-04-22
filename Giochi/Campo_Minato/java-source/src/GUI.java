@@ -11,7 +11,6 @@ public class GUI extends JFrame{
 
 	final JButton startButton = new JButton("Start");
 	final JButton endButton = new JButton("End");
-	final JButton resetButton = new JButton("Reset");
 	
 	final JTextArea log = new JTextArea();
 
@@ -22,7 +21,6 @@ public class GUI extends JFrame{
 
 	public Boolean GameRun = false;
 	private Boolean GameEnd = false;
-	private Boolean GameReset = false;
 
 	public LinkedList<Box> listaBox;
 
@@ -42,11 +40,9 @@ public class GUI extends JFrame{
 		this.getContentPane().add(LowerPanel, BorderLayout.SOUTH);
 
 		UpperPanel.add(startButton);
-		UpperPanel.add(resetButton);
 		UpperPanel.add(endButton);
 
 		startButton.addActionListener(act);
-		resetButton.addActionListener(act);
 		endButton.addActionListener(act);
 
 		// this.DIMENSIONE_CAMPO = dim;
@@ -75,10 +71,8 @@ public class GUI extends JFrame{
 		LowerPanel.add(log);
 
 		this.GameRun  = false;
-		this.GameReset = false;
 		this.GameEnd  = false;
 		startButton.setEnabled(true);
-		resetButton.setEnabled(false);
 		endButton.setEnabled(false);
 		
 		this.pack();
@@ -119,27 +113,19 @@ public class GUI extends JFrame{
 		}
 		else log.append(s + "\n");
 	}
-	public void setStatus(Boolean Run, Boolean End, Boolean Reset) {
+	public void setStatus(Boolean Run, Boolean End) {
 		this.GameRun=Run;
 		this.GameEnd=End;
-		this.GameReset = Reset;
 		update();
 	}
 	public void update() {
 		if(GameRun) {
 			startButton.setEnabled(false);
-			resetButton.setEnabled(true);
 			endButton.setEnabled(true);
 		}
 		if(GameEnd) {
 			startButton.setEnabled(true);
-			resetButton.setEnabled(true);
 			endButton.setEnabled(false);
-		}
-		if(GameReset) {
-			startButton.setEnabled(false);
-			resetButton.setEnabled(true);
-			endButton.setEnabled(true);
 		}
 		
 		for(Box b : this.listaBox) {

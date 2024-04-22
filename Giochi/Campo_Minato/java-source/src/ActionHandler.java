@@ -29,14 +29,16 @@ public class ActionHandler implements ActionListener {
 			
 			if (b.isBomb()) {
 				g.loseGame();
-				frame.setStatus(false, true, false);
+				frame.setStatus(false, true);
 			} else {
 				g.cercaVuoti(b.getRiga(), b.getColonna());
 				if(g.completato()) {
 					frame.write(null);
-					frame.write("Gioco completato!");
+					frame.update();
+					JOptionPane.showMessageDialog(null, "Complimenti, hai vinto un cazzo!", "Dai Cazzo Gialluca", JOptionPane.INFORMATION_MESSAGE);
+					frame.deleteBoxPanel();
+					frame.setStatus(false, true);
 				}
-				frame.write("Bomba " + b.getIndex() + " ha intorno " + b.getNumBombe() + " bombe");
 			}
 			
 		}
@@ -47,15 +49,17 @@ public class ActionHandler implements ActionListener {
 		
 		Game g = new Game(this.frame);
 
-		frame.setStatus(true, false, false);
+		frame.setStatus(true, false);
 		frame.write(null);
+		frame.write("Gioco iniziato!");
         
 		return g;
 	}
 	public void end() {
 
 		g.end();
-		frame.setStatus(false, true, false);
+		frame.setStatus(false, true);
 		frame.write(null);
+		frame.write("Partita conclusa");
 	}
 }
