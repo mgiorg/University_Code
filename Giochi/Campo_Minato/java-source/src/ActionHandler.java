@@ -22,22 +22,23 @@ public class ActionHandler implements ActionListener {
 				case "End":
 					end();
 					break;
-				case "Reset":
-					reset();
-					break;
 			}
 		}
 		if(actionEvent.getSource().getClass().equals(Box.class)) {
 			Box b = (Box) actionEvent.getSource();
 			
 			if (b.isBomb()) {
-				frame.write("Hai preso una bomba, Game Over!!!\n");
+				g.loseGame();
+				frame.setStatus(false, true, false);
 			} else {
-				if (g.cercaVuoti(b.getRiga(), b.getColonna())) {
-					frame.write("Completato");
+				g.cercaVuoti(b.getRiga(), b.getColonna());
+				if(g.completato()) {
+					frame.write(null);
+					frame.write("Gioco completato!");
 				}
+				frame.write("Bomba " + b.getIndex() + " ha intorno " + b.getNumBombe() + " bombe");
 			}
-			frame.write("Bomba " + b.getIndex() + " ha intorno " + b.getNumBombe() + " bombe");
+			
 		}
 		frame.update();
 	}
@@ -45,24 +46,16 @@ public class ActionHandler implements ActionListener {
 	public Game start() {
 		
 		Game g = new Game(this.frame);
-		
+
 		frame.setStatus(true, false, false);
-		frame.log.setText(null);
-		System.out.println("----gioco iniziato----\n\n");
+		frame.write(null);
         
 		return g;
 	}
 	public void end() {
 
-		g.init();
+		g.end();
 		frame.setStatus(false, true, false);
-		System.out.println("----gioco stoppato----\n\n");
-	}
-	public void reset() {
-		
-		g.reset();
-		frame.setStatus(false, false, true);
-		frame.log.setText(null);
-		System.out.println("----gioco resettato----\n\n");
+		frame.write(null);
 	}
 }

@@ -1,12 +1,16 @@
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
+
+import javax.swing.JOptionPane;
 
 public class Game {
 	private GUI frame;
 	
 	Integer DIM;
 	Integer BOMBE;
+	Boolean run = false;
 	
 	ArrayList<Integer> list = new ArrayList<Integer>();
 	
@@ -14,18 +18,40 @@ public class Game {
 	
 	public Game(GUI frame) {
 		this.frame = frame;
+		while(run == false) {
+			String dim_campo = JOptionPane.showInputDialog(null, "Inserire dimensione del campo ");
+			String num_bombe = JOptionPane.showInputDialog(null, "Inserire numero bombe: ");
+
+			if (dim_campo == null || num_bombe == null) {
+				// !L'utente ha cliccato annulla
+				break;
+			}
+
+			try {
+				int dim = Integer.parseInt(dim_campo);
+				int bombe = Integer.parseInt(num_bombe);
+
+				frame.insertBox(dim, bombe);
+				run = true;
+			} catch (NumberFormatException e) {
+				JOptionPane.showMessageDialog(null, "Inserisci dati corretti",
+						"Errore", JOptionPane.ERROR_MESSAGE);
+			}
+		}
 		start();
 		
 	}
+	
+	public void init() {
+		for (Box b : listaBox) {
+			b.init();
+		}
+	}
 	public void start() {
+		
 		DIM = frame.getDimension();
-		System.out.println(DIM.toString());
-		
 	    BOMBE = frame.getNumBombe();
-		System.out.println(BOMBE.toString());
-		
-		System.out.println(list.size());
-		
+
 		Random random = new Random();
 	    while (list.size() < BOMBE) {
 	        int randomIndex = random.nextInt(DIM * DIM);
@@ -33,37 +59,28 @@ public class Game {
 	            list.add(randomIndex);
 	        }
 	    }
+		frame.boxEnabled(true);
 	    
 	    this.listaBox = frame.getListaBox();
 	    for (Box b : listaBox) {
-	    	
+			b.setMark(false);
+			b.setNumBombe(-1);
+			b.setMark(false);
+
 		 	int index = b.getIndex();
-		 	System.out.println(index);
-	        b.setMark(false);
+	        
 	        if (list.contains(index)) {
 	            b.setBomb(true);
-	            System.out.println("Bomba true");
 	        }
 	    }
 		frame.update();
 	}
-	
-	public void init() {
-		for(Box b : listaBox) {
-			b.init();
-		}
-	}
-	public void reset() {
-		for(Box b : listaBox) {
-			b.setMark(false);
-			b.setNumBombe(-1);
-		}
-	}
+
 	public void end() {
-		for (Box b : listaBox) {
-			b.setMark(false);
-			b.setNumBombe(-1);
-		}
+		frame.boxEnabled(false);
+		JOptionPane.showMessageDialog(null, "Hai perso, FROCIO!", "Errore", JOptionPane.ERROR_MESSAGE);
+		frame.deleteBoxPanel();
+		frame.setStatus(false, true, false);
 	}
 	
 	public Boolean isCellaCorretta(Box b) {
@@ -123,7 +140,6 @@ public class Game {
 				
 				if(b.getNumBombe() == -1 && b.isMarked()) {
 					b.setNumBombe(0);
-					System.out.println("Conta Bombe");
 					b.setNumBombe(	contaBombe(row + 1, col - 1) +
 							 		contaBombe(row, col - 1) +
 							 		contaBombe(row - 1, col - 1) +
@@ -148,14 +164,12 @@ public class Game {
 					
 					if(!b.isMarked()) {
 						b.setMark(true); 
-						System.out.println("Bomba marcata");
 						
 						if ((isBombCiclo(row - 1, col - 1) || isBombCiclo(row - 1, col) || isBombCiclo(row - 1, col + 1) ||
 								isBombCiclo(row, col - 1) 	 || isBombCiclo(row, col + 1) ||
 								isBombCiclo(row + 1, col - 1) || isBombCiclo(row + 1, col) || isBombCiclo(row + 1, col + 1)) == false) {
 							
 							
-							System.out.println("Cerca Vuoti");
 							return 	cercaVuoti(row-1, col-1) ||
 									cercaVuoti(row, col-1) ||
 									cercaVuoti(row+1, col-1) ||
@@ -171,5 +185,12 @@ public class Game {
 			}
 		}
 		return false;
+	}
+
+	public void loseGame() {
+		frame.showBombs();
+		frame.write(null);
+		frame.write("Hai perso la partita!");
+		this.end();
 	}
 }
