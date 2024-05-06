@@ -143,7 +143,7 @@ public class GUI extends JFrame{
 		for(Box b : this.listaBox) {
 			if(b.isBomb()) {
 				try {
-					Image img = ImageIO.read(getClass().getResource("icons8-pene-64.png"));
+					Image img = ImageIO.read(getClass().getResource("bomb.png"));
 					b.setBackground(Color.RED);
 					b.setIcon(new ImageIcon(img));
 				} catch (Exception ex) {
