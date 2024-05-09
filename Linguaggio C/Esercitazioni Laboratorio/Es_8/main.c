@@ -6,34 +6,29 @@ void print(Insieme s);
 Insieme copy(Insieme s);
 int size(Insieme s);
 bool subset(Insieme a, Insieme b);
+bool equal(Insieme a, Insieme b);
 Insieme intersection(Insieme a, Insieme b);
 Insieme unione(Insieme a, Insieme b);
+void insieme_free(Insieme a);
 
 
 int main() {
 	int arr[] = {0, 1, 2, 3, 4};
+	int arr2[] = {4, 6, 7, 8, 9};
 	
 	Insieme ins = init(arr, 5);
-	print(ins);
-	Insieme copia = copy(ins);
-	print(copia);
-	printf("Size: %d\n", size(ins));
+	Insieme ins2 = init(arr2, 5);
 
-	if(subset(copia, ins)) printf("Completamente contenuto\n");
+	Insieme risultato = intersection(ins, ins2);
 
-	while (ins != NULL)
-	{
-		Insieme nodoDaRimuovere = ins;
-		ins = ins->next;
-		free(nodoDaRimuovere);
+	if(risultato == NULL) printf("Diversi\n");
+	else {
+		print(risultato);
 	}
 
-	while (copia != NULL)
-	{
-		Insieme nodoDaRimuovere = copia;
-		copia = copia->next;
-		free(nodoDaRimuovere);
-	}
+	insieme_free(ins);
+	insieme_free(ins2);
+	//insieme_free(risultato);
 
 	return 0;
 }
@@ -57,7 +52,7 @@ void print(Insieme s) {
 	printf("\n[ ");
 	while(temp != NULL) {
 		printf("%d ", temp->info);
-		temp++;
+		temp = temp->next;
 	}
 	printf("]\n");
 }
@@ -99,7 +94,41 @@ bool subset(Insieme a, Insieme b) {
 		}
 		temp = temp-> next;
 	}
+
 	return true;
-	
-	
+}
+
+bool equal(Insieme a, Insieme b) {
+	Insieme t_a = a;
+	Insieme t_b = b;
+	while(t_b != NULL || t_a != NULL) {
+		if(!membro(a, t_b-> info) || !membro(b, t_a-> info)) return false;
+		t_a = t_a-> next;
+		t_b = t_b-> next;
+	}
+	return true;
+}
+
+Insieme intersection(Insieme a, Insieme b) {
+	Insieme t_a = a;
+	Insieme intersezione;
+	Insieme t_i = intersezione;
+	while(t_a != NULL) {
+		if(membro(b, t_a-> info)) {
+			t_i = (Insieme)malloc(sizeof(TipoNodo));
+			t_i-> info = t_a-> info;
+			t_i = t_i->next;
+		}
+		t_a = t_a-> next;
+	}
+	return intersezione;
+}
+
+void insieme_free(Insieme ins) {
+	while (ins != NULL)
+	{
+		Insieme nodoDaRimuovere = ins;
+		ins = ins->next;
+		free(nodoDaRimuovere);
+	}
 }
