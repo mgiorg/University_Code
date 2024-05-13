@@ -14,15 +14,12 @@ int main() {
 	int n = 5;
 	TipoLista lista = init(vec, n);
 	TipoLista lista2 = init(vec2, n);
-	printlist(lista);
-	printlist(lista2);
+	printlist(interleave(lista, lista2));
 
-	TipoLista risultato = interleave(lista, lista2);
-	printlist(risultato);
+	
 
 	lista_free(lista);
 	lista_free(lista2);
-	lista_free(risultato);
 	return 0;
 }
 
