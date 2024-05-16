@@ -20,7 +20,13 @@ public class Receiver implements Runnable {
 		while(running && scanner.hasNextLine()) {
 			frame.write("Interno\n");
 			String line = scanner.nextLine();
-			frame.write("Ricevuto " + line + "\n");
+			if(line == "+") {
+				frame.write("=====Sessione Conclusa=====\n");
+				running = false;
+			} else {
+				frame.write("Estratto " + line + "\n");
+			}
 		}
+		frame.setStatus(true, false);
 	}
 }

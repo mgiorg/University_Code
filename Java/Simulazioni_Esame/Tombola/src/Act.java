@@ -22,74 +22,65 @@ public class Act implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		switch(e.getActionCommand()){
+		switch(e.getActionCommand()) {
 			case "Connect":
 				frame.write("Premuto connect\n");
-				connect();
+				try {
+					s = new Socket(frame.getIP(), frame.getPort());
+					scan = new Scanner(s.getInputStream());
+					pw = new PrintWriter(s.getOutputStream());
+
+					frame.setStatus(true, false);
+					frame.write("=====Connessione Effettuata=====\n");
+
+				} catch (Exception ex) {
+					log.write("Eccezione");
+					ex.printStackTrace();
+				}
 				break;
 			case "Disconnect":
 			frame.write("Premuto disconnect\n");
-				disconnect();
+				try {
+				s.close();
+				scan.close();
+				pw.close();
+
+				frame.setStatus(false, false);
+
+			} catch (Exception ex) {
+				log.write("Eccezione");
+				ex.printStackTrace();
+			}
 				break;
 			case "Start":
 				frame.write("Premuto start\n");
-				start();
+				try {
+					pw.write("start");
+					pw.flush();
+					frame.setStatus(true, true);
+
+					Thread t = new Thread(new Receiver(scan, frame));
+					t.start();
+
+				} catch (Exception ex) {
+					log.write("Eccezione");
+					ex.printStackTrace();
+				}
+				
 				break;
 			case "Stop":
 				frame.write("Premuto stop\n");
-				stop();
+				try {
+					pw.write("stop");
+					pw.flush();
+
+					frame.setStatus(true, false);
+
+				} catch (Exception ex) {
+					log.write("Eccezione");
+					ex.printStackTrace();
+				}
 				break;
 		}
 	}
-
-	public void connect() {
-		try {
-			s = new Socket(frame.getIP(), frame.getPort());
-			scan = new Scanner(s.getInputStream());
-			pw = new PrintWriter(s.getOutputStream());
-
-			frame.setStatus(true, false);
-			frame.write("=====Connessione Effettuata=====\n");
-
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
-	public void start() {
-		try {
-			pw.write("start");
-			pw.flush();
-			frame.setStatus(true, true);
-
-			Thread t = new Thread(new Receiver(scan, frame));
-			t.start();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	public void stop() {
-		try {
-			pw.write("stop");
-			pw.flush();
-
-			frame.setStatus(true, false);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	public void disconnect() {
-		try {
-			s.close();
-			scan.close();
-			pw.close();
-
-			frame.setStatus(false, false);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
 }
