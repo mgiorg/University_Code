@@ -3,6 +3,7 @@ import java.awt.*;
 import java.util.*;
 
 public class GUI extends JFrame {
+
 	JButton start = new JButton("Start");
 	JButton stop = new JButton("Interrompi");
 	JButton connect = new JButton("Connect");
@@ -29,9 +30,10 @@ public class GUI extends JFrame {
 		top.add(stop);
 
 
-		for(int i = 0; i < 5; ++i) {
-			ColoredButton b = new ColoredButton("0", Color.LIGHT_GRAY);
-			b.setTextDigit("1");
+		for(Integer i = 0; i < 5; ++i) {
+			ColoredButton b = new ColoredButton(i.toString(), Color.BLACK);
+			b.changeColor(Color.BLACK);
+			b.setTextDigit("");
 			b.setPreferredSize(new Dimension(100, 100));
 			centralPanel.add(b);
 			buttons.add(b);

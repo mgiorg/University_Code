@@ -61,7 +61,6 @@ public class GUI extends JFrame {
 			JPanel panel = new JPanel(new GridLayout(3, 1));
 			for(int j = 0; j < 3; ++j) {
 				TicketCell cell = new TicketCell(numeri.get(3*i+j));
-				cell.setPreferredSize(new Dimension(100, 100));
 				cell.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 				ticketCells.add(cell);
 				panel.add(cell);
@@ -84,7 +83,6 @@ public class GUI extends JFrame {
 		bottomPanel.add(stopButton);
 		this.add(bottomPanel, BorderLayout.SOUTH);
 
-		write("Avviata sessione\n");
 		setStatus(false, false);
 		this.pack();
 		this.setVisible(true);
@@ -139,5 +137,8 @@ public class GUI extends JFrame {
 	}
 	public void write(String s) {
 		logArea.append(s);
+	}
+	public LinkedList<TicketCell> getCells() {
+		return this.ticketCells;
 	}
 }

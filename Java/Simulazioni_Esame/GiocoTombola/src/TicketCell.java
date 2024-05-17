@@ -10,6 +10,7 @@ import java.awt.GridLayout;
 public class TicketCell extends JPanel {
     private static final Color SELECTED = Color.GREEN;
     private static final Color UNSELECTED = Color.WHITE;
+    Boolean selected;
     private int value;
     JLabel valueLabel;
 
@@ -43,11 +44,15 @@ public class TicketCell extends JPanel {
     }
 
     public void setSelected(boolean selected) {
+        this.selected = selected;
         if (selected) {
             setBackground(SELECTED);
         } else {
             setBackground(UNSELECTED);
         }
+    }
+    public boolean isSelected() {
+        return selected;
     }
 
     @Override

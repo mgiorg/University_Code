@@ -24,7 +24,6 @@ public class Act implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		switch(e.getActionCommand()) {
 			case "Connect":
-				frame.write("Premuto connect\n");
 				try {
 					s = new Socket(frame.getIP(), frame.getPort());
 					scan = new Scanner(s.getInputStream());
@@ -34,50 +33,47 @@ public class Act implements ActionListener {
 					frame.write("=====Connessione Effettuata=====\n");
 
 				} catch (Exception ex) {
-					log.write("Eccezione");
+					frame.write("Eccezione");
 					ex.printStackTrace();
 				}
 				break;
 			case "Disconnect":
-			frame.write("Premuto disconnect\n");
 				try {
 				s.close();
 				scan.close();
 				pw.close();
-
 				frame.setStatus(false, false);
 
 			} catch (Exception ex) {
-				log.write("Eccezione");
+				frame.write("Eccezione");
 				ex.printStackTrace();
 			}
 				break;
 			case "Start":
-				frame.write("Premuto start\n");
 				try {
-					pw.write("start");
+					frame.reset();
+					pw.write("start\n");
 					pw.flush();
 					frame.setStatus(true, true);
 
-					Thread t = new Thread(new Receiver(scan, frame));
+					Thread t = new Thread(new Receiver(scan, frame, frame.getCells()));
 					t.start();
 
 				} catch (Exception ex) {
-					log.write("Eccezione");
+					frame.write("Eccezione");
 					ex.printStackTrace();
 				}
 				
 				break;
 			case "Stop":
-				frame.write("Premuto stop\n");
 				try {
-					pw.write("stop");
+					pw.write("stop\n");
 					pw.flush();
 
 					frame.setStatus(true, false);
 
 				} catch (Exception ex) {
-					log.write("Eccezione");
+					frame.write("Eccezione");
 					ex.printStackTrace();
 				}
 				break;
