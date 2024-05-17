@@ -31,9 +31,8 @@ public class GUI extends JFrame {
 
 
 		for(Integer i = 0; i < 5; ++i) {
-			ColoredButton b = new ColoredButton(i.toString(), Color.BLACK);
-			b.changeColor(Color.BLACK);
-			b.setTextDigit("");
+			ColoredButton b = new ColoredButton(i.toString(), Color.RED);
+			b.setTextDigit(i.toString());
 			b.setPreferredSize(new Dimension(100, 100));
 			centralPanel.add(b);
 			buttons.add(b);
