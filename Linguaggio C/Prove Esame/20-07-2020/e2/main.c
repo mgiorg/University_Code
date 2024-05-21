@@ -4,16 +4,14 @@ int conta_numeri_pari(TipoLista l, T c)
 {
 	if (car(cdr(cdr(l))) == c)
 		return 1 + conta_numeri_pari(cdr(cdr(l)), c);
-	else
-		return;
+	return 0;
 	
 }
 int conta_numeri_dispari(TipoLista l, T c)
 {
 	if (car(cdr(cdr(l))) == c)
 		return 1 + conta_numeri_pari(cdr(cdr(l)), c);
-	else
-		return;
+	return 0;
 }
 int posizioni_alternanza(TipoLista l)
 {
@@ -27,10 +25,6 @@ int posizioni_alternanza(TipoLista l)
 	int dispari = conta_numeri_dispari(cdr(l), car2);
 
 	return pari + dispari;
-}
-
-char * prefisso_alternante(TipoLista *liste, int n) {
-	
 }
 
 int main() {
