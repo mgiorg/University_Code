@@ -17,30 +17,35 @@
     /       /    
    6       1     
 */
-void controlloNodi(TipoAlbero a) {
-	if(estFoglia(a)) return;
-	if(estVuoto(a)) return;
-	if(!estVuoto(sinistro(a))) 
-		if(radice(sinistro(a))%radice(a) == 0) 
-			a = creaAlbBin(1, sinistro(a), destro(a)); 
-		
-	else if(!estVuoto(destro(a))) 
-		if(radice(destro(a))%radice(a) == 0) 
-			a = creaAlbBin(1, sinistro(a), destro(a)); 
-	controlloNodi(sinistro(a));
-	controlloNodi(destro(a));
-	return;
-}
 
 void nodoDivisibile(TipoAlbero a) {
-    // IMPLEMENTARE QUI LA SOLUZIONE DELL'ESERCIZIO
-	
-	controlloNodi(a);
-
-    return;
+    if(estVuoto(a) || estFoglia(a)) return;
+	if(sinistro(a) != NULL)  {
+		printf("Sinistro\n");
+		if(radice(sinistro(a)) != 0 && radice(a)%radice(sinistro(a)) == 0) {
+			a-> info = 1; 
+			printf("Valore cambiato\n");
+		}
+    }
+		
+	if(destro(a) != NULL) { 
+		printf("Destro\n");
+		if(radice(destro(a)) != 0 && radice(a)%radice(destro(a)) == 0) {
+			a-> info = 1; 
+			printf("Valore cambiato\n");
+		}
+    }
+	if(sinistro(a) != NULL)
+    	{nodoDivisibile(sinistro(a));}
+	if(destro(a) != NULL)
+    	{nodoDivisibile(destro(a));}
 }
 
 int main() {
+	//TipoAlbero albero = creaAlbBin(4, creaAlbBin(2, creaAlbBin(6, albBinVuoto(), albBinVuoto()), albBinVuoto()),
+											//creaAlbBin(3, creaAlbBin(1, albBinVuoto(), albBinVuoto()), albBinVuoto())); 
+	TipoAlbero albero = albBinVuoto();
+	nodoDivisibile(albero);
 
 
 	return 0;
