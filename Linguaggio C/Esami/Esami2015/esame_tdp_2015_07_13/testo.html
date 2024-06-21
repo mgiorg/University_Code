@@ -1,0 +1,398 @@
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+  <title>Esame di Tecniche di Programmazione del 13/07/2015</title>
+  <style type="text/css" title="Amaya theme">
+/* Modern style for Amaya Editor Lite */
+
+/* default rules for the whole document */
+body {
+    font-size: 12pt;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    color: black;
+    background-color: white;
+    line-height: 1.2em;
+    margin-left: 4em;
+    margin-right: 2em;
+   }
+
+/* paragraphs */
+p  {
+    padding: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: left;
+   }
+
+/* headings */
+h1 {
+    font-size: 180%;
+    font-weight: bold;
+    font-style: normal;
+    font-variant: small-caps;
+    text-align: left;
+    padding: 0;
+    margin-top: 1.7em;
+    margin-bottom: 1.7em;
+   }
+h2 {
+    font-size: 150%;
+    font-weight: bold;
+    font-style: normal;
+    padding: 0;
+    margin-top: 1.5em;
+    margin-bottom: 1.1em;
+   }
+h3 {
+    font-size: 130%;
+    font-weight: bold;
+    font-style: normal;
+    padding: 0;
+    margin-top: 1.3em;
+    margin-bottom: 1.1em;
+   }
+h4 {
+    font-size: 110%;
+    font-weight: bold;
+    font-style: normal;
+    padding: 0;
+    margin-top: 1.1em;
+    margin-bottom: 1.1em;
+   }
+h5 {
+    font-size: 100%;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+   }
+h6 {
+    font-size: 100%;
+    font-weight: normal;
+    font-style: italic;
+    padding: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+   }
+
+/* divisions */
+div {
+    padding: 0;
+    margin-top: 0em;
+    margin-bottom: 0em;
+   }
+
+/* lists */
+ul, ol {
+    padding: 0 0 0 3em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+   }
+ul ul, ol ol, ul ol, ol ul {
+    margin-top: 1em;
+    margin-bottom: 1em;
+   }
+li {
+    padding: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: left;
+   }
+li p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+   }
+dl {
+    padding: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 1em;
+   }
+dl dl {
+    margin-top: 0em;
+    margin-bottom: 0em;
+   }
+dt {
+    padding: 0;
+    font-weight: bold;
+    margin-top: .3em;
+    margin-bottom: .3em;
+   }
+dd {
+    padding: 0;
+    margin-top: .3em;
+    margin-left: 3em;
+    margin-bottom: .3em;
+   }
+dl p {
+    margin-top: .3em;
+    margin-bottom: .3em;
+   }
+
+/* inline */
+strong {
+    font-weight: bold;
+   }
+em {
+    font-style: italic;
+   }
+code {
+    font-family: Courier New, Courier, monospace;
+   }
+ins {
+    background-color: yellow;
+    text-decoration: underline;
+   }
+del {
+    text-decoration: line-through;
+   }
+
+/* anchors */
+a[href] {
+    color: blue;
+    text-decoration: underline;
+   }
+
+/* end */
+  </style>
+</head>
+
+<body>
+<h1>Esame di Tecniche di Programmazione del 13/07/2015</h1>
+
+<h4>Istruzioni per lo svolgimento della prova:</h4>
+<ul>
+  <li>Inserire nel file studente.txt i dati personali richiesti
+    (<strong>matricola, nome e cognome</strong>) senza toccare altre parti del
+    file, quindi salvare e chiudere il file.</li>
+  <li>All&#x2019;esercizio i è associata la directory esercizio{i}, contenente
+    i file necessari allo svolgimento dell&#x2019;esercizio. Ciascun esercizio
+    deve essere svolto modificando esclusivamente il file esercizio{i}.h (se
+    necessario) ed esercizio{i}.c presenti nella directory corrispondente.
+    Nessun file per nessun motivo deve essere spostato dalla directory in cui
+    si trova. Nessun altro file deve essere modificato. Non devono essere
+    creati ulteriori file.</li>
+  <li>Il file contenente il programma principale di ciascun esercizio è
+    test_esercizio{i}.c. Tale file deve essere compilato usando il Makefile
+    fornito nella directory, ed il corrispondente eseguibile
+    (test_esercizio{i}) lanciato per eseguire i test di correttezza e
+    conoscerne l&#x2019;esito. Il file test_esercizio{i}.c non deve essere
+    modificato.</li>
+  <li>Alla fine del tempo concesso per svolgere l' esame o, se lo avete
+    terminato prima dello scadere del tempo, dovete eseguire lo <strong>script
+    di consegna dell' esame</strong>. La consegna può essere effettuata
+    <strong>una ed una volta sola</strong>, per cui consegnate solo quando
+    siete sicuri di volerlo fare. Lo script è fornito insieme alla
+    documentazione dell' esame e per eseguirlo basterà andare tramite terminale
+    nella cartella dove si trova lo script consegna_esame.sh e avviarlo da
+    linea di comando. Il comando da lanciare risulterà simile al seguente:
+    <span style="font-family: Courier New,Courier,monospace">"bash
+    ./consegna_esame.sh"</span>. <strong>Lo script di consegna deve essere
+    eseguito dalla directory in cui esso si trova, in caso contrario ritornerà
+    un errore</strong>. Una volta avviato lo script controllate che la consegna
+    sia andata a buon fine <strong>verificando</strong> che sul terminale venga
+    stampato un output simile al seguente: 
+    <p><span style="font-family: Courier New,Courier,monospace">local:
+    matricola_cognome_nome_hostname.tar.gz remote:
+    uploads/matricola_cognome_nome_hostname.tar.gz</span></p>
+    <p><span style="font-family: Courier New,Courier,monospace">200 PORT
+    command successful. Consider using PASV.</span></p>
+    <p><span style="font-family: Courier New,Courier,monospace">150 Ok to send
+    data.</span></p>
+    <p style="font-family: Courier New,Courier,monospace">226 Transfer
+    complete.</p>
+    <p style="font-family: Courier New,Courier,monospace"><span
+    style="font-family: Courier New,Courier,monospace">4886 bytes sent in 0.00
+    secs (113606.8 kB/s)</span></p>
+    <p style="font-family: Courier New,Courier,monospace"><span
+    style="font-family: Courier New,Courier,monospace">221 Goodbye.</span></p>
+  </li>
+  <li>Verranno corretti esclusivamente gli esercizi la cui compilazione dia
+    esito positivo. In caso contrario verrà assegnato un punteggio nullo. Se
+    non verrà eseguito lo script di consegna dell' esame esso non verrà
+    corretto (è equivalente a non aver consegnato il compito a fine esame).</li>
+  <li>Per eventuali problemi o dubbi, chiedere al docente.</li>
+</ul>
+
+<h2>Esercizio 1</h2>
+
+<p>Implementare la seguente funzione C:</p>
+<ul>
+  <li><span style="font-family: Courier New,Courier,monospace"></span><span
+    style="font-family: Courier New,Courier,monospace">void
+    Image_extractEdges(Image* dest, Image* src, char threshold);</span></li>
+</ul>
+
+<p>che dati in input un puntatore ad un' immagine <code>src</code> e un valore
+di soglia <code>threshold</code>, generi un' immagine <code>dest</code>
+contenente i bordi dell' immagine <code>src</code>. Un pixel in
+<code>dest</code> è considerato un bordo se la differenza tra il valore del
+medesimo pixel in <code>src</code> e uno dei suoi 8 vicini è strettamente
+maggiore della soglia <code>threshold</code> data in input. Ogni pixel dell'
+immagine <code>dest</code> dovrà contenere il valore <code>1</code> se è un
+bordo, <code>0</code> altrimenti.</p>
+
+<h4>Esempio</h4>
+
+<p>Data una struttura <code>Image</code> <code>src</code> contenente la
+seguente immagine <code>10x16</code>:</p>
+
+<p><code><span style="font-family: Courier New,Courier,monospace">0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0</span></code></p>
+
+<p><code><span style="font-family: Courier New,Courier,monospace">0 5 5 5 6 6 6
+6 7 7 7 7 8 8 0 0</span></code></p>
+
+<p><code><span style="font-family: Courier New,Courier,monospace">0 5 0 0 0 0 0
+0 0 0 0 0 0 8 0 0</span></code></p>
+
+<p><code><span style="font-family: Courier New,Courier,monospace">0 5 0 0 0 0 0
+0 0 0 0 0 0 8 0 0</span></code></p>
+
+<p><code><span style="font-family: Courier New,Courier,monospace">0 5 0 0 0 6 0
+0 0 7 0 0 0 8 0 0</span></code></p>
+
+<p><code><span style="font-family: Courier New,Courier,monospace">0 5 0 0 0 6 0
+0 0 7 0 0 0 8 0 0</span></code></p>
+
+<p><code><span style="font-family: Courier New,Courier,monospace">0 5 0 0 0 0 0
+0 0 0 0 0 0 8 0 0</span></code></p>
+
+<p><code><span style="font-family: Courier New,Courier,monospace">0 5 0 0 0 0 0
+0 0 0 0 0 0 8 0 0</span></code></p>
+
+<p><code><span style="font-family: Courier New,Courier,monospace">0 5 5 5 6 6 6
+6 7 7 7 7 8 8 0 0</span></code></p>
+
+<p><code><span style="font-family: Courier New,Courier,monospace">0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0</span></code></p>
+
+<p></p>
+
+<p>richiamando la seguente linea di codice:</p>
+
+<p><span style="font-family: Courier New,Courier,monospace"><span
+style="font-family: Courier New,Courier,monospace">Image_extractEdges(dest,
+src, 5)</span>;</span></p>
+
+<p></p>
+
+<p>la struttura <code>Image</code> <code>dest</code> <code></code>dovrà
+contenere la seguente immagine <code><code>10x16</code></code>:</p>
+
+<p><code><code></code><code>0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 0</code></code></p>
+
+<p><code>0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 0</code></p>
+
+<p><code>0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 0</code></p>
+
+<p><code>0 0 0 0 1 1 1 0 1 1 1 0 1 1 1 0</code></p>
+
+<p><code>0 0 0 0 1 1 1 0 1 1 1 0 1 1 1 0</code></p>
+
+<p><code>0 0 0 0 1 1 1 0 1 1 1 0 1 1 1 0</code></p>
+
+<p><code>0 0 0 0 1 1 1 0 1 1 1 0 1 1 1 0</code></p>
+
+<p><code>0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 0</code></p>
+
+<p><code>0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 0</code></p>
+
+<p><code>0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 0</code></p>
+
+<h2>Esercizio 2</h2>
+
+<p>I vettori sparsi sono particolari vettori in cui molti degli elementi sono
+uguali a zero. In questo esercizio un vettore sparso è rappresentato con una
+struttura <code>SparseVector</code> contenente la dimensione
+<code>dimension</code> del vettore (elementi uguali a zero inclusi) e una lista
+collegata <strong>non ordinata</strong> <code>values</code> di elementi
+<code>SparseVectorElement</code> che rappresenta gli elementi del vettore
+diversi da zero. In particolare un elemento di tipo
+<code>SparseVectorElement</code> ha come campi la posizione <code>pos</code>
+dell' elemento nel vettore, il suo valore <code>value</code> e il campo
+<code>next</code> che punta al prossimo elemento del vettore diverso da
+zero.</p>
+
+<p>Implementare, <strong>nell' ordine</strong>, le seguenti 2 funzioni C:</p>
+<ul>
+  <li><code>float SparseVector_getElem(SparseVector* vec, int pos);</code> 
+    <p>che dato in input un puntatore ad un vettore sparso <code>vec</code> e
+    una posizione <code>pos</code> all' interno di questo vettore, restituisca
+    il valore dell' elemento in posizione <code>pos</code>. Se  la posizione
+    <code>pos</code> eccede la dimensione del vettore la funzione deve
+    restituire <code>0</code>;</p>
+  </li>
+  <li><code>int SparseVector_setElem(SparseVector* vec, int pos, float
+    value);</code> 
+    <p>che dato in input un puntatore ad un vettore sparso <code>vec</code>,
+    una posizione <code>pos</code> all' interno di questo vettore e un valore
+    <code>value</code>, modifichi il valore dell' elemento in posizione
+    <code>pos</code>. Se la posizione <code>pos</code> eccede la dimensione del
+    vettore la funzione deve restituire <code>0</code>, altrimenti
+    <code>1</code>. Più precisamente:</p>
+    <ul>
+      <li>se <code>value</code> è uguale a <code>0</code> e nel vettore c' è un
+        elemento in posizione <code>pos</code> con valore diverso da
+        <code>0</code>, l' elemento deve essere rimosso dalla lista; </li>
+      <li>se <code>value</code> è diverso da <code>0</code> e nel vettore c' è
+        un elemento in posizione <code>pos</code> con valore diverso da
+        <code>0</code>, l' elemento deve essere aggiornato con il nuovo valore
+        <code>value</code>; </li>
+      <li>in ogni altro caso aggiunge il valore <code>value</code> in posizione
+        <code>pos</code> alla lista</li>
+    </ul>
+  </li>
+</ul>
+
+<h2>Esercizio 3</h2>
+
+<p>Con riferimento alla struttura <code>SparseVectorElement</code> dell'
+esercizio 2, implementare la seguente funzione <strong>ricorsiva</strong> C:</p>
+<ul>
+  <li><span
+    style="font-family: Courier New,Courier,monospace">SparseVectorElement*
+    recursiveSum(SparseVectorElement* l1, SparseVectorElement* l2)</span><span
+    style="font-family: Courier New,Courier,monospace">;</span></li>
+</ul>
+
+<p>che date in input due liste di elementi <code>SparseVectorElement</code>
+<code>l1</code> e <code>l2</code>, restituisca in una <strong>nuova</strong>
+lista la somma delle due in input. Due elementi possono essere sommati solo se
+hanno la stessa posizione <code>pos</code> e, se un elemento in posizione
+<code>pos</code> è presente solo in una delle due liste, si deve considerare l'
+altro uguale a <code>0</code>. Si assuma che gli elementi delle due liste in
+input siano <strong>ordinati</strong> in base alla posizione <code>pos</code>.
+</p>
+
+<h4>Esempio</h4>
+
+<p>Date le due seguenti liste ([pos, value]):</p>
+
+<p><span style="font-family: Courier New,Courier,monospace">l1 = [1, -2.0]
+-&gt; [3, 8.2]</span><span
+style="font-family: Courier New,Courier,monospace">-&gt; [4, 2.1]</span></p>
+
+<p><code>l2 = [2, -6.4] -&gt; [3, 2.2] -&gt; [4, 5.1]</code></p>
+
+<p></p>
+
+<p>e richiamando la seguente linea di codice:</p>
+
+<p><span
+style="font-family: Courier New,Courier,monospace">SparseVectorElement*
+<code>result</code> = recursiveSum(l1, l2);</span></p>
+
+<p></p>
+
+<p>la funzione dovrà restituire la seguente list:</p>
+
+<p><code>result = [1, -2.0] -&gt; [1, -6.4] -&gt; [3, 10.4] -&gt; [4,
+7.2]</code> </p>
+
+<h1><a href="esame_tdp_2015_07_13.tar.gz">Download Esame</a></h1>
+</body>
+</html>

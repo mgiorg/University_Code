@@ -1,0 +1,461 @@
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+  <title>Esame di Tecniche di Programmazione del 10/04/2015</title>
+  <style type="text/css" title="Amaya theme">
+/* Modern style for Amaya Editor Lite */
+
+/* default rules for the whole document */
+body {
+    font-size: 12pt;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    color: black;
+    background-color: white;
+    line-height: 1.2em;
+    margin-left: 4em;
+    margin-right: 2em;
+   }
+
+/* paragraphs */
+p  {
+    padding: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: left;
+   }
+
+/* headings */
+h1 {
+    font-size: 180%;
+    font-weight: bold;
+    font-style: normal;
+    font-variant: small-caps;
+    text-align: left;
+    padding: 0;
+    margin-top: 1.7em;
+    margin-bottom: 1.7em;
+   }
+h2 {
+    font-size: 150%;
+    font-weight: bold;
+    font-style: normal;
+    padding: 0;
+    margin-top: 1.5em;
+    margin-bottom: 1.1em;
+   }
+h3 {
+    font-size: 130%;
+    font-weight: bold;
+    font-style: normal;
+    padding: 0;
+    margin-top: 1.3em;
+    margin-bottom: 1.1em;
+   }
+h4 {
+    font-size: 110%;
+    font-weight: bold;
+    font-style: normal;
+    padding: 0;
+    margin-top: 1.1em;
+    margin-bottom: 1.1em;
+   }
+h5 {
+    font-size: 100%;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+   }
+h6 {
+    font-size: 100%;
+    font-weight: normal;
+    font-style: italic;
+    padding: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+   }
+
+/* divisions */
+div {
+    padding: 0;
+    margin-top: 0em;
+    margin-bottom: 0em;
+   }
+
+/* lists */
+ul, ol {
+    padding: 0 0 0 3em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+   }
+ul ul, ol ol, ul ol, ol ul {
+    margin-top: 1em;
+    margin-bottom: 1em;
+   }
+li {
+    padding: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: left;
+   }
+li p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+   }
+dl {
+    padding: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 1em;
+   }
+dl dl {
+    margin-top: 0em;
+    margin-bottom: 0em;
+   }
+dt {
+    padding: 0;
+    font-weight: bold;
+    margin-top: .3em;
+    margin-bottom: .3em;
+   }
+dd {
+    padding: 0;
+    margin-top: .3em;
+    margin-left: 3em;
+    margin-bottom: .3em;
+   }
+dl p {
+    margin-top: .3em;
+    margin-bottom: .3em;
+   }
+
+/* inline */
+strong {
+    font-weight: bold;
+   }
+em {
+    font-style: italic;
+   }
+code {
+    font-family: Courier New, Courier, monospace;
+   }
+ins {
+    background-color: yellow;
+    text-decoration: underline;
+   }
+del {
+    text-decoration: line-through;
+   }
+
+/* anchors */
+a[href] {
+    color: blue;
+    text-decoration: underline;
+   }
+
+/* end */
+  </style>
+</head>
+
+<body>
+<h1>Esame di Tecniche di Programmazione del 12/06/2015</h1>
+
+<h4>Istruzioni per lo svolgimento della prova:</h4>
+<ul>
+  <li>Inserire nel file studente.txt i dati personali richiesti
+    (<strong>matricola, nome e cognome</strong>) senza toccare altre parti del
+    file, quindi salvare e chiudere il file.</li>
+  <li>All&#x2019;esercizio i è associata la directory esercizio{i}, contenente
+    i file necessari allo svolgimento dell&#x2019;esercizio. Ciascun esercizio
+    deve essere svolto modificando esclusivamente il file esercizio{i}.h (se
+    necessario) ed esercizio{i}.c presenti nella directory corrispondente.
+    Nessun file per nessun motivo deve essere spostato dalla directory in cui
+    si trova. Nessun altro file deve essere modificato. Non devono essere
+    creati ulteriori file.</li>
+  <li>Il file contenente il programma principale di ciascun esercizio è
+    test_esercizio{i}.c. Tale file deve essere compilato usando il Makefile
+    fornito nella directory, ed il corrispondente eseguibile
+    (test_esercizio{i}) lanciato per eseguire i test di correttezza e
+    conoscerne l&#x2019;esito. Il file test_esercizio{i}.c non deve essere
+    modificato.</li>
+  <li>Alla fine del tempo concesso per svolgere l'esame o, se avete terminato
+    l'esame prima dello scadere del tempo, dovete eseguire lo <strong>script di
+    consegna dell'esame</strong>. La consegna può essere effettuata <strong>una
+    ed una volta sola</strong>, per cui consegnate solo quando siete sicuri di
+    volerlo fare. Lo script è fornito insieme alla documentazione dell' esame e
+    per eseguirlo basterà andare tramite terminale nella cartella dove si trova
+    lo script consegna_esame.sh e avviarlo da linea di comando. Il comando da
+    lanciare risulterà simile al seguente: <span
+    style="font-family: Courier New,Courier,monospace">"./consegna_esame.sh"</span>. <strong>Lo
+    script di consegna deve essere eseguito dalla directory in cui esso si
+    trova, in caso contrario farà errore</strong>. Una volta avviato lo script
+    controllate che la consegna sia andata a buon fine
+    <strong>verificando</strong> che sul terminale venga stampato un output
+    simile al seguente: 
+    <p><span style="font-family: Courier New,Courier,monospace">local:
+    matricola_cognome_nome_hostname.tar.gz remote:
+    uploads/matricola_cognome_nome_hostname.tar.gz</span></p>
+    <p><span style="font-family: Courier New,Courier,monospace">200 PORT
+    command successful. Consider using PASV.</span></p>
+    <p><span style="font-family: Courier New,Courier,monospace">150 Ok to send
+    data.</span></p>
+    <p style="font-family: Courier New,Courier,monospace">226 Transfer
+    complete.</p>
+    <p style="font-family: Courier New,Courier,monospace"><span
+    style="font-family: Courier New,Courier,monospace">4886 bytes sent in 0.00
+    secs (113606.8 kB/s)</span></p>
+    <p style="font-family: Courier New,Courier,monospace"><span
+    style="font-family: Courier New,Courier,monospace">221 Goodbye.</span></p>
+  </li>
+  <li>Verranno corretti esclusivamente gli esercizi la cui compilazione dia
+    esito positivo. In caso contrario veràr assegnato un punteggio nullo. Se
+    non verrà eseguito lo script di consegna dell'esame esso non verrà corretto
+    (è equivalente a a non aver consegnato il compito a fine esame).</li>
+  <li>Per eventuali problemi o dubbi, chiedere al docente.</li>
+</ul>
+
+<h2>Esercizio 1</h2>
+
+<p>Implementare la funzione C:</p>
+<ul>
+  <li><span style="font-family: Courier New,Courier,monospace">int
+    insert_word(char* word, char** m, int m_rows, int m_cols,</span><span
+    style="font-family: Courier New,Courier,monospace">int row, int col, int
+    direction)</span><span
+    style="font-family: Courier New,Courier,monospace">;</span></li>
+</ul>
+
+<p>che data in input una stringa <code>word</code> che rappresenta una parola,
+e una matrice <code>m</code> rappresentante un cruciverba di dimensioni
+<code>m_rows</code> e <code>m_cols</code>, inserisca la parola
+<code>word</code> nella matrice <code>m</code> a partire dalla posizione
+[<code>row</code>, <code>col</code>]. Se la variabile di input
+<code>direction</code> ha valore <code>0</code> la parola deve essere inserita
+orizzontalmente, altrimenti verticalmente. Nel cruciverba le caselle nere sono
+identificate dal carattere <code>'#'</code>, le caselle vuote dal carattere
+<code>'_'</code>, le caselle possono anche contenere una qualsiasi lettera fra
+la <code>'a'</code> e la <code>'z'</code>. Per poter inserire la parola nella
+posizione e direzione richiesta, non devono esserci caselle nere e se ci sono
+lettere esse devono coincidere con quelle della parola stessa. Inoltre la
+parola deve terminare esattamente in corrsipondenza di una casella nera oppure
+sul bordo. La funzione deve ritornare <code>0</code> se la parola non può
+essere inserita, <code>1</code> altrimenti.</p>
+
+<h4>Esempio</h4>
+
+<p>Dato la seguente matrice:</p>
+
+<p><span style="font-family: Courier New,Courier,monospace">m = </span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">N O R V E G I A # A
+S S A M</span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">A C U I R E # B T #
+P A L A</span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">D A N N I # A B I M
+E L E C</span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">A R I O # A T A M A
+N T E #</span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">R I C # P E R C E N
+T O # U</span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace"># N A A S # I C O N
+A # C M</span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">S A # B I S # H U A
+# A H I</span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">C # R I C U _ I T I
+# D E L</span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">O R O L O G _ O # A
+D O N I</span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">L I A I S O _ # E #
+A R I A</span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">T A N T I # _ A B E
+R N E T</span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">A S I A # R _ F E T
+T O R I</span></p>
+
+<p></p>
+
+<p>richiamando la seguente linea di codice:</p>
+
+<p><span style="font-family: Courier New,Courier,monospace">result =
+insert_word("CENCE", m, 12, 14, <span
+style="font-family: Courier New,Courier,monospace">7, 6, 1)</span>;</span></p>
+
+<p>la matrice dovrà contenere:</p>
+
+<p><code><code></code>m = </code></p>
+
+<p><code>N O R V E G I A # A S S A M</code></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">A C U I R E # B T #
+P A L A</span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">D A N N I # A B I M
+E L E C</span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">A R I O # A T A M A
+N T E #</span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">R I C # P E R C E N
+T O # U</span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace"># N A A S # I C O N
+A # C M</span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">S A # B I S # H U A
+# A H I</span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">C # R I C U C I T I
+# D E L</span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">O R O L O G E O # A
+D O N I</span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">L I A I S O N # E #
+A R I A</span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">T A N T I # C A B E
+R N E T</span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">A S I A # R E F E T
+T O R I</span></p>
+
+<p></p>
+
+<p>e <code>result </code>dovrà valere <code>1</code>.</p>
+
+<h2>Esercizio 2</h2>
+
+<p>Implementare la funzione C:</p>
+<ul>
+  <li><span style="font-family: Courier New,Courier,monospace">int
+    add_word(TipoSCL* array, int dim, char* word)</span><span
+    style="font-family: Courier New,Courier,monospace">;</span></li>
+</ul>
+
+<p>che prende in input un <code>array</code> di puntatori a liste
+<code>SCL</code> dove ad ogni elemento <code>i-esimo</code> dell'array è
+associata una lista <code>SCL</code> contenente parole di lunghezza pari a
+<code>i + 1</code>, la sua dimensione <code>dim</code> e una stringa
+<code>word</code> rappresentante una parola da inserire. La funzione dovrà
+inserire la parola nella lista le cui parole sono della sua stessa lunghezza.
+L'inserimento della parola deve avvenire in coda alla lista. Se l'array è
+troppo piccolo per contenere la lista appropriata alla parola in input essa non
+deve essere inserita. In caso la parola venga inserita in una lista la funzione
+deve ritornare il valore <code>1</code>, <code>0</code> altrimenti.</p>
+
+<h4>Esempio</h4>
+
+<p>Dato il seguente <code>array</code> di liste:</p>
+
+<p><span style="font-family: Courier New,Courier,monospace">array = </span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">words of length 1:
+[ a ]</span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">words of length 2:
+[ ]</span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">words of length 3:
+[ qui ]</span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">words of length 4:
+[ olaf -&gt; olaf ]</span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">words of length 5:
+[ pluto -&gt; pippo ]</span></p>
+
+<p></p>
+
+<p>richiamando la seguente linea di codice:<span
+style="font-family: Courier New,Courier,monospace"></span></p>
+
+<p><span style="font-family: Courier New,Courier,monospace">result =
+add_word(array, 5, "pi")<span
+style="font-family: Courier New,Courier,monospace"></span>;</span></p>
+
+<p></p>
+
+<p>l'array dovrà contenere:</p>
+
+<p><code>array: </code></p>
+
+<p><code>words of length 1: [ a ]</code></p>
+
+<p><code>words of length 2: [ pi ]</code></p>
+
+<p><code>words of length 3: [ qui ]</code></p>
+
+<p><code>words of length 4: [ olaf -&gt; olaf ]</code></p>
+
+<p><code>words of length 5: [ pluto -&gt; pippo ]</code></p>
+
+<p></p>
+
+<p>e <code>result </code>dovrà valere <code>1</code>.</p>
+
+<h2>Esercizio 3</h2>
+
+<p>Implementare la funzione <strong>ricorsiva</strong> C:</p>
+<ul>
+  <li><span style="font-family: Courier New,Courier,monospace">int
+    find_spots(char* v, int dim, char* word)</span><span
+    style="font-family: Courier New,Courier,monospace">;</span></li>
+</ul>
+
+<p>che dato un array di caratteri <code>v</code> che può contenere celle
+occupate <code>'#'</code> e celle libere <code>'_'</code>, la sua dimensione
+<code>dim</code>, e una stringa <code>word</code> contenente una parola,
+calcoli e ritorni il numero di celle in cui la parola <code>word</code> può
+essere inserita. La parola per poter essere inserita non deve incontrare celle
+occupate.</p>
+
+<h4>Esempio</h4>
+
+<p>Dato il seguente array:</p>
+
+<p><span style="font-family: Courier New,Courier,monospace">v = _ _ _ _ _ _ # #
+# _ # _ _ _ #</span></p>
+
+<p></p>
+
+<p>e richiamando la seguente linea di codice:</p>
+
+<p><span style="font-family: Courier New,Courier,monospace">result =
+find_spots(v, 15, "pio");</span></p>
+
+<p>la funzione dovrà restituire un intero pari a <code>5</code>.</p>
+
+<p>Le soluzioni sono infatti le seguenti<br>
+<code>p i o _ _ _ # # # _ # _ _ _ #<br>
+_ p i o _ _ # # # _ # _ _ _ #<br>
+_ _ p i o _ # # # _ # _ _ _ #<br>
+_ _ _ p i o # # # _ # _ _ _ #<br>
+_ _ _ _ _ _ # # # _ # p i o #<br>
+</code> </p>
+
+<h4>Suggerimento</h4>
+Si consiglia di usare una funzione ricorsiva ausiliaria <br>
+<code>int check_spot(char* v, int dim, char* word, int index) </code><br>
+che prende come argomenti: un array <code>v</code>, di dimensione
+<code>dim</code>, una stringa <code>word</code> ed un indice
+<code>index</code>. La funzione verifica se la parola <code>word</code> puo'
+essere contenuta nell'array, a partire dalla posizione <code>index</code>. La
+funzione ritorna 1 se la stringa puo' essere contenuta, 0 in caso contrario. 
+
+<h1><a href="esame_tdp_2015_06_12.tar.gz">Download Esame</a></h1>
+</body>
+</html>

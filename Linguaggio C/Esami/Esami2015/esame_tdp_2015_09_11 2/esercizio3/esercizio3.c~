@@ -1,0 +1,14 @@
+#include <stdlib.h>
+
+#include "esercizio3.h"
+
+TipoSCL minElements(TipoSCL l1, TipoSCL l2) {
+  if(l1 == NULL) { return NULL; }
+
+  TipoSCL min_list = (TipoSCL) malloc(sizeof(NodoSCL));
+  if(l1->info <= l2->info) { min_list->info = l1->info; }
+  else { min_list->info = l2->info; }
+  min_list->next = minElements(l1->next, l2->next);
+
+  return min_list;
+}

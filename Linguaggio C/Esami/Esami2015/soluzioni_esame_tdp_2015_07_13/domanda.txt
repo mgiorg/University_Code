@@ -1,0 +1,18 @@
+1) Elencare le informazioni contenute nel record di attivazione di una funzione C
+2) Spiegare cosa succede alla pila dei record di attivazione quando una funzione: 
+    a) viene invocata
+    b) termina
+3) Illustrate l'evoluzione dei record di attivazione nella seguente funzione
+
+  int fattoriale(int n) {
+    int temp;
+    if(n == 0)
+      temp= 1;
+    else
+      temp = n * fattoriale(n - 1);
+    return temp;
+  }
+  
+  in corrispondenza della seguente chiamata:
+
+  int fatt = fattoriale(3);

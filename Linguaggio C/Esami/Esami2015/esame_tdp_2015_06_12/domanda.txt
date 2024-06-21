@@ -1,0 +1,3 @@
+Discutere i meccanismi del passaggio di parametri e la sua implementazione in C.
+Illustrare il concetto di "side-effect".
+Fornire esempi che illustrino il passaggio dei parametri.
