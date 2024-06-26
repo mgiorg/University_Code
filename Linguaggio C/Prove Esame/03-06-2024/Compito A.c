@@ -1,3 +1,29 @@
+typedef struct {
+  int rows;
+  int cols;
+  double **mat;
+} Mat;
+
+typedef int T;
+struct NodoSCL
+{
+    T info;
+    struct NodoSCL *next;
+};
+typedef struct NodoSCL TipoNodo;
+typedef TipoNodo *TipoLista;
+
+#define ERRORE_InfoAlbBin -99999
+typedef int TipoInfoAlbero;
+
+typedef struct StructAlbero {
+  TipoInfoAlbero info;
+  struct StructAlbero* destro;
+  struct StructAlbero* sinistro;
+} TipoNodoAlbero;
+
+typedef TipoNodoAlbero* TipoAlbero;
+
 int sommaElementi(Mat* m, int a, int b, int c, int d) {
   	int somma = 0;
 	
