@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 // inserisci la soluzione qui...
 struct destinazione* creaNodo(const char* dest, int costo) {
