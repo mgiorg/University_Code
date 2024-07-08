@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "*.tcc": "c"
+        "*.tcc": "c",
+        "e2a.h": "c",
+        "wait.h": "c",
+        "stdlib.h": "c"
     }
 }

@@ -1,8 +1,4 @@
 #include "../e2A.h"
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
 
 struct destinazione * creaNodo(const char *dest, int costo) {
     struct destinazione *new_node = (struct destinazione *)malloc(sizeof(struct destinazione));

@@ -5,48 +5,49 @@
 #include <stdio.h>
 
 // inserisci la soluzione qui...
+struct destinazione* creaNodo(const char* dest, int costo) {
+    struct destinazione* newNode = (struct destinazione*)malloc(sizeof(struct destinazione));
+    if(newNode != NULL) {
+        strncpy(newNode-> destinazione, dest, sizeof(struct destinazione)-1);
+        newNode-> destinazione[sizeof(struct destinazione)-1] = '\0';
+        newNode->costo = costo;
+        newNode-> next = NULL;
+    }
+    return newNode;
+}
 
+void aggiungiNodo(struct destinazione** list, const char* dest, int costo) {
+    struct destinazione* newNode = creaNodo(dest, costo);
+    if(*list == NULL) {
+        *list = newNode;
+    } else {
+        struct destinazione* temp = *list;
+        while(temp-> next != NULL) {
+            temp = temp-> next;
+        }
+        temp-> next = newNode;
+    }
+}
 
 void destinazioniDisponibili(const char *filename, const char *partenza, int budget, struct destinazione **list) {
-    FILE *file = fopen(filename, "r");
-    if (!file) {
-        perror("Error opening file");
+    //Inizializzo la lista come lista vuota
+    *list = NULL;
+
+    FILE* file = fopen(filename, "r");
+    if(file == NULL) {
+        perror("Errore nell'apertura del file");
         return;
     }
 
     char line[256];
-    *list = NULL;
-    struct destinazione *tail = NULL;
+    while(fgets(line, sizeof(line), file) != NULL) {
+        char part[4], dest[4];
+        int costo;
 
-    while (fgets(line, sizeof(line), file)) {
-        char start[4], end[4];
-        int cost;
-
-        // Parse the line in the format partenza-destinazione-costo
-        if (sscanf(line, "%3[^-]-%3[^-]-%d", start, end, &cost) == 3) {
-            if (strcmp(start, partenza) == 0 && cost <= budget) {
-                struct destinazione *new_dest = (struct destinazione *)malloc(sizeof(struct destinazione));
-                if (!new_dest) {
-                    perror("Error allocating memory");
-                    fclose(file);
-                    return;
-                }
-                strcpy(new_dest->destinazione, end);
-                new_dest->costo = cost;
-                new_dest->next = NULL;
-
-                // Append to the list
-                if (*list == NULL) {
-                    *list = new_dest;
-                    tail = new_dest;
-                } else {
-                    tail->next = new_dest;
-                    tail = new_dest;
-                }
-            }
+        if(sscanf(line, "%3s-%3s-%d", part, dest, &costo)) {
+            if(strcmp(part, partenza) == 0 && costo <= budget) aggiungiNodo(list, dest, costo);
         }
     }
-
     fclose(file);
 }
 
