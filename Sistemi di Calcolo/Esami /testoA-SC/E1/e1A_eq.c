@@ -1,1 +1,0 @@
-// Inserire il C equivalente qui (opzionale: non concorre alla valutazione)

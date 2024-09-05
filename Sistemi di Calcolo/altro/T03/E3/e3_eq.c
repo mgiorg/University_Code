@@ -1,1 +1,0 @@
-// Inserire qui il C equivalente

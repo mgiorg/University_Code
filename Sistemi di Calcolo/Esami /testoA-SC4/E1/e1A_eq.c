@@ -1,3 +1,0 @@
-#include "e1A.h"
-
-// Inserire qui il C equivalente...

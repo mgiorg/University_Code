@@ -1,9 +1,0 @@
----
-triple:          'arm64-apple-darwin'
-binary-path:     '/Users/massimogiordano/Desktop/Programmazione/University_Code/Linguaggio C/Esercitazioni Laboratorio/T01/E2/e2'
-relocations:
-  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _fib, symObjAddr: 0x0, symBinAddr: 0x100003DD4, symSize: 0x70 }
-  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _fib, symObjAddr: 0x0, symBinAddr: 0x100003DD4, symSize: 0x70 }
-  - { offsetInCU: 0x69, offset: 0x69, size: 0x8, addend: 0x0, symName: _fib_iter, symObjAddr: 0x70, symBinAddr: 0x100003E44, symSize: 0x74 }
-  - { offsetInCU: 0xC9, offset: 0xC9, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0xE4, symBinAddr: 0x100003EB8, symSize: 0xB0 }
-...

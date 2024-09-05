@@ -1,3 +1,0 @@
-#include "e2A.h"
-
-// inserire qui la propria soluzione...
