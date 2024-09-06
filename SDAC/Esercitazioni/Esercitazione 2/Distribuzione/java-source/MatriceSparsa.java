@@ -1,27 +1,46 @@
-
+import java.util.*;
 public class MatriceSparsa {
 
     private class Elem{
-
+        int i;
+        int j;
+        int x;
+        Elem next;
     }
-
+    private int m;
+    private int n;
+    Elem head;
 
     public MatriceSparsa(int m, int n) {
-
+        super();
+        this.m = m; //indico quante righe e colonne deve avere
+        this.n = n;
     }
 
     public int getNumRow() {
-        // TODO: Implement here
-        return 0;
+        return this.m;
     }
 
     public int getNumCol() {
-        // TODO: Implement here
-        return 0;
+        return this.n;
+    }
+    
+    public void matRemove(int i, int j) {
+        Elem it = this.head;
+        Elem temp = it;
+
+        while(it != null) {
+            
+        }
     }
 
     public void set(int i, int j, int x) {
-        // TODO: Implement here
+        Elem elem = this.head;
+        while(elem.i != i && elem.j != j) {
+            elem = elem.next;
+        }
+
+        elem.x = x;
     }
 
     public int get(int i, int j) {
