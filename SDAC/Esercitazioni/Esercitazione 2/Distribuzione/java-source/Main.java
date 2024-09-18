@@ -7,43 +7,101 @@ import java.util.StringTokenizer;
 public class Main {
 
     public static void main(String[] args) {
-        MatriceSparsa mat1 = readMatFF();
+        MatriceSparsa mat1 = readMatFF("mat1.dat");
         System.out.println("Original Matrix:");
         System.out.println(mat1);
-        System.out.println("##################################");
-        System.out.println("##################################");
+        System.out.println("################################################################################");
+        System.out.println("TEST MAT_SET");
+        System.out.println("################################################################################\n");
         System.out.println("");
         System.out.println("");
         System.out.println("Added -> 0,0,5");
         mat1.set(0, 0, 5);
         System.out.println(mat1);
         System.out.println("");
+        System.out.println("Added -> 1,1,70");
+        mat1.set(1, 1, 70);
+        System.out.println(mat1);
+        System.out.println("");
+        System.out.println("Added -> 6,7,45");
+        mat1.set(6, 7, 45);
+        System.out.println(mat1);
+        System.out.println("");
+        System.out.println("Added -> 9,9,45");
+        mat1.set(9, 9, 45);
+        System.out.println(mat1);
+        System.out.println("");
+        System.out.println("Added -> 9,9,50");
+        mat1.set(9, 9, 50);
+        System.out.println(mat1);
+        System.out.println("");
         System.out.println("Added -> 10,10,45");
         mat1.set(10, 10, 45);
         System.out.println(mat1);
         System.out.println("");
-        System.out.println("Added -> 10,10,7");
-        mat1.set(10, 10, 7);
+
+        System.out.println("################################################################################");
+        System.out.println("TEST MAT_REMOVE");
+        System.out.println("################################################################################\n");
+        System.out.println("Removed -> 0,0,5\n");
+        mat1.set(0, 0, 0);
+        System.out.println(mat1);
+        System.out.println("\n");
+        System.out.println("Removed -> 1,1,70\n");
+        mat1.set(1, 1, 0);
+        System.out.println(mat1);
+        System.out.println("\n");
+        System.out.println("Removed -> 6,7,45\n");
+        mat1.set(6, 7, 0);
+        System.out.println(mat1);
+        System.out.println("\n");
+        System.out.println("Removed -> 5,5,45\n");
+        mat1.set(5, 5, 0);
+        System.out.println(mat1);
+        System.out.println("\n");
+        System.out.println("Removed -> 10,10,50\n");
+        mat1.set(10, 10, 0);
+        System.out.println(mat1);
+        System.out.println("\n");
+
+        System.out.println("################################################################################");
+        System.out.println("TEST SOMMA");
+        System.out.println("################################################################################\n");
+        System.out.println("Matrix 1:");
         System.out.println(mat1);
         System.out.println("");
-        System.out.println("Added -> 24,29,1");
-        mat1.set(24, 29, 1);
-        System.out.println(mat1);
+        MatriceSparsa mat2 = readMatFF("mat1.dat");
+        System.out.println("Matrix 2:");
+        System.out.println(mat2);
         System.out.println("");
-        System.out.println("Added -> 24,29,5");
-        mat1.set(24, 29, 5);
-        System.out.println(mat1);
+        MatriceSparsa mat3 = MatriceSparsa.add(mat1, mat2);
+        System.out.println("Matrix 1 + Matrix 2:");
+        System.out.println(mat3);
         System.out.println("");
-        System.out.println("Added -> 18,17,12");
-        mat1.set(18, 17, 12);
+
+        System.out.println("################################################################################");
+        System.out.println("TEST TRASPOSTA");
+        System.out.println("################################################################################\n");
         System.out.println(mat1);
+        MatriceSparsa mat4 = MatriceSparsa.tra(mat1);
+        System.out.println("(Matrix 1)^T:");
+        System.out.println(mat4);
         System.out.println("");
+
+        System.out.println("################################################################################");
+        System.out.println("TEST MOLTIPLICAZIONE");
+        System.out.println("################################################################################\n");
+        System.out.println("Matrix 1 + (Matrix 1)^T:");
+        MatriceSparsa mat5 = MatriceSparsa.mul(mat1, mat4);
+        System.out.println(mat5);
+        System.out.println("");
+        System.out.println("Finito");
     }
 
-    private static MatriceSparsa readMatFF() {
+    private static MatriceSparsa readMatFF(String filename) {
         FileReader fr;
         try {
-            fr = new FileReader("mat.dat");
+            fr = new FileReader(filename);
             BufferedReader br = new BufferedReader(fr);
             int m,n;
             String line = br.readLine();

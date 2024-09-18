@@ -20,6 +20,7 @@ public class Driver {
             l.add(5);
             l.add(6);
             l.add(8);
+            l.add(6);
             System.out.println("lista originale");
             System.out.println(l);
             InvertiLista.invertiLista(l);
@@ -29,7 +30,7 @@ public class Driver {
 
         } else if (argv[0].equals("maxGap")) {
 
-            int[] array = {0, 5, 8, 10, 15, 27, 32, 43, 45};
+            int[] array = {0, 5, 8, 10, 15, 27, 32, 43, 45, 47};
 
             System.out.print("[");
             for (int i = 0; i < array.length; i++) {
