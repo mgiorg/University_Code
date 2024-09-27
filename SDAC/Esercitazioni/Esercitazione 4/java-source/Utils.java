@@ -58,6 +58,8 @@ public class Utils {
             return true;
         else if(s.equals("quickSortDefault"))
             return true;
+        else if(s.equals("insertionSortRicorsivo"))
+            return true;
         // Qui possono essere aggiunti altri algoritmi
         else
             System.out.println("\n" + s + " non è stato incluso nei sorgenti; puoi aggiungerlo se vuoi");
@@ -245,6 +247,8 @@ public class Utils {
             bubbleSort(arr);
         else if(s.equals("quickSortDefault"))
             alg.quickSortDefault(arr);
+        else if(s.equals("insertionSortRicorsivo")) 
+            alg.insertionSortRicorsivo(arr);
         // Qui possono essere aggiunti altri algoritmi
     }
 }
