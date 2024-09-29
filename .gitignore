@@ -1,2 +1,4 @@
 # ignore all .o files
 *.o
+*.json
+*.DS_Store
