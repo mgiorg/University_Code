@@ -1,0 +1,12 @@
+1. \project_{bar}(\select_{birra='Peroni'}(Serve));
+2. \project_{bevitore}(\select_{birra='Peroni' OR birra='Amstel'}(Gradisce));
+3. \project_{bevitore}(\select_{birra='Peroni'}(Gradisce))
+					\intersect
+	\project_{bevitore}(\select_{birra='Amstel'}(Gradisce))
+4. ((\project_{bar}(Frequenta) \union \project_{bar}(Serve) \union \project_{nome}(Bar))) \diff \project_{nome}(Bar);
+5. (\project_{nome}(Birra) \union \project_{birra}(Gradisce)) \diff \project_{birra}(Serve);
+6. \project_{nome,nome2}(\select_{nome!=nome2 AND nome<nome2}(Bevitore \join_{indirizzo=indirizzo2} (\rename_{nome2,indirizzo2}(Bevitore))));
+7. \project_{nome}(Bevitore) \cross \project_{nome}(Birra) \diff Gradisce;
+8. \project_{nome}(Bevitore) \diff \project_{nome}(\project_{nome}(Bevitore) \cross \project_{nome}(Birra) \diff Gradisce);
+9. 
+10. 
