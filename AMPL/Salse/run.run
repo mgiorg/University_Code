@@ -1,0 +1,9 @@
+reset;
+
+model mod.mod;
+data dat.dat;
+
+option solver cbc;
+solve;
+
+display Quantita;

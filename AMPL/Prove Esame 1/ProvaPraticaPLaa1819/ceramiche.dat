@@ -1,0 +1,50 @@
+set PROD := vaso ciot piat bicc;
+set REP := R1 R2 R3;
+set MP := MP1 MP2;
+set CITTA := Roma Mila Cagl;
+
+param l: Roma Mila Cagl :=
+vaso 50 50 50
+ciot 50 80 50
+piat 50 50 30
+bicc 60 40 90;
+
+param u: Roma Mila Cagl :=
+vaso 400 300 300
+ciot 200 200 300
+piat 400 300 200
+bicc 400 200 200;
+
+param ConsMinRep: R1 R2 R3 :=
+vaso 2 3 3
+ciot 1 3 1
+piat 2 1 2
+bicc 3 1 2;
+
+param MaxOreRep: R1 R2 R3 :=
+Roma 20 23 22
+Mila 30 25 25
+Cagl 18 20 18;
+
+param ConsMP: MP1 MP2 :=
+vaso 4 4
+ciot 2 2
+piat 2 3
+bicc 2 1;
+
+param DispMP: MP1 MP2 :=
+Roma 1500 1600
+Mila 1500 1700
+Cagl 1700 1600;
+
+param: Prez PercMinProd PercMaxProd :=
+vaso 4 0 0.3
+ciot 2 0 0.2
+piat 3 0.3 1
+bicc 2 0.2 1;
+
+param: PercMinCitta PercMaxCitta :=
+Roma 0 1
+Mila 0 0.35
+Cagl 0.35 1;
+

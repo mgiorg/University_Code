@@ -1,0 +1,25 @@
+set PRODOTTI := P1 P2;
+set MACCHINE := lev pul;
+set IMPIANTI := I1 I2;
+
+param DispOre: I1 I2 :=
+lev 80 60
+pul 60 75;
+
+param ConsOre :=
+[*,*,I1]: lev pul :=
+P1 4 2
+P2 2 5
+[*,*,I2]: lev pul :=
+P1 5 5
+P2 3 6;
+
+param ConsMat := 4;
+
+param: Prezzo :=
+P1 10
+P2 15;
+
+param: DispMat :=
+I1 75
+I2 45;

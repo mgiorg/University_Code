@@ -1,0 +1,11 @@
+reset;
+
+model intro.mod;
+data intro.dat;
+
+option solver cbc;
+
+solve;
+
+display x;
+display output;

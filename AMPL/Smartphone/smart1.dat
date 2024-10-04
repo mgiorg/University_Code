@@ -1,0 +1,37 @@
+set SMART:= eco nor lus;
+set ROBOT:= A B C;
+
+param minPerc:=
+eco 0.4
+nor 0
+lus 0;
+
+param maxPerc:=
+eco 1
+nor 1
+lus 0.2;
+
+param minQ:=
+eco 300
+nor 200
+lus 0;
+
+param maxQ:=
+eco 1000
+nor 800
+lus 700;
+
+param Profitto:=
+eco 500
+nor 750
+lus 1100;
+
+param Consumo:  eco nor lus:=
+A				20  30  62
+B				31  42  51
+C				16  81  10;
+
+param Dispon:=
+A 800
+B 800
+C 500;

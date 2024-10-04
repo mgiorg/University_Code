@@ -1,0 +1,12 @@
+reset;
+
+model olivita2.mod;
+data olivita2.dat;
+
+option solver cbc;
+
+solve;
+
+display x;
+display limite_reparti.slack;
+display (sum{i in OLIVE, j in REP} Acid[i]*Resa[i]*x[i,j]) / (sum{i in OLIVE, j in REP} Resa[i]*x[i,j]);

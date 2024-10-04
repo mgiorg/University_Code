@@ -1,0 +1,18 @@
+reset;
+
+model sal-sa-la-bim_produzione.mod;
+data sal-sa-la-bim_produzione.dat;
+
+option solver cbc;
+
+solve;
+
+display Quantita_p;
+display 
+ profitto,
+ sum{p in PRODOTTI} Prezzo[p]*Quantita_p[p],
+ sum{p in PRODOTTI} Costo[p]*Quantita_p[p];
+display tempi_reparti.body, tempi_reparti.ub;
+display
+ Quantita_p,
+ {p in PRODOTTI} PercMax[p]*sum{k in PRODOTTI} Quantita_p[k];

@@ -1,0 +1,20 @@
+set TIPI := arabica robusta liberica;
+set AREE := sAmerica AfricaC sEAsiatico;
+
+param: Dom :=
+arabica 3500
+robusta 5000
+liberica 5500;
+
+param Costi: arabica robusta liberica :=
+sAmerica 720 290 460
+AfricaC 680 300 450
+sEAsiatico 690 290 420;
+
+param Max: arabica robusta liberica :=
+sAmerica 2000 2500 2600
+AfricaC 1200 2500 2500
+sEAsiatico 1800 2000 2000;
+
+let PercMin['AfricaC'] := 0.37;
+

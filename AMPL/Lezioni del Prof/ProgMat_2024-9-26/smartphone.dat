@@ -1,0 +1,17 @@
+set MODEL := eco nor lus;
+set ROBOT := A B C;
+
+param: Profitto LimiteMin LimiteMax PercMin PercMax :=
+eco  500 300 1000 0.4   1
+nor  750 200  800   0   1
+lus 1100   0  700   0 0.2;
+
+param Consumo: eco nor lus :=
+A 20 30 62
+B 31 42 51
+C 16 81 10;
+
+param: Dispon :=
+A 800
+B 800
+C 500;

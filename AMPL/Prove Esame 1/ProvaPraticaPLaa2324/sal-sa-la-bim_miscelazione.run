@@ -1,0 +1,22 @@
+reset;
+
+model sal-sa-la-bim_miscelazione.mod;
+data sal-sa-la-bim_miscelazione.dat;
+
+option solver cbc;
+
+solve;
+
+display Quantita_i;
+display 
+ profitto,
+ sum{p in PRODOTTI} Prezzo[p]*Quantita_p[p],
+ sum{p in PRODOTTI} Costo_base[p]*Quantita_p[p],
+ sum{p in PRODOTTI, i in INGREDIENTI} Costo_i[i]*Quantita_i[i,p];
+display
+ {p in PRODOTTI} sum{i in INGREDIENTI} Quantita_i[i,p],
+ {p in PRODOTTI} Quantita_p[p];
+display
+ MinQualita,
+ {q in QUALITA, p in PRODOTTI} sum{i in INGREDIENTI} Composizione[q,i]*Quantita_i[i,p]/Quantita_p[p],
+ MaxQualita;

@@ -1,0 +1,27 @@
+reset;
+
+model sal-sa-la-bim_totale.mod;
+data sal-sa-la-bim_totale.dat;
+
+option solver cbc;
+
+solve;
+
+display Quantita_p;
+display Quantita_i;
+display 
+ profitto,
+ sum{p in PRODOTTI} Prezzo[p]*Quantita_p[p],
+ sum{p in PRODOTTI} Costo_base[p]*Quantita_p[p],
+ sum{p in PRODOTTI, i in INGREDIENTI} Costo_i[i]*Quantita_i[i,p];
+display
+ {p in PRODOTTI} sum{i in INGREDIENTI} Quantita_i[i,p],
+ {p in PRODOTTI} Quantita_p[p];
+display
+ MinQualita,
+ {q in QUALITA, p in PRODOTTI} sum{i in INGREDIENTI} Composizione[q,i]*Quantita_i[i,p]/Quantita_p[p],
+ MaxQualita;
+display tempi_reparti.body, tempi_reparti.ub;
+display
+ Quantita_p,
+ {p in PRODOTTI} PercMax[p]*sum{k in PRODOTTI} Quantita_p[k];

@@ -1,0 +1,15 @@
+reset;
+
+model ceramiche2.mod;
+data ceramiche.dat;
+
+option solver cbc;
+
+solve;
+
+display x;
+display {i in PROD, j in CITTA} sum{t in MP} x[i,j,t], l, u;
+display risorsa_reparti.body, risorsa_reparti.ub;
+display risorsa_mp.body, risorsa_mp.ub;
+display {i in PROD} (sum{j in CITTA, t in MP} x[i,j,t])/(sum{ii in PROD, j in CITTA, t in MP} x[ii,j,t]), PercMinProd, PercMaxProd;
+display {j in CITTA} (sum{i in PROD, t in MP} x[i,j,t])/(sum{i in PROD, jj in CITTA, t in MP} x[i,jj,t]), PercMinCitta, PercMaxCitta;

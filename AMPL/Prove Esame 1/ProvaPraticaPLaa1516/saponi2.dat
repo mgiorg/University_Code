@@ -1,0 +1,42 @@
+set SAPONI := neut anti arga sand agru thev;
+set REPARTI := sapo ster misc raff;
+set MATERIE := glic gras;
+
+param: Prezzo QtaMax :=
+neut 5 10000
+anti 15 8000
+arga 9 2000
+sand 8 3000
+agru 7 20000
+thev 8 10000;
+
+param QtaMin := 500;
+
+param: TempoMax :=
+sapo 200
+ster 50
+misc 40
+raff 55;
+
+param Tempo: sapo ster misc raff :=
+neut 30 10 5 10
+anti 40 20 5 15
+arga 40 10 8 15
+sand 30 10 12 15
+agru 30 10 12 10
+thev 30 10 12 15;
+
+param: Dispon :=
+glic 6000
+gras 4500;
+
+param Consumo: glic gras :=
+neut 50 27
+anti 50 40
+arga 55 45
+sand 55 44
+agru 50 32
+thev 51 40;
+
+let PercMin['neut'] := 0.2;
+let PercMax['anti'] := 0.3;

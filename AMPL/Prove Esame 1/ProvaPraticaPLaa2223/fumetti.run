@@ -1,0 +1,31 @@
+reset;
+
+model fumetti.mod;
+data fumetti.dat;
+
+option solver cbc;
+
+solve;
+
+display Quantita;
+display tempo.body, tempo.ub;
+display limiti.lb, limiti.body, limiti.ub;
+display (sum{i in SUPEREROI,j in FORMATI_ECO} Quantita[i,j])/(sum{i in SUPEREROI,j in FORMATI} Quantita[i,j]);
+display (sum{i in SUPEREROI,j in FORMATI_DEL} Quantita[i,j])/(sum{i in SUPEREROI,j in FORMATI} Quantita[i,j]);
+
+
+reset;
+
+model fumetti2.mod;
+data fumetti2.dat;
+
+solve;
+
+display Quantita, Bundle;
+display tempo.body, tempo.ub;
+display limiti.lb, limiti.body, limiti.ub;
+display (sum{i in SUPEREROI,j in FORMATI_ECO} Quantita[i,j] + sum{j in FORMATI_ECO} Bundle[j])/(sum{i in SUPEREROI,j in FORMATI} Quantita[i,j] + sum{j in FORMATI} Bundle[j]);
+display (sum{i in SUPEREROI,j in FORMATI_DEL} Quantita[i,j] + sum{j in FORMATI_DEL} Bundle[j])/(sum{i in SUPEREROI,j in FORMATI} Quantita[i,j] + sum{j in FORMATI} Bundle[j]);
+display {i in SUPEREROI}: (sum{j in FORMATI} Reputazione[j]*(Quantita[i,j]+Bundle[j]/3))/(sum{j in FORMATI} (Quantita[i,j]+Bundle[j]/3));
+
+

@@ -1,0 +1,37 @@
+set PROD:= ket bar chi;
+set REP:= mis cot con;
+
+param Prezzo:= 
+ket 2
+bar 2.2
+chi 3;
+
+param Costo:=
+ket 1
+bar 1.5
+chi 2;
+
+param LimiteMin:=
+ket 2500
+bar 2200
+chi 2000;
+
+param LimiteMax:=
+ket 8000
+bar 5000
+chi 4000;
+
+param PercMin:=
+ket 0.4
+bar 1
+chi 1;
+
+param Consumi: ket bar chi:=
+mis	0.5	0.5	1
+cot 2.2	3.5	2.5
+con 0.5	0.6	0.7;
+
+param Budget:=
+mis 5000
+cot 25000
+con 4500;

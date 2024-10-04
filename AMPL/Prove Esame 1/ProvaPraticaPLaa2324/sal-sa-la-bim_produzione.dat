@@ -1,0 +1,17 @@
+set PRODOTTI := Ketchup Barbecue Chili;
+set REPARTI := Miscelazione Cottura Confezionamento;
+
+param: Prezzo Costo LimMin LimMax PercMax :=
+Ketchup     2     1   2500   8000     0.4
+Barbecue  2.2   1.5   2200   5000       1
+Chili       3     2   2000   4000       1;
+
+param Consumo: Ketchup Barbecue Chili :=
+Miscelazione       0.5      0.5   1.0
+Cottura            2.2      3.5   2.5
+Confezionamento    0.5      0.6   0.7;
+
+param: Budget :=
+Miscelazione    5000
+Cottura        25000
+Confezionamento 4500;

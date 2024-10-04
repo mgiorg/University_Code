@@ -1,0 +1,11 @@
+reset;
+
+model pizza2.mod;
+data pizza2.dat;
+
+option solver cbc;
+
+solve;
+
+display Qta, requisiti.lb, requisiti.body, requisiti.ub;
+

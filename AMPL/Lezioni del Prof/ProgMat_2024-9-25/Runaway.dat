@@ -1,0 +1,12 @@
+set PROD:= Abibas Naic Nero_Giardini;
+set REPARTI:= R1 R2;
+
+param Ricavo:= Abibas 60 Naic 75 Nero_Giardini 85;
+param DomMax:= Abibas 2000 Naic 3000 Nero_Giardini 3000;
+
+param TempoMax:= R1 1000 R2 850;
+
+param Ritmo:  R1  R2:=
+Abibas		  6    7
+Naic		  5    6
+Nero_Giardini 4    5;

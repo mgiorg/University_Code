@@ -1,0 +1,12 @@
+reset;
+
+model allenamento2.mod;
+data allenamento2.dat;
+
+option solver cbc;
+
+solve;
+
+display Tempo;
+display (sum{i in ATTIVITA} Intensita[i]*Tempo[i]) /(sum{i in ATTIVITA} Tempo[i]);
+

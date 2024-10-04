@@ -1,0 +1,16 @@
+set FERT:= Tipo1 Tipo2 Tipo3 Tipo4;
+set REP:= produzione confezionamento;
+
+param Profitto:= 
+Tipo1	250
+Tipo2 	230
+Tipo3 	110
+Tipo4	350;
+
+param Consumo: 		Tipo1 Tipo2 Tipo3 Tipo4:=
+produzione			2	  1.5   0.5   2.5
+confezionamento		0.5   0.25  0.25  1;
+
+param Dispon:=
+produzione 100
+confezionamento 50;

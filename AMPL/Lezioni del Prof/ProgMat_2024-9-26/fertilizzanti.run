@@ -1,0 +1,11 @@
+reset;
+
+model fertilizzanti.mod;
+data fertilizzanti.dat;
+
+option solver cbc;
+
+solve;
+
+display Quantita;
+display profitto_tot;

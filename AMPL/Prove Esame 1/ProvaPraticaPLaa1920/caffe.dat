@@ -1,0 +1,22 @@
+set TIPI := arabica robusta liberica;
+set QUAL_G := dolc acid amar caff;
+
+param Peso := 0.1;
+
+param Cont_G: arabica robusta liberica :=
+dolc 4 1 3
+acid 6 3 4
+amar 2 6 4
+caff 30 50 40;
+
+param: Min_G Max_G :=
+dolc 2.5 10
+acid 4 10
+amar 3 5
+caff 40 45;
+
+param: Perd_Perc_Tos Min_Perc_Tos Max_Perc_Tos Perd_Perc_Mac Min_Perc_Mac Max_Perc_Mac Costo :=
+arabica 0.25 0.10 0.40 0.10 0.20 0.45 0.70
+robusta 0.18 0.15 0.45 0.11 0.20 0.45 0.30
+liberica 0.20 0.05 0.50 0.10 0.20 0.40 0.45;
+

@@ -1,0 +1,30 @@
+set PRODOTTI := Ketchup Barbecue Chili;
+set INGREDIENTI := succo_pom zucchero olio aceto segreto;
+set QUALITA := dolcezza acidita umami;
+
+param: Prezzo Costo_base Quantita_p :=
+Ketchup     2        0.4       3100
+Barbecue  2.2        0.8       2300
+Chili       3        1.2       2400;
+
+param: Costo_i :=
+succo_pom  0.3
+zucchero   0.1
+olio       1.0
+aceto      0.2
+segreto    2.1;
+
+param Composizione: succo_pom zucchero olio aceto segreto :=
+dolcezza                   20      100    5     0      30
+acidita                    30        0   20   100       0
+umami                      10        0   45     0      99;
+
+param MinQualita: Ketchup Barbecue Chili :=
+dolcezza               30       20    15
+acidita                20       15    30
+umami                  20       30    40;
+
+param MaxQualita: Ketchup Barbecue Chili :=
+dolcezza               50       30    35
+acidita                40       25    45
+umami                 100      100   100;

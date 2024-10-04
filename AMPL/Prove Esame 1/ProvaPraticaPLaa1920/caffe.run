@@ -1,0 +1,20 @@
+reset;
+
+model caffe.mod;
+data caffe.dat;
+
+option solver cbc;
+
+solve;
+
+display {i in TIPI} Min_Perc_Tos[i]*sum{ii in TIPI} q[ii], q, {i in TIPI} Max_Perc_Tos[i]*sum{ii in TIPI} q[ii];
+display sum{i in TIPI} q[i];
+
+display {i in TIPI} Min_Perc_Mac[i]*sum{ii in TIPI} (1-Perd_Perc_Tos[ii])*q[ii], {i in TIPI} (1-Perd_Perc_Tos[i])*q[i], {i in TIPI} Max_Perc_Mac[i]*sum{ii in TIPI} (1-Perd_Perc_Tos[ii])*q[ii];
+display sum{i in TIPI} (1-Perd_Perc_Tos[i])*q[i];
+
+display {i in TIPI} (1-Perd_Perc_Mac[i])*(1-Perd_Perc_Tos[i])*q[i];
+display sum{i in TIPI} (1-Perd_Perc_Mac[i])*(1-Perd_Perc_Tos[i])*q[i];
+
+display qualita_gradi.lb, qualita_gradi.body, qualita_gradi.ub;
+

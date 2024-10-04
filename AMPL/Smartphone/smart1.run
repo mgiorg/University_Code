@@ -1,0 +1,12 @@
+reset;
+
+model smart1.mod;
+data smart1.dat;
+
+option solver cbc;
+
+solve;
+
+display Quantita;
+display {i in SMART} 100*Quantita[i]/sum{k in SMART}Quantita[k];
+display tempo.slack, tempo.ub, tempo.body;

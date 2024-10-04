@@ -1,0 +1,15 @@
+reset;
+model industria.mod;
+data industria.dat;
+option solver 'CBC';
+solve;
+display x;
+
+reset;
+model industria.mod;
+data industria.dat;
+solve;
+display x;
+display {k in IMPIANTI} sum{i in PRODOTTI} ConsMat*x[i,k];
+
+

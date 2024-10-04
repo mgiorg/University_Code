@@ -1,0 +1,11 @@
+reset;
+
+model allenamento.mod;
+data allenamento.dat;
+
+option solver cbc;
+
+solve;
+
+display Tempo;
+

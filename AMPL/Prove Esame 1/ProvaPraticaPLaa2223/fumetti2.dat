@@ -1,0 +1,30 @@
+set SUPEREROI := Batman Superman WonderWoman;
+set FORMATI_ECO := Spillato Brossurato;
+set FORMATI_DEL := Cartonato Maxi;
+set REPARTI := Stampa Rilegatura Confezionamento;
+
+param: Ricavo Reputazione MaxBundle RicavoBundle := 
+Spillato 0.10 7 600000 0.09
+Brossurato 0.12 6 0 0
+Cartonato 0.15 5 0 0
+Maxi 0.19 7 0 0;
+
+param ConsTempo: Stampa Rilegatura Confezionamento :=
+Spillato 0.6 0.1 0.2
+Brossurato 0.6 1 0.2
+Cartonato 0.7 1.1 0.3
+Maxi 0.9 1.3 0.9;
+
+param: BudgTempo :=
+Stampa 1500
+Rilegatura 2000
+Confezionamento 1000;
+
+param: MinNum MaxNum MinReputazione :=
+Batman 2000000 3000000 6.7
+Superman 2000000 2500000 6.5
+WonderWoman 1000000 1500000 6;
+
+param MinPercEco := 0.5;
+param MinPercDel := 0.3;
+

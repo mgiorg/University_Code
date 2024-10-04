@@ -1,0 +1,27 @@
+reset;
+
+model saponi.mod;
+data saponi.dat;
+
+option solver cbc;
+
+solve;
+
+display x, x.rc;
+display risorse_reparti;
+display risorse_materie;
+display perc_min, perc_max;
+display sum{i in SAPONI} x[i];
+
+reset;
+
+model saponi2.mod;
+data saponi2.dat;
+
+solve;
+
+display x, bound;
+display risorse_reparti;
+display risorse_materie;
+display perc_min, perc_max;
+display sum{i in SAPONI, k in MATERIE} x[i,k];

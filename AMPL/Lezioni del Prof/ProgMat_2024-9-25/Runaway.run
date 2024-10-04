@@ -1,0 +1,12 @@
+reset;
+
+model Runaway.mod;
+data Runaway.dat;
+
+option solver cbc;
+
+solve;
+
+display Quantita;
+display Profitto;
+display Tempo.body, Tempo.ub, Tempo.slack, Tempo;

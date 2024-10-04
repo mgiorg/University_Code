@@ -1,0 +1,11 @@
+reset;
+
+model Runaway.mod;
+data Runaway.dat;
+
+option solver minos;
+
+solve;
+
+display Quantita;
+display Profitto;

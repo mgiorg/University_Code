@@ -1,0 +1,11 @@
+reset;
+
+model smartphone.mod;
+data smartphone.dat;
+
+option solver cbc;
+
+solve;
+
+display Quantita;
+display {i in MODEL} 100*Quantita[i]/sum{k in MODEL}Quantita[k];

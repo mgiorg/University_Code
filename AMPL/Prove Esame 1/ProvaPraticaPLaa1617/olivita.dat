@@ -1,0 +1,27 @@
+set OLIVE := FR LE MA MO PE TA;
+set REP := A B C;
+
+param: Prezzo QtaMin QtaMax Resa Acid :=
+FR 15 2 10 22 0.9
+LE 12 2 80 19 0.8
+MA 10 2 10 20 1
+MO 16 2 30 20 0.7
+PE 12 2 10 22 1
+TA 30 2 100 26 0.4;
+
+param: OreMax :=
+A 70
+B 55
+C 55;
+
+param Cons: A B C :=
+FR 0.7 0.8 0.8
+LE 1.4 1 0.9
+MA 2 2 1
+MO 0.8 0.9 0.9
+PE 1.5 1.5 2
+TA 1 1 1;
+
+param OlioQta := 1200;
+
+param AcidMax := 0.7;

@@ -1,0 +1,29 @@
+set ATTIVITA := squat braccia sbarra plank HIIT corsa scatti;
+set GESTI := spinta tiro core gambe;
+
+param Contributo_lavoro: squat braccia sbarra plank HIIT corsa scatti :=
+spinta 0    0.6   0.05  0.05  0.4  0     0.1
+tiro   0    0.05  0.7   0     0.4  0     0
+core   0.1  0.05  0.05  0.5   0.1  0.05  0.2
+gambe  0.6  0.05  0     0.05  0.4  0.2   0.5;
+
+param: Minimo_lavoro :=
+spinta 40
+tiro 38
+core 20
+gambe 55;
+
+param Tempo_minimo := 10;
+
+param: Percentuale_tempo_minima Intensita Tempo_massimo :=
+squat 0 14 25
+braccia 0 15 500
+sbarra 0 16 500
+plank 0 12 500
+HIIT 0 26 500
+corsa 0.15 5 500
+scatti 0 16 500;
+
+param Intensita_minima := 15;
+param Intensita_massima := 16;
+
