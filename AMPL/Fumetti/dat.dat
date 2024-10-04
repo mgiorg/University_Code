@@ -1,0 +1,30 @@
+set EROE:= bat sup won;
+set FORMATO:= spi bro car max;
+set REP:= sta ril con;
+set ECO:= spi bro;
+set DEL:= car max;
+
+param Ricavo:=
+spi	0.1
+bro	0.12
+car	0.15
+max	0.19;
+
+param MaxTempo:=
+sta 1500
+ril 2000
+con 1000;
+
+param Consumo: sta ril con:=
+spi	0.6	0.1	0.2
+bro	0.6	1	0.2
+car	0.7	1.1	0.3
+max	0.9	1.3	0.9;
+
+param: MinPagine MaxPagine:=
+bat	2000000 3000000
+sup	2000000 2500000
+won 1000000 1500000;
+
+param PercMinEco:= 0.5;
+param PercMinDeluxe:= 0.3;

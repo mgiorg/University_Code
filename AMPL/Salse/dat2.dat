@@ -1,0 +1,57 @@
+set PROD:= ket bar chi;
+set ING:= suc zuc oli ace ing;
+set QUAL:= dol aci uma;
+set REP:= mis cot con;
+
+param: Prezzo CostoBase:=
+ket	   2	  	0.4	    	
+bar    2.2		0.8		
+chi	   3		1.2;
+
+param CostoIng:=
+suc	0.3
+zuc 0.1
+oli 1
+ace 0.2
+ing 2.1;
+
+param Carat: suc zuc oli ace ing:=
+dol	20	100	5	0	30
+aci	30	0	20	100	0
+uma 10	0	45	0	99;
+
+param MinC: ket bar chi:=
+dol	30	20	15
+aci	20	15	30
+uma	20	30	40;
+
+param MaxC: ket bar chi:=
+dol 50	30	35
+aci	40	25	45
+uma	100	100	100;
+
+
+param LimiteMin:=
+ket 2500
+bar 2200
+chi 2000;
+
+param LimiteMax:=
+ket 8000
+bar 5000
+chi 4000;
+
+param PercMin:=
+ket 0.4
+bar 1
+chi 1;
+
+param Consumi: ket bar chi:=
+mis	0.5	0.5	1
+cot 2.2	3.5	2.5
+con 0.5	0.6	0.7;
+
+param Budget:=
+mis 5000
+cot 25000
+con 4500;
