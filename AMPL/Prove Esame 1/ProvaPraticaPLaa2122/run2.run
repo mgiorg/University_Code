@@ -1,0 +1,9 @@
+reset;
+
+model mod2.mod;
+data dat2.dat;
+
+option solver cbc;
+solve;
+
+display tempo_min;

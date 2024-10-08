@@ -1,0 +1,33 @@
+set ING:= far.00 far.0 int sen tum oli bar tos;
+set NUT:= pro fib sat mon;
+set FAR:= far.00 far.0 int sen tum;
+set OLI:= oli bar tos;
+
+param Costo :=
+far.00	0.5
+far.0 	0.6
+int 0.65
+sen 1
+tum 1.3
+oli 2
+bar 6
+tos 7;
+
+param: minGrammi maxGrammi:=
+pro	2 	Infinity
+fib	2	Infinity
+sat 0	5
+mon	3	Infinity;
+
+param Contenuto: pro fib sat mon:=
+far.00	1	1	0		0
+far.0 	4	2	0		0
+int 5	7	0.01	0.05
+sen 7	7	0.1		0.1
+tum 12	10	0	0.2
+oli 0	0	30	10
+bar 0	0	20	50
+tos 0	0	18	45;
+
+param tegliaFarina:= 150;
+param tegliaOlio:= 15;

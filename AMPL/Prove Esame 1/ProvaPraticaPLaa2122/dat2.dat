@@ -1,0 +1,23 @@
+set ESERCIZI:= squat piega traz plank hiit corsa scatti;
+set GESTI:= spinta tiro core gambe;
+
+param Contributo: squat piega traz plank hiit corsa scatti:=
+spinta	0	0.6		0.05	0.05	0.4	0	 0.1
+tiro	0	0.05	0.7		0		0.4	0	 0
+core	0.1	0.05	0.05	0.5		0.1 0.05 0.2	
+gambe	0.6 0.05 	0 		0.05 	0.4 0.2  0.5;
+
+param MinJoule:=
+spinta 40
+tiro 38
+core 20
+gambe 55;
+
+param: PercEsercizi Intensita MaxTempo:=
+squat 0		14	25
+piega 0		15	Infinity
+traz 0		16	Infinity
+plank 0		12	Infinity
+hiit 0		26	Infinity
+corsa 0.15	5	Infinity
+scatti 0	16	Infinity;
