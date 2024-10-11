@@ -1,0 +1,88 @@
+1. Per ogni automobile e per ogni garage in cui l’automobile è stata custodita
+esattamente una volta, mostrare la targa dell’automobile, il codice del garage e la
+città in cui il garage si trova. L'output deve essere ordinato in ordine crescente sulla
+targa dell'auto.
+
+select c.targaauto as targa, c.codgarage as garage, g.citta as citta
+from custodita as c, garage as g
+where c.numero = 1 and c.codgarage = g.codice
+order by c.targaauto
+
+2. Per ogni città e per ogni automobile con cilindrata maggiore di 100 custodita in
+almeno un garage di quella città per più di 10 volte, mostrare il nome della città e la
+targa dell’automobile, evitando ripetizioni nel risultato.
+
+select distinct a.citta, a.targa from automobile a, custodita c
+where a.cilindrata > 100 and c.numero > 10 and c.targaauto = a.targa
+
+3. Chiamiamo attivi i garage che hanno custodito almeno un’automobile. Per ogni
+garage attivo mostrare il codice del garage ed il numero complessivo di custodie di
+automobili in quel garage.
+
+select c.codgarage codice, sum(c.numero) from custodita c
+where c.numero > 0
+group by c.codgarage
+order by c.codgarage
+
+4. Per ogni garage attivo mostrare il codice del garage, ed il numero complessivo di
+custodie di automobili in quel garage, ma solo se il numero complessivo è maggiore
+di 10 oppure se il suo calcolo fornisce null.
+
+select * from (select codgarage, sum(numero) as somma from custodita
+group by codgarage) as tutto
+where somma > 10 or somma is null
+order by codgarage
+
+5. Per ogni automobile che è stata custodita almeno una volta in almeno un garage “di
+casa” (ossia un garage che si trova nella città di immatricolazione dell’automobile),
+mostrare la targa ed il numero complessivo di volte in cui l’automobile è stata
+custodita nei garage di casa ed il numero di tali garage.
+
+select a.targa, sum(c.numero) as sommacustodita, count(g.citta) as contogarage from automobile a, garage g, custodita c
+where a.citta = g.citta and g.codice = c.codgarage and a.targa = c.targaauto and c.numero is not null
+group by a.targa
+order by a.targa
+
+6. Mostrare il codice dei garage che non hanno mai custodito automobili immatricolate
+a Roma.
+
+select codice from garage
+except
+select codice from garage g, automobile a, custodita c
+where g.codice = c.codgarage and a.targa = c.targaauto and a.citta = 'Roma'
+
+7. Mostrare il codice dei garage che hanno custodito solo automobili immatricolate
+nella stessa città in cui si trova il garage.
+
+select codgarage from custodita
+except
+select codice from garage g, automobile a, custodita c
+where g.codice = c.codgarage and a.targa = c.targaauto and a.citta != g.citta 
+
+8. Mostrare tutte le coppie (A,B) dove A è la targa di un’automobile, B è il nome di una
+città e l’automobile di targa A non è mai stata custodita in un garage che si trova
+nella città di nome B.
+
+select distinct a.targa, g.citta from automobile a, garage g
+except
+select a.targa, g.citta from automobile a, garage g, custodita c
+where a.targa = c.targaauto and g.codice = c.codgarage
+
+9. Per ogni automobile mostrare il numero di città nei garage delle quali è stata
+custodita.
+
+select distinct a.targa, count(distinct g.citta) as numero_citta from automobile a, garage g, custodita c
+where a.targa = c.targaauto and g.codice = c.codgarage
+group by a.targa
+order by a.targa
+
+10. Per ogni automobile mostrare il codice di ogni garage nel quale è stata custodita il
+maggior numero di volte (ovviamente maggiore di 0). Ad esempio, se i garage g1, g2
+e g3 sono quelli in cui è stata custodita l'automobile t, ed in particolare t è stata
+custodita 3 volte nel garage g1, 1 volta nel garage g2 e 3 volte nel garage g3, allora
+nel risultato dovranno comparire le tuple <t,g1> e <t,g3>.
+
+select distinct c.targaauto, m.massimo 
+from (select c.targaauto as targa, max(c.numero) as massimo 
+      from custodita c group by c.targaauto) as m, custodita c
+where c.targaauto = m.targa and c.numero = m.massimo
