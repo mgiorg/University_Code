@@ -1,0 +1,40 @@
+set SAPONI:= neu ant arg san agr the;
+set REPARTI:= sap ste mis raf;
+set MATERIE:= glic gras;
+
+param: prezzo maxQuantita:=
+neu	5	10000
+ant	15	8000
+arg 9 	2000
+san	8	3000
+agr	7 	20000
+the	8	10000;
+
+param maxOre:=
+sap 200
+ste 50
+mis 40
+raf 55;
+
+param dispTempo: sap ste mis raf:=
+neu 30	10	5	10
+ant 40	20	5	15
+arg	40	10	8	15
+san 30	10	12	15
+agr	30	10	12	10
+the	30	10	12	15;
+
+param Dispon:=
+glic 6000
+gras 4500;
+
+param maxGli:= 6000;
+param maxGra:= 4500;
+
+param Consumo: glic gras:=
+neu 50	27
+ant	50	40
+arg	55	45
+san	55	44
+agr	50	32
+the	51	40;

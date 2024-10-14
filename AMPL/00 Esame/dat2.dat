@@ -1,0 +1,42 @@
+set MATERIALI:= cotone lino seta oro lana;
+set CARAT:= trasp morb luss;
+set CAPITALI:= tokio berlino francisco paolo;
+
+param Caratteristiche: cotone lino seta oro lana:=
+trasp	8	8	6	3	8
+morb	8	9	10	6	9
+luss	2	2	4	10	7;
+
+param Costo:=
+cotone	17
+lino	22
+seta	85
+oro		700
+lana	450;
+
+param NumeroCapi:=
+tokio		100
+berlino		50
+francisco	60
+paolo		150;
+
+param PercMat: tokio berlino francisco paolo:=
+cotone	0.75	0.7		0.8		0.99
+lino	0.8		0.7		0.99	0.6
+seta	0.99	0.7		0.7		0.7
+oro		0.95	0.99	0.99	0.9
+lana	0.70	0.99	0.7		0.6;
+
+param ReqMinimi: tokio berlino francisco paolo:=
+trasp	7	6	6	7.5
+morb	8	7	8	9
+luss	6	8	7	4;
+
+param dimT:= 0.9;
+
+param CostoTrasferimento: tokio berlino francisco paolo:=
+tokio		0	35	35	45
+berlino		30	0	30	50
+francisco	35	35	0	40
+paolo		10	10	10	0;
+

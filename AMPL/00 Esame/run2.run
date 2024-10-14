@@ -1,0 +1,11 @@
+reset;
+
+model mod2.mod;
+data dat2.dat;
+
+option solver cbc;
+solve;
+
+display Trasporto;
+display quantitaTshirt.body;
+display reqMinimi.body, reqMinimi.ub, reqMinimi.lb;

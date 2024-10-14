@@ -1,0 +1,12 @@
+reset;
+
+model mod1.mod;
+data dat1.dat;
+
+option solver cbc;
+solve;
+
+display Quantita;
+display reqMinimi;
+display quantitaTshirt.body, quantitaTshirt.ub;
+#display resaMateriali;
