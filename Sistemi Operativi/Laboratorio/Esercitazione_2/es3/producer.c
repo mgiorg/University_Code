@@ -45,11 +45,11 @@ void closeSemaphores() {
 
     /* TODO: implement the operations described above, and handle
      * possible errors using the predefined handle_error() macro */
-    if(sem_filled = SEM_FAILED) 
+    if(sem_filled == SEM_FAILED) 
         handle_error("sem_close filled");
-    if(sem_empty = SEM_FAILED) 
+    if(sem_empty == SEM_FAILED) 
         handle_error("sem_close empty");
-    if(sem_cs = SEM_FAILED) 
+    if(sem_cs == SEM_FAILED) 
         handle_error("sem_close cs");
 }
 
