@@ -114,6 +114,7 @@ int main(int argc, char** argv) {
     for (i=0; i<NUM_PRODUCERS; ++i) {
         int status;
         ret = wait(&status);
+        printf("Status: %d\n", status);
         if (ret == -1) handle_error("wait");
         if (WEXITSTATUS(status)) handle_error_en(WEXITSTATUS(status), "child crashed");
     }
