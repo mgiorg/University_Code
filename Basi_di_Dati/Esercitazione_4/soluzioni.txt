@@ -1,0 +1,49 @@
+Relazioni:
+	Autore (codice, cognome, eta)
+	Libro  (titolo, copieVendute)
+	Scritto(codicea, titolo)
+
+Query:	
+1. Calcolare il codice degli autori che hanno scritto almeno un libro con più di 10 copie vendute.
+
+SELECT DISTINCT codicea FROM scritto s, libro l
+where s.titolo = l.titolo AND l.copieVendute > 10
+ORDER BY codicea
+
+2. Chiamiamo “anomalo” un libro se non ha autori ed ha venduto almeno una copia. Calcolare il titolo dei libri anomali.
+
+SELECT l.titolo FROM libro l
+WHERE l.copievendute > 0 AND l.titolo NOT IN (SELECT s.titolo FROM scritto s)
+
+3. Calcolare il codice ed il cognome degli autori che non hanno scritto alcun libro con più di 10 copie vendute.
+
+SELECT a.codice, a.cognome from autore a
+WHERE a.codice IN (SELECT s.codicea FROM scritto s, libro l
+					WHERE s.titolo = l.titolo AND l.copievendute < 11)
+				OR a.codice not in (SELECT codicea FROM scritto)	
+
+4. Calcolare, per ogni autore con età maggiore di 30 anni, il codice dell’autore ed il numero di copie vendute considerando tutti i suoi libri scritti, ma restringendo l’attenzione solo agli autori che hanno scritto almeno 2 libri.
+
+
+
+5. Calcolare per ogni autore la media delle copie vendute tra i libri scritti da lui, mostrando il codice dell’autore e tale media.
+
+
+
+6. Calcolare, per ogni libro con più di 15 copie vendute, il numero degli autori aventi un’età maggiore di 40 anni, mostrando il titolo del libro e il numero di tali autori.
+
+
+
+7. Calcolare il titolo dei libri che sono stati scritti da uno ed un solo autore.
+
+
+
+8. Mostrare il codice ed il cognome (o i codici e i cognomi, se sono più d’uno) degli autori i quali, complessivamente con i libri da loro scritti, hanno registrato il maggior numero di copie vendute.
+
+
+
+9. Diciamo che un autore è famoso se ha scritto almeno 2 libri con più di 10 copie vendute. Calcolare i libri tutti gli autori dei quali sono famosi.
+
+
+
+10. Diciamo che un autore è solitario se ha scritto solo libri a firma sing
