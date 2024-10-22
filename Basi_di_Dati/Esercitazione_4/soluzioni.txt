@@ -24,26 +24,93 @@ WHERE a.codice IN (SELECT s.codicea FROM scritto s, libro l
 
 4. Calcolare, per ogni autore con età maggiore di 30 anni, il codice dell’autore ed il numero di copie vendute considerando tutti i suoi libri scritti, ma restringendo l’attenzione solo agli autori che hanno scritto almeno 2 libri.
 
-
+SELECT s.codicea, SUM(l.copievendute) as totaleCopieVendute 
+FROM scritto s, libro l
+WHERE s.titolo = l.titolo AND 
+	  s.codicea IN (SELECT codice FROM AUTORE WHERE eta > 30)
+GROUP BY s.codicea
+HAVING count(l.titolo) >= 2
 
 5. Calcolare per ogni autore la media delle copie vendute tra i libri scritti da lui, mostrando il codice dell’autore e tale media.
 
-
+SELECT 
+    a.codice AS codice_autore,
+    AVG(l.copieVendute) AS media_copie_vendute
+FROM 
+    Autore a
+JOIN 
+    Scritto s ON a.codice = s.codicea
+JOIN 
+    Libro l ON s.titolo = l.titolo
+GROUP BY 
+    a.codice;
 
 6. Calcolare, per ogni libro con più di 15 copie vendute, il numero degli autori aventi un’età maggiore di 40 anni, mostrando il titolo del libro e il numero di tali autori.
 
-
+SELECT s.titolo, COUNT(s.codicea) 
+FROM Scritto s
+JOIN Libro l ON l.titolo = s.titolo
+JOIN Autore a ON a.codice = s.codicea
+WHERE l.copievendute > 15 AND a.eta > 40
+GROUP BY s.titolo
 
 7. Calcolare il titolo dei libri che sono stati scritti da uno ed un solo autore.
 
-
+SELECT titolo FROM scritto
+GROUP BY titolo
+HAVING count(codicea) = 1
 
 8. Mostrare il codice ed il cognome (o i codici e i cognomi, se sono più d’uno) degli autori i quali, complessivamente con i libri da loro scritti, hanno registrato il maggior numero di copie vendute.
 
-
+SELECT a.codice, a.cognome
+FROM Autore a
+JOIN Scritto s ON a.codice = s.codicea
+JOIN Libro l ON l.titolo = s.titolo
+GROUP BY a.codice, a.cognome
+HAVING SUM(l.copievendute) = (
+    SELECT MAX(totale_vendite)
+    FROM (
+        SELECT SUM(l2.copievendute) AS totale_vendite
+        FROM Autore a2
+        JOIN Scritto s2 ON a2.codice = s2.codicea
+        JOIN Libro l2 ON l2.titolo = s2.titolo
+        GROUP BY a2.codice
+    ) AS subquery
+)
 
 9. Diciamo che un autore è famoso se ha scritto almeno 2 libri con più di 10 copie vendute. Calcolare i libri tutti gli autori dei quali sono famosi.
 
+WITH AutoriFamosi AS (
+	SELECT s.codicea
+	FROM Scritto s
+	JOIN Libro l ON s.titolo = l.titolo
+	WHERE l.copievendute > 10
+	GROUP BY s.codicea
+	HAVING COUNT(l.titolo) >= 2
+)
+SELECT s.codicea, l.titolo
+FROM Libro l
+JOIN Scritto s ON l.titolo = s.titolo
+WHERE s.codicea IN (SELECT codicea FROM AutoriFamosi)
 
+10. Diciamo che un autore e` solitario se ha scritto solo libri a firma singola. Calcolare il codice ed il cognome di tutti gli autori famosi e non solitari.
 
-10. Diciamo che un autore è solitario se ha scritto solo libri a firma sing
+WITH AutoriFamosi AS (
+    SELECT s.codicea
+    FROM Scritto s
+    JOIN Libro l ON s.titolo = l.titolo
+    WHERE l.copievendute > 10
+    GROUP BY s.codicea
+    HAVING COUNT(l.titolo) >= 2
+),
+AutoriSolitari AS (
+    SELECT s.codicea
+    FROM Scritto s
+    GROUP BY s.codicea
+    HAVING COUNT(DISTINCT s.titolo) = COUNT(DISTINCT CASE WHEN (SELECT COUNT(*) FROM Scritto s2 WHERE s2.titolo = s.titolo) = 1 THEN s.titolo END)
+)
+
+SELECT a.codice, a.cognome
+FROM Autore a
+WHERE a.codice IN (SELECT codicea FROM AutoriFamosi)
+AND a.codice NOT IN (SELECT codicea FROM AutoriSolitari);
