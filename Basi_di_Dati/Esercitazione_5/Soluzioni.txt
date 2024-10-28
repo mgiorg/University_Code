@@ -1,0 +1,85 @@
+Relazioni:
+	giornalista(codice, sesso, cittanascita, orientamento);
+	testata(nome, citta, direttore, orientamento);
+	firma(codice, nome, mese, anno, articoli);
+
+1. Mostrare il codice e la città di nascita dei giornalisti che hanno firmato almeno un articolo in
+una testata di orientamento diverso da quello del giornalista stesso.
+
+SELECT DISTINCT g.codice, g.cittanascita 
+FROM Giornalista g
+JOIN Firma f ON f.codice = g.codice
+JOIN Testata t ON t.nome = f.nome
+WHERE g.orientamento <> t.orientamento
+
+2. Mostrare il codice di ogni giornalista che è direttore e che non ha firmato alcun articolo per
+le riviste delle quali è direttore.
+
+SELECT g.codice
+FROM Giornalista g
+JOIN Testata t ON t.direttore = g.codice
+EXCEPT (SELECT t.direttore FROM Testata t
+		JOIN Firma f ON f.codice = t.direttore
+		WHERE f.nome = t.nome)
+
+3. Per ogni giornalista e per ogni testata per la quale il giornalista ha firmato meno di 10 articoli,
+calcolare il codice del giornalista, il nome della testata ed il numero di articoli firmati da quel
+giornalista per quella testata.
+
+SELECT DISTINCT g.codice, t.nome, SUM(f.articoli) as somma
+FROM Giornalista g, Testata t, Firma f
+WHERE g.codice = f.codice AND
+	  f.nome = t.nome
+GROUP BY g.codice, t.nome
+HAVING SUM(f.articoli) < 10
+
+4. Una testata si dice “monocolore” se ha pubblicato solo articoli firmati da giornalisti il cui
+orientamento politico `e quello della testata stessa. Mostrare il nome delle testate monocolore.
+
+SELECT t.nome FROM Testata t
+JOIN Firma f ON f.nome = t.nome
+JOIN Giornalista g ON g.codice = f.codice
+EXCEPT (SELECT t.nome FROM Testata t
+		JOIN Firma f ON f.nome = t.nome
+		JOIN Giornalista g ON g.codice = f.codice
+		WHERE g.orientamento <> t.orientamento)
+
+5. Diciamo che lo “score” di un giornalista rispetto ad un orientamento politico `e dato dal numero
+di articoli che ha firmato in testate di quell’orientamento politico. Per ogni giornalista mostrare
+il suo codice, il suo orientamento politico e l’orientamento politico (o gli orientamenti politici,
+se ce ne sono pi`u d’uno a pari merito) rispetto al quale (o ai quali) ha il massimo “score”.
+
+WITH ScoreCTE AS (
+    SELECT 
+        g.codice AS codice_giornalista,
+        g.orientamento AS orientamento_giornalista,
+        t.orientamento AS orientamento_testata,
+        SUM(f.articoli) AS score
+    FROM giornalista g
+    JOIN firma f ON g.codice = f.codice
+    JOIN testata t ON f.nome = t.nome
+    GROUP BY g.codice, g.orientamento, t.orientamento
+),
+
+MaxScoreCTE AS (
+    SELECT 
+        codice_giornalista,
+        orientamento_giornalista,
+        orientamento_testata,
+        score,
+        RANK() OVER (PARTITION BY codice_giornalista ORDER BY score DESC) AS rank
+    FROM ScoreCTE
+)
+
+SELECT 
+    codice_giornalista, orientamento_giornalista, orientamento_testata
+FROM MaxScoreCTE
+WHERE rank = 1;
+
+6. Per ogni orientamento politico “p” e per ogni valore “v” di sesso, mostrare quanti articoli
+sono stati scritti da giornalisti di sesso “v” in riviste di orientamento politico “p”.
+
+
+
+
+
