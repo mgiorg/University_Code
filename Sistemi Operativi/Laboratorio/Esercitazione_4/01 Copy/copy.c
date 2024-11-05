@@ -11,7 +11,7 @@
 #define DEFAULT_BLOCK_SIZE  128;
 
 static inline void performCopyBetweenDescriptors(int src_fd, int dest_fd, int block_size) {
-    char* buf = malloc(block_size);
+    char* buf = (char*) malloc(block_size);
 
     while (1) {
         int read_bytes = 0; // index for writing into the buffer
@@ -33,6 +33,22 @@ static inline void performCopyBetweenDescriptors(int src_fd, int dest_fd, int bl
              *
              * In a correct solution you have to deal explicitly with
              * the two cases described above. */
+            int ret = read(src_fd, buf, bytes_left);
+
+            if(ret == 0) // Non ci sono più dati da leggere 
+                break;
+            if(ret == -1) {
+                if(errno == EINTR) //L'operazione è stata interrotta
+                    continue;
+                else {
+                    handle_error("Errore nella lettura dal file!");
+                    free(buf);
+                    exit(EXIT_FAILURE);
+                }
+            }
+
+            read_bytes += ret;
+            bytes_left -= ret;
         }
 
         // no more bytes left to write!
@@ -57,7 +73,20 @@ static inline void performCopyBetweenDescriptors(int src_fd, int dest_fd, int bl
              *
              * In a correct solution you have to deal explicitly with
              * the two cases described above. */
-            
+
+            int ret = write(dest_fd, buf, bytes_left);
+
+            if(ret == -1) {
+                if(errno == EINTR) //L'operazione è stata interrotta e continuiamo il ciclo 
+                    continue;
+                else {
+                    handle_error("Errore nella scrittura nel file!");
+                    free(buf);
+                    exit(EXIT_FAILURE);
+                }
+            } 
+            bytes_left -= ret;
+            written_bytes += ret;
         }
     }
 
@@ -80,7 +109,7 @@ int main(int argc, char* argv[]) {
 
     // create descriptors for source and destination files
     src_fd = open(argv[1], O_RDONLY);
-    if (fd<0) handle_error("Could not open source file");
+    if (src_fd<0) handle_error("Could not open source file");
 
     // for simplicity we use rw-r--r-- permissions for the destination file
     dest_fd = open(argv[2], O_WRONLY | O_CREAT | O_EXCL, 0644);

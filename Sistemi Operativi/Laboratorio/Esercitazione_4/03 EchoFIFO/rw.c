@@ -20,7 +20,7 @@ int readOneByOne(int fd, char* buf, char separator) {
      *   the FIFO unexpectedly: this is an error that should be
      *   dealt with!
      **/
-
+    
 }
 
 void writeMsg(int fd, char* buf, int size) {

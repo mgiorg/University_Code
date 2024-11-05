@@ -9,7 +9,7 @@
 #define WRITE_MUTEX    "/write_mutex"
 #define READ_MUTEX     "/read_mutex"
 #define MSG_COUNT 12
-#define MSG_ELEMS (64 * PIPE_BUF)
+#define MSG_ELEMS 64
 
 int pipefd[2];
 
@@ -25,11 +25,22 @@ int write_to_pipe(int fd, const void *data, size_t data_len) {
      * - assicurarsi che tutti i 'data_len' byte siano stati scritti
      * - restituire il numero di bytes scritti
      **/
-     
-     
-     
-     
+    size_t bytes = data_len;
+    int written = 0;
+    while(bytes > 0) {
+        int ret = write(fd, data, bytes);
 
+        if(ret == -1) {
+            if(errno == EINTR) continue;
+            else {
+                handle_error("Errore lettura file");
+                exit(EXIT_FAILURE);
+            }
+        }
+        bytes -= ret;
+        written += ret;
+    }
+    return written;
 }
 
 int read_from_pipe(int fd, void *data, size_t data_len) {
@@ -46,11 +57,25 @@ int read_from_pipe(int fd, void *data, size_t data_len) {
      * - assicurarsi che tutti i 'data_len' bytes siano stati letti
      * - restituire il numero di bytes letti
      **/
-     
-     
-     
-     
-
+    size_t bytes = data_len;
+    int bytes_read = 0;
+    while(bytes > 0) {
+        int ret = read(fd, (void*)data, bytes);
+        
+        if(ret == 0) break;
+        if(ret == -1) {
+            if(errno == EINTR) {
+                continue;
+            }
+            else {
+                handle_error("Errore lettura file");
+                exit(EXIT_FAILURE);
+            }
+        }
+        bytes -= ret;
+        bytes_read += ret;
+    }
+    return bytes_read;
 }
 
 /**
@@ -92,10 +117,7 @@ void reader(int reader_id, sem_t* read_mutex) {
      * - chiudere i descrittori della pipe non necessari
      * - gestire eventuali errori
      **/
-     
-     
-     
-     
+    if(close(pipefd[1]) == -1) handle_error("Errore chiusura canale di scrittura pipe");
     
     for (i = 0; i < MSG_COUNT/READERS_COUNT; i++) {
 
@@ -122,14 +144,8 @@ void reader(int reader_id, sem_t* read_mutex) {
      * - chiudere i descrittori della pipe rimanenti
      * - gestire eventuali errori
      **/
-     
-     
-     
-     
-     
     ret = close(pipefd[0]);
     if(ret) handle_error("error closing pipe");
-
 }
 
 void writer(int writer_id, sem_t* write_mutex) {
@@ -144,9 +160,7 @@ void writer(int writer_id, sem_t* write_mutex) {
      * - chiudere i descrittori della pipe non necessari
      * - gestire eventuali errori
      **/
-     
-     
-     
+	if(close(pipefd[0]) == -1) handle_error("Errore chiusura pipe");     
      
     for (i = 0 ; i < MSG_COUNT/WRITERS_COUNT; i++) {
         create_msg(data, MSG_ELEMS, i);
@@ -171,11 +185,8 @@ void writer(int writer_id, sem_t* write_mutex) {
      * - chiudere i descrittori rimanenti
      * - gestire eventuali errori
      **/
-     
-     
-     
-     
-
+	ret = close(pipefd[1]);
+	if(ret) handle_error("error closing pipe");
 }
 
 int main(int argc, char* argv[]) {
@@ -197,10 +208,11 @@ int main(int argc, char* argv[]) {
      * - creare una pipe nella variabile globale 'pipefd'
      * - gestire eventuali errori
      **/
-     
-     
-     
-     
+    if(pipe(pipefd) == -1) {
+        handle_error("Error creating pipe");
+        exit(EXIT_FAILURE);
+    }
+
     for (i = 0; i < READERS_COUNT; i++) {
         pid = fork();
         if (pid == -1) handle_error("Error creating reader");
