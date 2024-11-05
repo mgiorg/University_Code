@@ -62,3 +62,9 @@ SELECT
 FROM MaxScoreCTE
 WHERE rank = 1;
 
+----------QUERY 6
+Select g.sesso as sesso, g.orientamento as orientamento, sum(f.articoli) as somma_articoli
+From Giornalista g
+Join Firma f on f.codice = g.codice
+Group by g.sesso, g.orientamento;
+
