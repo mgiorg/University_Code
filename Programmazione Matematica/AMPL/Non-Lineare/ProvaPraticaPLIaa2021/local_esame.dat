@@ -1,0 +1,27 @@
+set CENTRI := Lat Vel Anz Apr;
+
+param: f :=
+Lat 2
+Vel 4
+Anz 3
+Apr 4;
+
+param costi_trasporto: Lat Vel Anz Apr :=
+Lat 1 10 10 10
+Vel 10 1 12 7
+Anz 10 12 1 7
+Apr 10 7 7 1;
+
+param: domanda :=
+Lat 1000
+Vel 800
+Anz 800
+Apr 700;
+
+param: capacita :=
+Lat 1400
+Vel 1300
+Anz 1000
+Apr 900;
+
+

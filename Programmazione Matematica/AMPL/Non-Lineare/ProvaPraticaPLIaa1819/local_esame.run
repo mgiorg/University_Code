@@ -1,0 +1,10 @@
+reset;
+
+model local_esame.mod;
+data local_esame.dat;
+
+option solver cbc;
+
+solve;
+
+display x, y;

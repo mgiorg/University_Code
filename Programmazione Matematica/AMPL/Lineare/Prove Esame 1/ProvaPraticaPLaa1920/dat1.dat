@@ -1,0 +1,21 @@
+# Dati per la Parte 1
+
+set ORIGINI := America Africa Asiatico;
+set TIPI := arabica robusta liberica;
+
+param costo :=
+    [America, *]   arabica 720 robusta 290 liberica 460
+    [Africa, *]    arabica 680 robusta 300 liberica 450
+    [Asiatico, *]  arabica 690 robusta 290 liberica 420;
+
+param domanda :=
+    arabica 3500
+    robusta 5000
+    liberica 5500;
+
+param max_quantita :=
+    [America, *]   arabica 2000 robusta 2500 liberica 2600
+    [Africa, *]    arabica 1200 robusta 2500 liberica 2500
+    [Asiatico, *]  arabica 1800 robusta 2000 liberica 2000;
+
+param perc_africa := 0.37;

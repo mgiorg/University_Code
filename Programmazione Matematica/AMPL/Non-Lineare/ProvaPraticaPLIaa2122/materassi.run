@@ -1,0 +1,14 @@
+reset;
+
+model materassi.mod;
+data materassi.dat;
+
+option solver cbc;
+
+solve;
+
+display Quantita;
+display y;
+display z;
+display {i in MODELLI, j in MATERIALI, k in SPESSORI} PrezzoModelli[i]*RincaroMateriali[j]*RincaroSpessori[k];
+

@@ -1,0 +1,11 @@
+set FONTI := idro, sola, eoli, petr, carb, gas;
+
+param Domanda := 20000000;
+
+param: Costo QtaMax CostoFisso :=
+idro 2 8000000 400
+sola 4 3500000 200
+eoli 3.5 3500000 600
+petr 0.6 15000000 .
+carb 0.5 15000000 .
+gas 1.5 8000000 250;

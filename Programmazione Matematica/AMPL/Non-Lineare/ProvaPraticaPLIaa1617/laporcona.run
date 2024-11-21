@@ -1,0 +1,15 @@
+reset;
+
+model laporcona.mod;
+data laporcona.dat;
+
+option solver cbc;
+
+solve;
+
+display q, y, z1, z2;
+display {j in QUAL} sum{i in INGR} Compos[i,j]*q[i]/1000;
+display sum{i in P_MAGRE} q[i];
+display sum{i in P_GRASSE} q[i];
+display sum{i in P_SAPORI} q[i];
+

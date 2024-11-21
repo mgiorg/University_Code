@@ -1,0 +1,9 @@
+set LAVORI := LAV1 LAV2 LAV3;
+set CANDIDATI := C1 C2 C3 C4 C5;
+
+param Costo: LAV1 LAV2 LAV3 :=
+    C1     5     4     7
+    C2     7     6     6
+    C3     6     7     3
+    C4     5     5     5
+    C5     8    11     2;

@@ -1,0 +1,23 @@
+set ACQUE := acquaN acquaF;
+set BIBITE := cola gassosa chinotto cedrata;
+set SNACK := arachidi anacardi pistacchi chips biscotti;
+
+param: prezzo u costoFisso :=
+acquaN 0.5 30 4
+acquaF 0.5 30 3
+cola 1.1 25 5
+gassosa 1.1 35 5
+chinotto 1.2 20 5
+cedrata 1.4 20 6
+arachidi 2.3 30 3
+anacardi 2.4 25 4 
+pistacchi 2.9 20 10
+chips 3.7 10 10
+biscotti 2.6 20 8;
+
+param capacita := 180;
+param minBevande := 110;
+param minSnack := 50;
+param minPercAcqueVsBibite := 0.6;
+param maxTipiSnack := 3;
+

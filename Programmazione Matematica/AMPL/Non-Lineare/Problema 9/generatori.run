@@ -1,0 +1,12 @@
+reset;
+
+model generatori.mod;
+data generatori.dat;
+
+option solver cbc;
+
+solve;
+
+display Quantita, y;
+display sum{i in GENERATORI,j in PERIODI} CostoPerMW[i]*Quantita[i,j];
+display sum{i in GENERATORI,j in PERIODI} CostoAttiv[i,j]*y[i,j];

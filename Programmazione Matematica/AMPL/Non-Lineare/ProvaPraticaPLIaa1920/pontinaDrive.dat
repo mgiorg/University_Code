@@ -1,0 +1,27 @@
+set TIPI := util SUV comp;
+set CITTA := Pom Apr Lat;
+
+param budget := 2000;
+
+param: costo :=
+util 9
+SUV 15
+comp 10;
+
+param rendita: Pom Apr Lat :=
+util 20 20 22
+SUV 37 38 41
+comp 18 20 23;
+
+param scontoPubb := 4;
+param fattorePubb := 0.1;
+
+param: maxPercPubb minimo :=
+Pom 0.3 40
+Apr 0 40
+Lat 0.3 55;
+
+param minimoAlt1 := 15;
+param massimoAlt3 := 20;
+param M := 1000;
+

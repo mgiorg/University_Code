@@ -1,0 +1,33 @@
+set Prodotti := vaso ciotola piatto bicchiere;
+set Stabilimenti := Roma Milano Cagliari;
+
+param Prezzo := vaso 4 ciotola 2 piatto 3 bicchiere 2;
+
+param ConsumoRep: 1 2 3 :=
+    vaso      2 3 3
+    ciotola   1 3 1
+    piatto    2 1 2
+    bicchiere 3 1 2;
+
+param DisponibilitaRep: 1 2 3 :=
+    Roma      20 23 22
+    Milano    30 25 25
+    Cagliari  18 20 18;
+
+param ConsumoMP := 
+    vaso      8
+    ciotola   4
+    piatto    4
+    bicchiere 4;
+
+param DisponibilitaMP := 4800;
+
+param BoundMin: vaso ciotola piatto bicchiere :=
+    Roma      50   50   50   60
+    Milano    50   80   50   40
+    Cagliari  50   50   30   90;
+
+param BoundMax: vaso ciotola piatto bicchiere :=
+    Roma      400  200  400  400
+    Milano    300  200  300  200
+    Cagliari  300  300  200  200;

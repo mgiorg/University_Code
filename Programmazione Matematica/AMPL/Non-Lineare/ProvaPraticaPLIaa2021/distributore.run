@@ -1,0 +1,12 @@
+reset;
+
+model distributore.mod;
+data distributore.dat;
+
+option solver cbc;
+
+solve;
+
+display qta, u, y;
+display sum{i in PRODOTTI} qta[i], sum{i in BEVANDE} qta[i], sum{i in SNACK} qta[i];
+display sum{i in ACQUE} qta[i], sum{i in BIBITE} qta[i];

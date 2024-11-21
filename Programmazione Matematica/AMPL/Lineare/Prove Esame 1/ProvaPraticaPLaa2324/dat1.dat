@@ -1,0 +1,15 @@
+set PROD := Ketchup Barbecue Chili;
+set REPARTI := Miscelazione Cottura Confezionamento;
+
+param Prezzo := Ketchup 2.00 Barbecue 2.20 Chili 3.00;
+param Costo := Ketchup 1.00 Barbecue 1.50 Chili 2.00;
+param LimiteMin := Ketchup 2500 Barbecue 2200 Chili 2000;
+param LimiteMax := Ketchup 8000 Barbecue 5000 Chili 4000;
+
+param Consumi:
+            Miscelazione  Cottura  Confezionamento :=
+    Ketchup  0.5          2.2      0.5
+    Barbecue 0.5          3.5      0.6
+    Chili    1.0          2.5      0.7;
+
+param TempoMax := Miscelazione 5000 Cottura 25000 Confezionamento 4500;

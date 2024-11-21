@@ -1,0 +1,12 @@
+reset;
+
+model mod2.mod;
+data dat2.dat;
+
+option solver cbc;
+
+solve;
+
+display x, x.rc;
+display sum{i in CULTIVAR} Resa[i] * x[i];  # Produzione totale
+display sum{i in CULTIVAR} Acidita[i] * Resa[i] * x[i] / ProduzioneMin;  # Acidità media

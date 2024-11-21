@@ -1,0 +1,26 @@
+set CULTIVAR := Frantoio Leccino Maurino Moraiolo Pendolino Taggiasca;
+set REPARTI := A B C;
+
+param: Prezzo QtaMin QtaMax Resa Acidita :=
+    Frantoio 15 2 10 22 0.9
+    Leccino 12 2 80 19 0.8
+    Maurino 10 2 10 20 1
+    Moraiolo 16 2 30 20 0.7
+    Pendolino 12 2 10 22 1
+    Taggiasca 30 2 100 26 0.4;
+
+param ProduzioneMin := 1200;
+param AciditaMax := 0.7;
+
+param: OreMax :=
+    A 70
+    B 55
+    C 55;
+
+param Tempo: A B C :=
+    Frantoio 2.1 2.3 2.3
+    Leccino 4.5 3.5 3.5
+    Maurino 5.5 5.5 3
+    Moraiolo 3.4 3.5 3.5
+    Pendolino 4 4 5
+    Taggiasca 3 3 2;

@@ -1,0 +1,10 @@
+reset;
+
+model energia.mod;
+data energia.dat;
+
+option solver cbc;
+
+solve;
+
+display x, y, z_green1, z_green2;

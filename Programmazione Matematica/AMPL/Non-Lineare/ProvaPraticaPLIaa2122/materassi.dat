@@ -1,0 +1,25 @@
+set MODELLI := essential nature comfort;
+set MATERIALI := micromolle lattice memory;
+set SPESSORI := 25cm 35cm 40cm;
+
+param: PrezzoModelli CostoFisso :=
+essential 600 50000
+nature 750 100000
+comfort 800 200000;
+
+param: RincaroMateriali :=
+micromolle 1.3
+lattice 1
+memory 1.6;
+
+param: RincaroSpessori :=
+25cm 1
+35cm 1.3
+40cm 1.8;
+
+param NumMaterassi := 1500;
+param NumMinimo := 100;
+param NumMinTipiModello := 2;
+param NumMinTipiMateriale := 4;
+param NumMinTipiSpessore := 3;
+

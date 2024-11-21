@@ -1,0 +1,24 @@
+set GENERATORI := A B C;
+
+param CostoAttivazioneGiorno :=
+    A 750
+    B 600
+    C 800;
+
+param CostoAttivazioneNotte :=
+    A 1000
+    B 900
+    C 1100;
+
+param CostoPerMW :=
+    A 3
+    B 5
+    C 6;
+
+param CapacitaMax :=
+    A 2000
+    B 1700
+    C 2500;
+
+param RichiestaGiorno := 4000;
+param RichiestaNotte := 2800;

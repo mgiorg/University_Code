@@ -1,0 +1,11 @@
+# Run file per la Parte 1
+reset;
+
+model mod1.mod;
+data dat1.dat;
+
+option solver cbc;
+solve;
+
+display acquisto;
+display CostoTotale;

@@ -1,0 +1,8 @@
+# Esecuzione Parte 2
+model "mod2.mod";
+data "dat2.dat";
+
+solve;
+
+display Produzione;
+display RicavoTotale;

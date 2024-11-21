@@ -1,0 +1,35 @@
+set P_MAGRE := col spa sti;
+set P_GRASSE := pan lar cos;
+set P_SAPORI := cot pro feg;
+set QUAL := pro gin gsa sal;
+
+param: Costo :=
+col 4
+spa 3.5
+sti 5.5
+pan 1
+lar 0.4
+cos 4
+cot 1.5
+pro 7
+feg 5;
+
+param Compos: pro gin gsa sal :=
+col 400 300 50 3
+spa 350 340 60 4
+sti 450 440 30 3
+pan 150 450 260 8
+lar 50 550 400 9
+cos 200 400 200 9
+cot 100 650 260 13
+pro 350 250 360 28
+feg 650 350 40 5;
+
+param Peso := 100;
+
+param: Lb Ub :=
+pro 35 60
+gin 40 50
+gsa 0 19
+sal 0 0.6;
+

@@ -1,0 +1,10 @@
+reset;
+
+model productmix_test.mod;
+data productmix_test.dat;
+
+option solver cbc;
+
+solve;
+
+display q, y, z1, z2;

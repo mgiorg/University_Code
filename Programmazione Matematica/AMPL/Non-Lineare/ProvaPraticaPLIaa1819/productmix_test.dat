@@ -1,0 +1,26 @@
+set BASIC := P1 P2 P3;
+set PREMIUM := P4 P5;
+set MACH := A B C;
+
+param Cons: P1 P2 P3 P4 P5 :=
+A 100 150 120 300 280
+B 180 160 110 300 290
+C 130 150 120 290 430;
+
+param: MaxCons :=
+A 3500
+B 4200
+C 4300;
+
+param MinBasic := 10000;
+param MinPremium := 3000;
+
+param: u p F :=
+P1 6000 3 130
+P2 6000 16 500
+P3 6000 10 450
+P4 4000 60 1000
+P5 4000 65 1400;
+
+param M := 100000;
+

@@ -1,0 +1,16 @@
+reset;
+
+model pontinaDrive.mod;
+data pontinaDrive.dat;
+
+option solver cbc;
+
+solve;
+
+display auto, autoPubb;
+display {j in CITTA} sum{i in TIPI} auto[i,j],
+        {j in CITTA} sum{i in TIPI} autoPubb[i,j],
+        {j in CITTA} sum{i in TIPI} (auto[i,j]+autoPubb[i,j]);
+display {j in CITTA, i in TIPI} (auto[i,j]+autoPubb[i,j]);
+display z1, z2, z3;
+display acquisto.body, acquisto.ub;

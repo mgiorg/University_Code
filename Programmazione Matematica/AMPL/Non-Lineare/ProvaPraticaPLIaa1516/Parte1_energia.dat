@@ -1,0 +1,16 @@
+
+set FONTI := idroelettrico solare eolico petrolio carbone gas;
+
+param Domanda := 20000000;
+
+param: Costo QtaMax CostoFisso :=
+idroelettrico 2 8000000 400
+solare 4 3500000 200
+eolico 3.5 3500000 600
+petrolio 0.6 15000000 0
+carbone 0.5 15000000 0
+gas 1.5 8000000 250;
+
+param MaxPetrolioCarbone := 0.5;
+param MinSolareEolico := 0.2;
+param RapportoPetrolioCarbone := 0.4;

@@ -1,0 +1,12 @@
+reset;
+
+model progetti.mod;
+data progetti.dat;
+
+option solver cbc;
+
+solve;
+
+display x;
+display FlussoCassaAtt;
+display {i in PROGETTI} sum{j in PERIODI} FlussoCassaAtt[i,j];

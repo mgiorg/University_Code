@@ -1,0 +1,10 @@
+reset;
+
+model lavori.mod;
+data lavori.dat;
+
+option solver cbc;
+
+solve;
+
+display x, costo_tot;

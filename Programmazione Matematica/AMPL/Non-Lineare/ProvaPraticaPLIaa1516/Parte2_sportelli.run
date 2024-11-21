@@ -1,0 +1,11 @@
+
+reset;
+
+model Parte2_sportelli.mod;
+data Parte2_sportelli.dat;
+
+option solver cbc;
+
+solve;
+
+display Sportelli, Collegamento, DistanzaMassima;

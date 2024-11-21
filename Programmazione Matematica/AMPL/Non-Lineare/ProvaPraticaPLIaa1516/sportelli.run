@@ -1,0 +1,10 @@
+reset;
+
+model sportelli.mod;
+data sportelli.dat;
+
+option solver cbc;
+
+solve;
+
+display x, y, z;

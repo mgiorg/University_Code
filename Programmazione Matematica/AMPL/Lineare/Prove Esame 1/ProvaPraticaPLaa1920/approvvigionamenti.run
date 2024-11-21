@@ -1,0 +1,12 @@
+reset;
+
+model mod1.mod;
+data dat1.dat;
+
+option solver cbc;
+
+solve;
+
+display q;
+display {j in AREE} sum{i in TIPI} q[j,i], {j in AREE} PercMin[j]*sum{jj in AREE, i in TIPI} q[jj,i];
+display {i in TIPI} sum{j in AREE} q[j,i], Dom;
