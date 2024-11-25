@@ -1,0 +1,21 @@
+set PROGETTI := Prog1 Prog2 Prog3 Prog4 Prog5 Prog6 Prog7;
+set PERIODI := Peri1 Peri2 Peri3 Peri4 Peri5 Peri6;
+
+param FlussoCassa: Peri1 Peri2 Peri3 Peri4 Peri5 Peri6 :=
+Prog1 -2 -1 0 2 3 1
+Prog2 -3 -3 -1 4 3 4
+Prog3 -1 -3 1 -2 3 4
+Prog4 0 -4 0 5 1 0
+Prog5 -4 1 3 2 1 1
+Prog6 -4 -1 4 0 1 1
+Prog7 -2 -1 4 -2 2 2;
+
+param: Budget :=
+Peri1 8
+Peri2 6
+Peri3 3
+Peri4 1
+Peri5 0
+Peri6 0;
+
+param TassoInteresse := 0.03;

@@ -1,0 +1,21 @@
+set PROGETTI := Difese Economico Magico Agricola Tecnologico Diplomazia Ambientale;
+set PERIODI := Peri0 Peri1 Peri2 Peri3 Peri4 Peri5;
+
+param FlussoCassa: Peri0 Peri1 Peri2 Peri3 Peri4 Peri5 :=
+Difese -100 -50 -50 100 100 100
+Economico -300 80 80 80 80 80
+Magico -100 -60 -60 -60 200 200
+Agricola -250 70 70 70 70 100
+Tecnologico -150 -40 -40 -40 210 210
+Diplomazia -200 60 60 60 60 60
+Ambientale -300 80 80 80 80 80;
+
+param: Budget :=
+Peri0 800
+Peri1 10000
+Peri2 10000
+Peri3 10000
+Peri4 10000
+Peri5 10000;
+
+param TassoInteresse := 0.05;

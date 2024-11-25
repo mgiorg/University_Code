@@ -1,0 +1,10 @@
+
+# File: ProduzioneMaterassi.run
+
+reset;
+model ProduzioneMaterassi.mod;
+data ProduzioneMaterassi.dat;
+
+option solver cbc;
+solve;
+

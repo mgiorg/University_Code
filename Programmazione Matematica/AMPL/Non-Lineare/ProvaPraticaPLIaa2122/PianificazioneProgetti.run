@@ -1,0 +1,12 @@
+
+# File: PianificazioneProgetti.run
+
+reset;
+model PianificazioneProgetti.mod;
+data PianificazioneProgetti.dat;
+
+option solver cbc;
+solve;
+
+display Attiva;
+display NPV;

@@ -1,0 +1,9 @@
+set CENTRI = s1 s2 s3;
+set CLIENTI = q1 q2 q3 q4;
+
+param costi_trasporto: q1 q2 q3 q4 :=
+s1 7 8 7 8
+s2 10 10 1 1
+s3 9 5 4 1;
+
+param p := 2;

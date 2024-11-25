@@ -1,0 +1,11 @@
+reset;
+
+model local_cap.mod;
+data local.dat;
+data local_cap.dat;
+
+option solver cbc;
+
+solve;
+
+display x, y;

@@ -1,0 +1,12 @@
+
+# File run per eseguire il modello
+reset;
+
+model d.mod;
+data d.dat;
+
+option solver cbc;
+
+solve;
+
+display x, y;

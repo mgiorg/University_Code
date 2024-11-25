@@ -1,0 +1,16 @@
+reset;
+
+model eldoria.mod;
+data eldoria.dat;
+
+option solver cbc;
+
+solve;
+
+display x, potenziamento_lieve, potenziamento_medio, potenziamento_forte;
+display Costo_totale;
+display {i in PERSONAGGI} sum{j in CARATTERISTICHE} (potenziamento_lieve[i,j] +
+                            potenziamento_medio[i,j] +
+                            potenziamento_forte[i,j]), Potenziamenti_Max;
+display controllo_qualita.body, controllo_qualita.lb;
+display controllo_difetti.body, controllo_difetti.ub;

@@ -1,0 +1,10 @@
+reset;
+
+model l.mod;
+data l.dat;
+
+option solver cbc;
+solve;
+
+display x, y;
+

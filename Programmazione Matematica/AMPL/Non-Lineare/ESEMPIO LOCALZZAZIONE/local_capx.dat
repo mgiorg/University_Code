@@ -1,0 +1,11 @@
+set SITI := S1 S2 S3;
+set QUARTIERI := Q1 Q2 Q3 Q4;
+
+param c: Q1 Q2 Q3 Q4 :=
+S1  7  8  7  8
+S2 10 10  1  1
+S3  9  5  4  1;
+
+param d := Q1 5 Q2 10 Q3 8 Q4 12;
+param K := S1 15 S2 20 S3 10;
+param costi_fissi := S1 30 S2 20 S3 25;

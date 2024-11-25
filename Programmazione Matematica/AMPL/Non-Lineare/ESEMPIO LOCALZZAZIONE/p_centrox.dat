@@ -1,0 +1,10 @@
+
+set SITI := S1 S2 S3;  # Tre siti candidati
+set QUARTIERI := Q1 Q2 Q3 Q4;  # Quattro quartieri da servire
+
+param p := 2;  # Due centri da attivare
+
+param c: Q1 Q2 Q3 Q4 :=
+S1  7  8  7  8
+S2 10 10  1  1
+S3  9  5  4  1;

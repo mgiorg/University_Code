@@ -1,0 +1,12 @@
+
+reset;
+model p_centrox.mod;
+data p_centrox.dat;
+
+option solver cbc;  # Cambiare solver se necessario
+solve;
+
+# Visualizzare risultati
+display x;
+display y;
+display z;

@@ -1,0 +1,13 @@
+# File: Parte1_Trasporto.run
+
+reset;
+
+model Parte1_Trasporto.mod;
+data Parte1_Trasporto.dat;
+
+option solver cbc;
+
+solve;
+
+display Num, y_emiss, y_velocita, y_suppl;
+display costo_tot;

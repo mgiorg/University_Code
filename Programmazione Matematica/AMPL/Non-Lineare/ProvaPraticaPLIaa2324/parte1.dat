@@ -1,0 +1,34 @@
+
+set PERSONAGGI := Thrain Gimble Dolgrin Lirel Eldara Silvian Aldric Lyra Morgana Varian;
+set CARATTERISTICHE := forza resistenza magia astuzia codardia corruzione;
+set POTENZIAMENTI := lieve medio forte;
+
+param costo :=
+Thrain 140 Gimble 130 Dolgrin 150 Lirel 220 Eldara 200 Silvian 200 Aldric 300 Lyra 350 Morgana 500 Varian 460;
+
+param caratteristica:
+               forza resistenza magia astuzia codardia corruzione :=
+Thrain          4     6       0     0        6         7
+Gimble          3     5       0     0        7         6
+Dolgrin         2     5       0     1        8         6
+Lirel           3     4       1     7        3         3
+Eldara          2     4       1     6        3         3
+Silvian         4     4       0     5        4         3
+Aldric          7     4       0     4        5         7
+Lyra            6     3       0     3        4         9
+Morgana         1     2       6     4        7         7
+Varian          0     2       8     2        9         9;
+
+param limite_pot :=
+Thrain 1 Gimble 1 Dolgrin 2 Lirel 3 Eldara 3 Silvian 3 Aldric 3 Lyra 3 Morgana 4 Varian 3;
+
+param costo_pot := lieve 25 medio 95 forte 160;
+
+param effetto_pot:
+               forza resistenza magia astuzia codardia corruzione :=
+lieve           1     1       1     1       -1       -1
+medio           2     2       2     2       -2       -2
+forte           3     3       3     3       -3       -3;
+
+param richiesto := forza 37 resistenza 45 magia 10 astuzia 30;
+param max_ammissibile := codardia 30 corruzione 33;

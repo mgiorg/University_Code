@@ -1,0 +1,10 @@
+reset;
+
+model p_centro.mod;
+data p_centro.dat;
+
+option solver cbc;
+
+solve;
+
+display x, y, z;

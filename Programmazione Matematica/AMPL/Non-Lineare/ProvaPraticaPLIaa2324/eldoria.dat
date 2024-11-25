@@ -1,0 +1,47 @@
+set NANI := Thrain Gimble Dolgrin;
+set ELFI := Lirel Eldara Silvian;
+set GUERRIERI := Aldric Lyra;
+set MAGHI := Morgana Varian;
+set QUALITA := forza resistenza magia astuzia;
+set DIFETTI := codardia corruzione;
+
+param Valore: forza resistenza magia astuzia codardia corruzione :=
+Thrain 4 6 0 0 6 7
+Gimble 3 5 0 0 7 6
+Dolgrin 2 5 0 1 8 6
+Lirel 3 4 1 7 3 3
+Eldara 2 4 1 6 3 3
+Silvian 4 4 0 5 4 3
+Aldric 7 4 0 4 5 7
+Lyra 6 3 0 3 4 9
+Morgana 1 2 6 4 7 7
+Varian 0 2 8 2 9 9;
+
+param: Costo Potenziamenti_Max :=
+Thrain 140 1
+Gimble 130 1
+Dolgrin 150 2
+Lirel 220 3
+Eldara 200 3
+Silvian 200 3
+Aldric 300 3
+Lyra 350 3
+Morgana 500 4
+Varian 460 3;
+
+param: Qualita_Min :=
+forza 37
+resistenza 45
+magia 10
+astuzia 30;
+
+param: Difetto_Max :=
+codardia 30
+corruzione 33;
+
+param Costo_potenziamento_lieve := 25;
+param Costo_potenziamento_medio := 95;
+param Costo_potenziamento_forte := 160;
+param Valore_potenziamento_lieve := 1;
+param Valore_potenziamento_medio := 2;
+param Valore_potenziamento_forte := 3;

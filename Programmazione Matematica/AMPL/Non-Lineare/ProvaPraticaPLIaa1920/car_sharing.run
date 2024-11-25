@@ -1,0 +1,7 @@
+
+reset;
+model car_sharing.mod;
+data car_sharing.dat;
+option solver cbc;
+solve;
+display RenditaTotale, Auto, Pubblicita;

@@ -1,0 +1,12 @@
+set CENTRI = a b c;
+set CLIENTI = 1 2 3 4;
+
+param: costi_fissi :=
+a 2
+b 1
+c 2;
+
+param costi_trasporto: 1 2 3 4 :=
+a 2 2 2 2
+b 10 1 10 1
+c 1 10 1 10;

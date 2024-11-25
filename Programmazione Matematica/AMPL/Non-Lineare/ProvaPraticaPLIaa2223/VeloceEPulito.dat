@@ -1,0 +1,24 @@
+set ORIG := Roma Latina;
+set DEST := Napoli Viterbo;
+set MEZZI := FurgVel, FurgEle, Camion;
+
+param QuantSped: Napoli Viterbo :=
+Roma 800 1000
+Latina 600 400;
+
+param Dist: Napoli Viterbo :=
+Roma 485 255
+Latina 480 350;
+
+param: Capacita Costo Costo100Km MaxNum Emissioni100Km :=
+FurgVel  12      17     17         150     11
+FurgEle  11      20     11         70     7
+Camion   25      30     20         50     26;
+
+param EmissMax := 9000;
+param numMinVel := 130;
+
+param multa_emiss := 1500;
+param multa_velocita := 900;
+param multa_suppl := 400;
+param M := 1000000;

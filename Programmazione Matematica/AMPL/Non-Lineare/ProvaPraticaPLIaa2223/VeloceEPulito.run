@@ -1,0 +1,17 @@
+reset;
+
+model VeloceEPulito.mod;
+data VeloceEPulito.dat;
+
+option solver cbc;
+
+solve;
+
+display Num, y_emiss, y_velocita, y_suppl;
+display quantita.body, quantita.lb;
+display massimo.body, massimo.ub;
+display emissioni.body, emissioni.ub;
+display velocita.body, velocita.lb;
+display multa_emiss, multa_velocita, multa_suppl;
+display costo_tot;
+
