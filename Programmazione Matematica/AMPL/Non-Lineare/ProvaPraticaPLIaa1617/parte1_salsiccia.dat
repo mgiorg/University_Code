@@ -1,0 +1,69 @@
+set Ingredienti := collo spalla stinco pancetta lardo coscia cotica prosciutto fegato;
+set CategoriaMagre := collo spalla stinco;
+set CategoriaGrasse := pancetta lardo coscia;
+set CategoriaSaporite := cotica prosciutto fegato;
+
+param Costo :=
+    collo       4
+    spalla      3.5
+    stinco      5.5
+    pancetta    1
+    lardo       0.4
+    coscia      4
+    cotica      1.5
+    prosciutto  7
+    fegato      5;
+
+param Proteine :=
+    collo       400
+    spalla      350
+    stinco      450
+    pancetta    150
+    lardo       50
+    coscia      200
+    cotica      100
+    prosciutto  350
+    fegato      650;
+
+param GrassiInsaturi :=
+    collo       300
+    spalla      340
+    stinco      440
+    pancetta    450
+    lardo       550
+    coscia      400
+    cotica      650
+    prosciutto  250
+    fegato      350;
+
+param GrassiSaturi :=
+    collo       50
+    spalla      60
+    stinco      30
+    pancetta    260
+    lardo       400
+    coscia      200
+    cotica      260
+    prosciutto  360
+    fegato      40;
+
+param Sale :=
+    collo       3
+    spalla      4
+    stinco      3
+    pancetta    8
+    lardo       9
+    coscia      9
+    cotica      13
+    prosciutto  28
+    fegato      5;
+
+param PesoTotale := 100;
+param ProteineMin := 35;
+param ProteineMax := 60;
+param GrassiInsaturiMin := 40;
+param GrassiInsaturiMax := 50;
+param GrassiSaturiMin := 0;
+param GrassiSaturiMax := 19;
+param SaleMin := 0;
+param SaleMax := 0.6;

@@ -1,0 +1,8 @@
+
+reset;
+model "parte1_salsiccia.mod";
+data "parte1_salsiccia.dat";
+option solver cbc;
+solve;
+
+display Quantita, CostoTotale;

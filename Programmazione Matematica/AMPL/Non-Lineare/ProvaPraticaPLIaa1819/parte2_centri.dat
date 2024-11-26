@@ -1,0 +1,23 @@
+
+set Citta := Latina Velletri Anzio Aprilia;
+
+param CostoConnessione:
+          Latina Velletri Anzio Aprilia :=
+Latina       1      10    10    10
+Velletri    10       1    12     7
+Anzio       10      12     1     7
+Aprilia     10       7     7     1;
+
+param Capacita :=
+Latina 1400
+Velletri 1300
+Anzio 1000
+Aprilia 900;
+
+param Domanda :=
+Latina 1000
+Velletri 800
+Anzio 800
+Aprilia 700;
+
+param MaxCentri := 3;

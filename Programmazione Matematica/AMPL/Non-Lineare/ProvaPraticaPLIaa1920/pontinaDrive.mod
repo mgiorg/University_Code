@@ -37,7 +37,9 @@ subject to alternativo1 {i in TIPI, j in CITTA}:
   (auto[i,j] + autoPubb[i,j]) >= minimoAlt1 - M*z1[j];
 
 subject to alternativo2 {j in CITTA}:
-  (auto['comp',j] + autoPubb['comp',j]) >= (auto['SUV',j] + autoPubb['SUV',j]) + (auto['util',j] + autoPubb['util',j]) - M*z2[j];
+  (auto['comp',j] + autoPubb['comp',j]) >= 
+  (auto['SUV',j] + autoPubb['SUV',j]) + 
+  (auto['util',j] + autoPubb['util',j]) - M*z2[j];
 
 subject to alternativo3 {j in CITTA}:
   (auto['SUV',j] + autoPubb['SUV',j]) <= massimoAlt3 + M*z3[j];

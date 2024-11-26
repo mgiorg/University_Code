@@ -1,0 +1,7 @@
+
+reset;
+model part1_materassi.mod;
+data part1_materassi.dat;
+option solver cbc;
+solve;
+display x, y, profitto;

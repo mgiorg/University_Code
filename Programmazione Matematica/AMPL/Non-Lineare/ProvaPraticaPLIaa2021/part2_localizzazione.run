@@ -1,0 +1,7 @@
+
+reset;
+model part2_localizzazione.mod;
+data part2_localizzazione.dat;
+option solver cbc;
+solve;
+display x, y, cost;

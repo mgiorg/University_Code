@@ -1,0 +1,41 @@
+
+set Prodotti := P1 P2 P3 P4 P5;
+set Macchine := A B C;
+
+param p :=
+    P1 3
+    P2 16
+    P3 10
+    P4 60
+    P5 65;
+
+param F :=
+    P1 130
+    P2 500
+    P3 450
+    P4 1000
+    P5 1400;
+
+param u :=
+    P1 6000
+    P2 6000
+    P3 6000
+    P4 4000
+    P5 4000;
+
+param Minuti:
+      P1   P2   P3   P4   P5 :=
+A   100  150  120  300  280
+B   180  160  110  300  290
+C   130  150  120  290  430;
+
+param MinutiDisponibili :=
+    A 3500
+    B 4200
+    C 4300;
+
+param DomandaBaseMin := 10000;
+param DomandaPremiumMin := 3000;
+
+set ProdottiBase := P1 P2 P3;
+set ProdottiPremium := P4 P5;

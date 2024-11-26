@@ -1,0 +1,12 @@
+
+set CITY := Latina Velletri Anzio Aprilia;
+
+param K := Latina 1400 Velletri 1300 Anzio 1000 Aprilia 900;
+param d := Latina 1000 Velletri 800 Anzio 800 Aprilia 700;
+param f := Latina 2 Velletri 4 Anzio 3 Aprilia 4;
+
+param c: Latina Velletri Anzio Aprilia :=
+    Latina 		1 10 10 10
+    Velletri 	10 1 12 7
+    Anzio 		10 12 1 7
+    Aprilia 	10 7 7 1;

@@ -1,0 +1,8 @@
+
+reset;
+model "parte2_centri.mod";
+data "parte2_centri.dat";
+option solver cbc;
+solve;
+
+display Attivazione, Flusso, DistanzaMassima;

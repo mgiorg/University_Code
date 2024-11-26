@@ -1,0 +1,23 @@
+
+set Progetti := Progetto1 Progetto2 Progetto3 Progetto4 Progetto5 Progetto6 Progetto7;
+set Periodi := 1 2 3 4 5 6;
+
+param RhoBar := 0.01;
+
+param FlussoCassa:
+             1    2    3    4    5    6 :=
+Progetto1   -2   -1    0    2    3    1
+Progetto2   -3   -3   -1    4    3    4
+Progetto3   -1   -3    1   -2    3    4
+Progetto4    0   -4    0    5    1    0
+Progetto5   -4    1    3    2    1    1
+Progetto6   -4   -1    4    0    1    1
+Progetto7   -2   -1    4   -2    2    2;
+
+param Budget :=
+    1 8
+    2 6
+    3 3
+    4 1
+    5 0
+    6 0;

@@ -1,9 +1,0 @@
-reset;
-
-model p.mod;
-data p.dat;
-
-option solver cbc;
-solve;
-
-display z;

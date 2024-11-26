@@ -1,5 +1,5 @@
 set PROGETTI := Prog1 Prog2 Prog3 Prog4 Prog5 Prog6 Prog7;
-set PERIODI := Peri1 Peri2 Peri3 Peri4 Peri5 Peri6;
+set PERIODI ordered:= Peri1 Peri2 Peri3 Peri4 Peri5 Peri6;
 
 param FlussoCassa: Peri1 Peri2 Peri3 Peri4 Peri5 Peri6 :=
 Prog1 -2 -1 0 2 3 1

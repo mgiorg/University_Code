@@ -1,7 +1,0 @@
-
-reset;
-model investimenti.mod;
-data investimenti.dat;
-option solver cbc;
-solve;
-display NPV, Attivazione;

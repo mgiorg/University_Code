@@ -1,0 +1,8 @@
+
+reset;
+model "parte2_progetti.mod";
+data "parte2_progetti.dat";
+option solver cbc;
+solve;
+
+display Attivazione;

@@ -1,0 +1,7 @@
+
+reset;
+model part1_distributore.mod;
+data part1_distributore.dat;
+option solver cbc;
+solve;
+display x, y, profit;

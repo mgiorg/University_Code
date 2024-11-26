@@ -1,0 +1,8 @@
+
+reset;
+model "parte1_carsharing.mod";
+data "parte1_carsharing.dat";
+option solver cbc;
+solve;
+
+display Auto, Pubblicita;

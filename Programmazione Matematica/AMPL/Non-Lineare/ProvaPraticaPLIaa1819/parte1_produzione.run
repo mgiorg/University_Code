@@ -1,0 +1,8 @@
+
+reset;
+model "parte1_produzione.mod";
+data "parte1_produzione.dat";
+option solver cbc;
+solve;
+
+display q;

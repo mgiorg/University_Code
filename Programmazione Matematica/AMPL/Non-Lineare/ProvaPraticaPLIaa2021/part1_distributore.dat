@@ -1,0 +1,21 @@
+
+set PROD := "acqua naturale" "acqua frizzante" "cola" "gassosa" "chinotto" "cedrata" 
+             "arachidi" "anacardi" "pistacchi" "chips" "biscotti";
+
+param p := 
+    "acqua naturale" 0.5 "acqua frizzante" 0.5 "cola" 1.1 "gassosa" 1.1 "chinotto" 1.2 "cedrata" 1.4
+    "arachidi" 2.3 "anacardi" 2.4 "pistacchi" 2.9 "chips" 3.7 "biscotti" 2.6;
+
+param F := 
+    "acqua naturale" 4 "acqua frizzante" 3 "cola" 5 "gassosa" 5 "chinotto" 5 "cedrata" 6
+    "arachidi" 3 "anacardi" 4 "pistacchi" 10 "chips" 10 "biscotti" 8;
+
+param u := 
+    "acqua naturale" 30 "acqua frizzante" 30 "cola" 25 "gassosa" 35 "chinotto" 20 "cedrata" 20
+    "arachidi" 30 "anacardi" 25 "pistacchi" 20 "chips" 10 "biscotti" 20;
+
+param max_capacity := 180;
+param min_drinks := 110;
+param min_snacks := 50;
+param min_water_ratio := 0.6;
+param max_snack_types := 3;

@@ -1,0 +1,9 @@
+
+reset;
+model parte1_fonti.mod;
+data parte1_fonti.dat;
+option solver cbc;
+solve;
+
+display Produzione;
+display Attivazione;

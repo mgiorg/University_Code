@@ -1,0 +1,23 @@
+
+set Citta := Pomezia Aprilia Latina;
+set Tipologie := utilitaria SUV ultracompatta;
+
+param CostoAcquisto :=
+    utilitaria 9
+    SUV 15
+    ultracompatta 10;
+
+param Rendita:
+          Pomezia Aprilia Latina :=
+utilitaria    20      20     22
+SUV           37      38     41
+ultracompatta 18      20     23;
+
+param PubblicitaSconto := 4;
+param PubblicitaRenditaRiduzione := 0.1;
+param Budget := 2000;
+
+param: MinAuto PercPub:=
+    Pomezia 40 0.3
+    Aprilia 40 0
+    Latina 55 0.3;

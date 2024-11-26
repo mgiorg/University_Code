@@ -1,0 +1,13 @@
+
+set FONTI := idroelettrico solare eolico petrolio carbone gas;
+param: CostoFisso CostoVariabile MaxProduzione :=
+    idroelettrico 400 2 	8000000
+    solare        200 4 	3500000
+    eolico        600 3.5 	3500000
+    petrolio       0  0.6 	15000000
+    carbone        0  0.5 	15000000
+    gas           250 1.5 	8000000;
+param Domanda := 20000000;
+param ProporzioneCarbonePetrolio := 0.4;
+param PercentualeMassimaCarbonePetrolio := 0.5;
+param PercentualeMinimaSolareEolico := 0.2;

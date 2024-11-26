@@ -1,0 +1,7 @@
+
+reset;
+model part2_investimenti.mod;
+data part2_investimenti.dat;
+option solver cbc;
+solve;
+display x, npv;
