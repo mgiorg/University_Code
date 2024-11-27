@@ -1,0 +1,38 @@
+set ORIGINS := Roma Latina;
+set DESTINATIONS := Napoli Viterbo;
+set VEHICLES := "furgone veloce" "furgone elettrico" "camion";
+
+param demand:
+                 Napoli Viterbo :=
+    Roma         800    1000
+    Latina       600     400;
+
+param distance:
+                 Napoli Viterbo :=
+    Roma         485     255
+    Latina       480     350;
+
+param capacity :=
+    "furgone veloce" 12
+    "furgone elettrico" 11
+    "camion" 25;
+
+param fixed_cost :=
+    "furgone veloce" 17
+    "furgone elettrico" 20
+    "camion" 30;
+
+param variable_cost :=
+    "furgone veloce" 17
+    "furgone elettrico" 11
+    "camion" 20;
+
+param max_vehicles :=
+    "furgone veloce" 150
+    "furgone elettrico" 70
+    "camion" 50;
+
+param emissions :=
+    "furgone veloce" 11
+    "furgone elettrico" 7
+    "camion" 26;

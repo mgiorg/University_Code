@@ -1,0 +1,10 @@
+reset;
+model Parte1.mod;
+data Parte1.dat;
+option solver cbc;
+solve;
+
+display z;
+
+display coperto;
+display {i in LUOGHI, j in POSIZIONI_POSSIBILI: copre[i,j] = 1} distanza[i,j];

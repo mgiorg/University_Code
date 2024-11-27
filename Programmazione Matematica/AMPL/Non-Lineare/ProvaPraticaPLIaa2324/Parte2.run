@@ -1,0 +1,12 @@
+reset;
+
+model progetti_eldoria.mod;
+data progetti_eldoria.dat;
+
+option solver cbc;
+
+solve;
+
+display x;
+display FlussoCassaAtt;
+display {i in PROGETTI} sum{j in PERIODI} FlussoCassaAtt[i,j];

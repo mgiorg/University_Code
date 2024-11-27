@@ -1,0 +1,8 @@
+set LUOGHI := 1 2 3 4;
+set ASTRONAVI := 1 2 3 4;
+
+param TempoTotale := 600;
+param TempoTeletrasporto := 1 0.8 2 0.9 3 0.6 4 0.8;
+param Accelerato := 1 0.56 2 0.63 3 0.42 4 0.56;
+param MaxAccelerato := 2200;
+param MinLavoratori := 1 800 2 800 3 800 4 800;

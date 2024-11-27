@@ -1,0 +1,9 @@
+reset;
+
+model Parte1.mod;
+data Parte1.dat;
+
+option solver cbc;
+
+solve;
+
