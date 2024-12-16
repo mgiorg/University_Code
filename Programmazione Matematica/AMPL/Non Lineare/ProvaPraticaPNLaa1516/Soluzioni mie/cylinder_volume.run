@@ -1,0 +1,18 @@
+
+# File: cylinder_volume.run
+
+reset;
+model cylinder_volume.mod;
+data cylinder_volume.dat;
+
+# Solver selection
+option solver ipopt;  # Solver predefinito
+# option solver bonmin;  # Solver alternativo
+# option solver couenne;  # Solver alternativo
+
+solve;
+
+# Stampa i risultati
+print "Altezza ottimale del cilindro (h):", h;
+print "Raggio ottimale del cilindro (r):", r;
+print "Volume massimo del cilindro:", pi * r^2 * h;

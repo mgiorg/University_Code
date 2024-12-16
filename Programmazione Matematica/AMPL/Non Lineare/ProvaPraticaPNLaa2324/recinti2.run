@@ -1,0 +1,12 @@
+reset;
+
+model recinti2.mod;
+data recinti.dat;
+
+option solver Ipopt;
+
+solve;
+
+display CentroRecintoX, CentroRecintoY;
+display RaggioRecinto, RaggioMin;
+display area_min;

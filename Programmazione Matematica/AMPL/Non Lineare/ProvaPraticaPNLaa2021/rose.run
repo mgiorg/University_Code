@@ -1,0 +1,12 @@
+reset;
+
+model rose.mod;
+data rose.dat;
+
+option solver Ipopt;
+
+solve;
+
+display profitto;
+display qta;
+display (sum{i in FORNITORI} costo_varianza[i] * qta[i]^2) / (sum{i in FORNITORI} qta[i])^2;

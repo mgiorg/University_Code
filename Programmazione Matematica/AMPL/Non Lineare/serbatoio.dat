@@ -1,0 +1,4 @@
+param l_c := 8;
+param h_c_max := 4;
+param h_c_min := 1;
+param m := 50;

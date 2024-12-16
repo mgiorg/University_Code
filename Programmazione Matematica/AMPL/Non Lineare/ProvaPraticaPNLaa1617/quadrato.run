@@ -1,0 +1,12 @@
+reset;
+
+model rettangolo.mod;
+model quadrato.mod;
+data rettangolo.dat;
+
+option solver Ipopt;
+
+solve;
+
+display area;
+display base, altezza, lato_triangolo, altezza_triangolo;

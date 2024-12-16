@@ -1,0 +1,11 @@
+reset;
+
+model minimi_quadrati2.mod;
+data minimi_quadrati.dat;
+
+option solver Ipopt;
+
+solve;
+
+display errore;
+display m_1, m_2, m_3, q, z;

@@ -1,0 +1,11 @@
+set FORNITORI := A B C;
+
+param: costo_media costo_varianza :=
+A 1 0.4
+B 1.1 0.35
+C 0.9 0.6;
+
+param varianza_max := 0.4;
+param prezzo_base := 5;
+param prezzo_variazione := 0.001;
+

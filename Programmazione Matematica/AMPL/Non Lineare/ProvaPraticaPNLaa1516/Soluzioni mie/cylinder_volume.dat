@@ -1,0 +1,5 @@
+
+# File: cylinder_volume.dat
+
+param H_cone := 100;  # Altezza del cono (cm)
+param R_cone := 20;   # Raggio di base del cono (cm)

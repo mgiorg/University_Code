@@ -1,0 +1,11 @@
+reset;
+
+model piramide.mod;
+data piramide.dat;
+
+option solver Ipopt;
+
+solve;
+
+display volume;
+display lato_cubo;

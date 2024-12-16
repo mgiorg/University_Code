@@ -1,0 +1,17 @@
+reset;
+
+var x >= 0, <= 2;
+
+maximize o: sqrt(x);
+
+#let x := 0.0001;
+
+display x;
+
+option solver Ipopt;
+#option solver Bonmin;
+#option solver Couenne;
+
+solve;
+
+display x;

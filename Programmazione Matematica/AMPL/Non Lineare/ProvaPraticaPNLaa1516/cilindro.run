@@ -1,0 +1,11 @@
+reset;
+
+model cilindro.mod;
+data cilindro.dat;
+
+option solver Ipopt;
+
+solve;
+
+display volume;
+display raggio, altezza;

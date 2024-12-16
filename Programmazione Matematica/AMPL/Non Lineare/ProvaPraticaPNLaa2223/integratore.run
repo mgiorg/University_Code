@@ -1,0 +1,15 @@
+reset;
+
+model integratore.mod;
+data integratore.dat;
+
+option solver Ipopt;
+
+solve;
+
+display rischio;
+display Quantita;
+display costi.body, costi.ub;
+display micro_elementi.lb, micro_elementi.body;
+display tossicita_attesa.body, tossicita_attesa.ub;
+

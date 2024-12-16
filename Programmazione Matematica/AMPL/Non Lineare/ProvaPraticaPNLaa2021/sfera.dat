@@ -1,0 +1,3 @@
+param superficie_cil := 1;
+param numero_sfe := 3;
+

@@ -1,0 +1,13 @@
+reset;
+
+model produzione.mod;
+data produzione.dat;
+
+option solver Ipopt;
+
+solve;
+
+display profitto;
+display q;
+display {i in PROD} (p_a[i] - p_m * q[i]);
+

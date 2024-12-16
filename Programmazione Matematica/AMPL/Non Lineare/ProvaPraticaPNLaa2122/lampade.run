@@ -1,0 +1,15 @@
+reset;
+
+model lampade.mod;
+data lampade.dat;
+
+option solver Ipopt;
+#option solver Bonmin;
+
+solve;
+
+display profitto;
+display qta;
+display rischio.body;
+display {i in LAMPADE} (a_E[i]-m*qta[i]);
+

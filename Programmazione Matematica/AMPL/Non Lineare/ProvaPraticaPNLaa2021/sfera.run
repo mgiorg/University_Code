@@ -1,0 +1,14 @@
+reset;
+
+model sfera.mod;
+data sfera.dat;
+
+option solver Ipopt;
+
+solve;
+
+display volume;
+display pi;
+display raggio_sfe;
+display superficie_max.body;
+

@@ -1,0 +1,12 @@
+set FABBRICHE := F1 F2 F3 F4 F5 F6 F7;
+
+param: FabbricaX FabbricaY :=
+F1 0 0
+F2 1000 0
+F3 10 800
+F4 50 500
+F5 400 400
+F6 600 100
+F7 300 200;
+
+param DistanzaBastoni := 500;

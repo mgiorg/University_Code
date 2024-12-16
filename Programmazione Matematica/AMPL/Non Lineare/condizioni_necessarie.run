@@ -1,0 +1,20 @@
+reset;
+
+var x >= -2, <= 2;
+
+minimize o: -x^2;
+
+display x;
+
+#Non partire da 0,0,0 ma
+#let x := 1;
+
+let x := 1;
+
+option solver Ipopt;
+#option solver Bonmin;
+#option solver Couenne;
+
+solve;
+
+display x;

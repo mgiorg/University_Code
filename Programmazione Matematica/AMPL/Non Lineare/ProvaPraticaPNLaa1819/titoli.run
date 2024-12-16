@@ -1,0 +1,11 @@
+reset;
+
+model titoli.mod;
+data titoli.dat;
+
+option solver Ipopt;
+
+solve;
+
+display rischio;
+display x, delta;

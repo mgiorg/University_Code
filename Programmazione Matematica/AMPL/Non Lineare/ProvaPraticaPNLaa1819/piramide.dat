@@ -1,0 +1,3 @@
+param lato_base_pir := 10;
+param altezza_pir := 7;
+

@@ -1,0 +1,2 @@
+param raggio_cono := 20;
+param altezza_cono := 100;

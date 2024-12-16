@@ -1,0 +1,18 @@
+
+# File: profit_optimization.run
+
+reset;
+model profit_optimization.mod;
+data profit_optimization.dat;
+
+# Solver selection
+option solver ipopt;  # Solver predefinito
+# option solver bonmin;  # Solver alternativo
+# option solver couenne;  # Solver alternativo
+
+solve;
+
+# Stampa i risultati
+print "Quantità ottimali per mercato:";
+print {m in MARKETS}: "Mercato:", m, "Quantità:", q[m];
+print "Profitto massimo:", Profit;

@@ -1,0 +1,14 @@
+reset;
+
+model torri.mod;
+
+option solver Ipopt;
+
+solve;
+
+display volume;
+display h1,h2,h3,r1,r2,r3;
+display r1*r1*3.14, r2*r2*3.14, r3*r3*3.14;
+display 2*r1*3.14*h1, 2*r2*3.14*h2, 2*r3*3.14*h3;
+display r1*r1*3.14*h1, r2*r2*3.14*h2, r3*r3*3.14*h3;
+

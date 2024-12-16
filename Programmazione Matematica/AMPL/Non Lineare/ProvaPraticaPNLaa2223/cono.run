@@ -1,0 +1,12 @@
+reset;
+
+model cono.mod;
+
+option solver Ipopt;
+
+solve;
+
+display h, r;
+
+display volume;
+display 3.14*r*sqrt(h*h+r*r) + 3.14*r*r;

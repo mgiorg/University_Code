@@ -1,0 +1,13 @@
+.reset;
+
+model bastoni.mod;
+data bastoni.dat;
+
+option solver Couenne;
+
+solve;
+
+display Bastone1X, Bastone1Y, Bastone2X, Bastone2Y, DistanzaMax;
+display sqrt((Bastone1X-Bastone2X)^2 +
+ (Bastone1X-Bastone2X)^2);
+display distanze;

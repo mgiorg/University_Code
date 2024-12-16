@@ -1,0 +1,15 @@
+reset;
+
+model serbatoio.mod;
+data serbatoio.dat;
+
+option solver Ipopt;
+#option solver Bonmin;
+#option solver Couenne;
+
+solve;
+
+display volume;
+display r, h;
+display sup.body, sup.ub;
+display h_c_max - (h_c_max-h_c_min)*2*r/l_c;

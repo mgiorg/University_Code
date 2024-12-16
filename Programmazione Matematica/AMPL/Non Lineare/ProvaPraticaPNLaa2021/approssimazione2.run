@@ -1,0 +1,11 @@
+reset;
+
+model approssimazione2.mod;
+data approssimazione.dat;
+
+option solver Ipopt;
+
+solve;
+
+display errore;
+display m_1, m_2, q;

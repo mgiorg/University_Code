@@ -1,0 +1,10 @@
+set MERCATI := eur nam cin ind;
+
+param: a b :=
+eur 1000 0.001
+nam 1300 0.002
+cin 800 0.002
+ind 700 0.001;
+
+param c := 10;
+param prod_max := 1000;

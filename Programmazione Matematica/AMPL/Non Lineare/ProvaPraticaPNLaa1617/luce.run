@@ -1,0 +1,14 @@
+reset;
+
+model luce.mod;
+data luce.dat;
+
+option solver Ipopt;
+
+let F[1] := 1;
+
+solve;
+
+display distanza;
+display F;
+display sqrt(sum{j in 1..3} (P['D',j]-F[j])^2);

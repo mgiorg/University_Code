@@ -1,0 +1,7 @@
+set PUNTI := A B C D;
+
+param P: 1 2 3 :=
+A 10 0 2
+B 0 0 0
+C 1 10 1
+D 10 10 5;

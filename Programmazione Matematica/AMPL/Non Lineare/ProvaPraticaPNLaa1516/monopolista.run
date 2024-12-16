@@ -1,0 +1,11 @@
+reset;
+
+model monopolista.mod;
+data monopolista.dat;
+
+option solver Ipopt;
+
+solve;
+
+display profitto;
+display q, limite.body;

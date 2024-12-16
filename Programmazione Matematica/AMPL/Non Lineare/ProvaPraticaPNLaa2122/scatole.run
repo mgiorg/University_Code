@@ -1,0 +1,13 @@
+reset;
+
+model scatole.mod;
+
+option solver Ipopt;
+
+solve;
+
+display volumi;
+display x, y, z;
+display {i in 1..num_scatole} x[i]*y[i]*z[i];
+display superfici.body;
+

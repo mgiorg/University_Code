@@ -1,0 +1,21 @@
+
+# File: function_approx.run
+
+reset;
+model function_approx.mod;
+data function_approx.dat;
+
+# Solver selection
+option solver ipopt;  # Solver predefinito
+# option solver bonmin;  # Solver alternativo
+# option solver couenne;  # Solver alternativo
+
+# Risoluzione modello lineare
+solve LinearError;
+print "Parametri modello lineare: m1=", m1, "m2=", m2, "q=", q;
+print "Errore quadratico totale:", sum {p in POINTS} error[p]^2;
+
+# Risoluzione modello quadratico
+solve QuadraticError;
+print "Parametri modello quadratico: a1=", a1, "a2=", a2, "b1=", b1, "b2=", b2, "c=", c;
+print "Errore quadratico totale:", sum {p in POINTS} quad_error[p]^2;

@@ -1,0 +1,11 @@
+set LAMPADE := light, gold, silver;
+
+param: a_E a_sigma2 :=
+light 4 0.5
+gold 5 0.6
+silver 7 0.3;
+
+param m := 0.002;
+param qta_tot := 1000;
+param rischio_max := 0.2;
+

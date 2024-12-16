@@ -1,0 +1,19 @@
+
+# File: profit_optimization.dat
+
+set MARKETS := Europe NorthAmerica China India;
+
+param a :=
+Europe 1000
+NorthAmerica 1300
+China 800
+India 700;
+
+param b :=
+Europe 0.001
+NorthAmerica 0.002
+China 0.002
+India 0.001;
+
+param cost := 10;
+param Qmax := 1000;
