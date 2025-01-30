@@ -1,0 +1,8 @@
+reset;
+
+model e3.mod;
+data e3.dat;
+option solver ipopt;
+solve;
+
+display x, y2, Rischio;

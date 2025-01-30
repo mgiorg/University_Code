@@ -1,0 +1,11 @@
+set TIPI := Light Gold Silver;
+
+param a :=
+Light 4
+Gold 5
+Silver 7;
+
+param sigma2 :=
+Light 0.5
+Gold 0.6
+Silver 0.3;

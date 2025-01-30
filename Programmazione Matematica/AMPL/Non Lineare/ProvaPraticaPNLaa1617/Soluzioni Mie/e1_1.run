@@ -1,0 +1,9 @@
+reset;
+
+model e1_1.mod;
+
+option solver ipopt;
+
+solve;
+
+display base, altezza, area;

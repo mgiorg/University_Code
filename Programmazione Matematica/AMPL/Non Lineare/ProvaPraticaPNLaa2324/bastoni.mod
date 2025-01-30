@@ -23,4 +23,4 @@ subject to distanze_minime2 {i in FABBRICHE}:
 
 subject to distanza_bastoni:
  (Bastone1X-Bastone2X)^2 +
- (Bastone1X-Bastone2X)^2 >= DistanzaBastoni^2;
+ (Bastone1Y-Bastone2Y)^2 >= DistanzaBastoni^2;

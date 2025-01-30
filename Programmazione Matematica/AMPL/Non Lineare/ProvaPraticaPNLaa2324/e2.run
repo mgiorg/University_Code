@@ -1,0 +1,9 @@
+reset;
+
+model e2.mod;
+data e2.dat;
+option solver ipopt;
+solve;
+
+display x, y, r;
+display AreaTotale;

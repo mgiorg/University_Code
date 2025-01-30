@@ -1,0 +1,9 @@
+reset;
+
+model e1.mod;
+data e1.dat;
+
+option solver ipopt;
+solve;
+
+display s, s^3;

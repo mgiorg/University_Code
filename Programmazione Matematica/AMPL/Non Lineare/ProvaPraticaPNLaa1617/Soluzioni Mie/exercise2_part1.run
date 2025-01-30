@@ -1,0 +1,9 @@
+
+reset;
+
+model "exercise2_part1.mod";
+data "exercise2.dat";
+option solver ipopt;
+solve;
+
+display m1, m2, m3, q, e;

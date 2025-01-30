@@ -1,0 +1,10 @@
+# File: portafoglio_titoli.run
+
+reset;
+model Portafoglio.mod;
+data Portafoglio.dat;
+
+option solver ipopt;
+solve;
+
+display allocazione, budget_rimanente, CreditiFinali;

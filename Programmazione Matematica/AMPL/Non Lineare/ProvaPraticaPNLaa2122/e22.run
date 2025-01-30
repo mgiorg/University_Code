@@ -1,0 +1,9 @@
+reset;
+
+model e22.mod;
+data e21.dat;
+
+option solver Ipopt;
+solve;
+
+display Errore;

@@ -1,0 +1,10 @@
+reset;
+
+model e1_1.mod;
+model e1_2.mod;
+
+
+option solver ipopt;
+solve;
+
+display AreaQuadrato;

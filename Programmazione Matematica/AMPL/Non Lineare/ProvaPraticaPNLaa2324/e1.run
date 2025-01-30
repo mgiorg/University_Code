@@ -1,0 +1,9 @@
+reset;
+
+model e1.mod;
+data e1.dat;
+option solver couenne;
+solve;
+
+display x1, y1, x2, y2, d;
+display SommaDistanze;

@@ -1,0 +1,12 @@
+reset;
+
+model e2.mod;
+data e2.dat;
+
+option solver ipopt;
+solve;
+
+display PercorsoTotale;
+display sqrt((x_punto[1]^2) + (y_punto[1]^2)) +
+    sum{i in 2..13} sqrt((x_punto[i] - x_punto[i-1])^2 + 
+    				 (y_punto[i] - y_punto[i-1])^2);

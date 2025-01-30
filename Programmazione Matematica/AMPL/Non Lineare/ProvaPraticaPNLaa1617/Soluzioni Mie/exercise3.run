@@ -1,0 +1,12 @@
+reset;
+
+# Modello e dati
+model "exercise3.mod";
+data "exercise3.dat";
+
+# Solver e soluzione
+option solver ipopt;
+solve;
+
+# Visualizzare le coordinate della fonte e le distanze dai punti
+display x_luce, y_luce, z_luce, DistanzaCumulativa;

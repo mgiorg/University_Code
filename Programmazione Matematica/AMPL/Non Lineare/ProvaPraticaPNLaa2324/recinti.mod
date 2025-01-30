@@ -6,8 +6,8 @@ param DistanzaMin;
 param RaggioMin{RENNE};
 param pi := 3.14159265358979;
 
-var CentroRecintoX{RENNE} >= 0, <= LatoX;
-var CentroRecintoY{RENNE} >= 0, <= LatoY;
+var CentroRecintoX{RENNE} >= 0, <= LatoX; #500
+var CentroRecintoY{RENNE} >= 0, <= LatoY; #300
 var RaggioRecinto{i in RENNE} >= RaggioMin[i];
 
 maximize area_tot:

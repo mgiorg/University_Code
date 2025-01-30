@@ -1,0 +1,37 @@
+set SOSTANZE := Rosa Papaya Aloe Alga;
+
+param VitC :=
+Rosa 0.10
+Papaya 0.15
+Aloe 0.05
+Alga 0.01;
+
+param VitB :=
+Rosa 0.01
+Papaya 0.20
+Aloe 0.20
+Alga 0.15;
+
+param Sali :=
+Rosa 0.01
+Papaya 0.25
+Aloe 0.10
+Alga 0.40;
+
+param Costo :=
+Rosa 0.10
+Papaya 0.20
+Aloe 0.15
+Alga 0.17;
+
+param ToxAttesa :=
+Rosa 3
+Papaya 2
+Aloe 3.5
+Alga 1.5;
+
+param Varianza :=
+Rosa 0.2
+Papaya 0.1
+Aloe 0.5
+Alga 0.2;

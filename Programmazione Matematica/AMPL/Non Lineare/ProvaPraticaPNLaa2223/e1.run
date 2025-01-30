@@ -1,0 +1,8 @@
+reset;
+
+model e1.mod;
+
+option solver ipopt;
+solve;
+
+display Volume;

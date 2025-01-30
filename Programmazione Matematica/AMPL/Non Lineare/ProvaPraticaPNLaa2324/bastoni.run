@@ -1,4 +1,4 @@
-.reset;
+reset;
 
 model bastoni.mod;
 data bastoni.dat;

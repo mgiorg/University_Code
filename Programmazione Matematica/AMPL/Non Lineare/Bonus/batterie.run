@@ -1,0 +1,8 @@
+reset;
+model batterie.mod;
+data batterie.dat;
+
+option solver couenne;
+solve;
+
+display raggio_batteria, altezza_batteria, n_batterie;

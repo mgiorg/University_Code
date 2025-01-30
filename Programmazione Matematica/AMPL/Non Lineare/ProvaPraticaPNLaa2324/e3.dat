@@ -1,0 +1,12 @@
+set RENNE := Tod Jimmy Ruud Fred Charlie;
+
+param LatoX := 500;
+param LatoY := 300;
+param DistanzaMin := 20;
+
+param RaggioMin :=
+Tod     60
+Jimmy   70
+Ruud    90
+Fred    60
+Charlie 55;

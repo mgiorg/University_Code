@@ -7,6 +7,4 @@ option solver Ipopt;
 
 solve;
 
-display CentroRecintoX, CentroRecintoY;
-display RaggioRecinto, RaggioMin;
 display area_tot;

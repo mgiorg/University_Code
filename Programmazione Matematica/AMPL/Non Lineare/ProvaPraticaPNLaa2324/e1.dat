@@ -1,0 +1,12 @@
+set FABBRICHE := 1 2 3 4 5 6 7;
+
+# Dati delle coordinate delle fabbriche
+param: X Y :=
+1 0		0
+2 1000	0
+3 10	800
+4 50	500
+5 400	400
+6 600	100
+7 300	200;
+

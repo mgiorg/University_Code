@@ -1,0 +1,9 @@
+reset;
+
+model e3.mod;
+data e3.dat;
+
+option solver Ipopt;
+solve;
+
+display Profitto;

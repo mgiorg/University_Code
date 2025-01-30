@@ -1,0 +1,11 @@
+set RENNE := Tod Jimmy Ruud Fred Charlie;
+
+param L := 500;  # Larghezza del rettangolo
+param H := 300;  # Altezza del rettangolo
+
+param r_min :=
+Tod     60
+Jimmy   70
+Ruud    90
+Fred    60
+Charlie 55;

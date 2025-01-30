@@ -1,0 +1,3 @@
+# Dati del problema
+param lato_base := 10;
+param altezza_piramide := 7;

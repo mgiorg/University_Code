@@ -1,7 +1,7 @@
 set RENNE := Tod Jimmy Ruud Fred Charlie;
 
 param LatoX := 500;
-param LatoY := 350;
+param LatoY := 300;
 param DistanzaMin := 20;
 
 param: RaggioMin :=

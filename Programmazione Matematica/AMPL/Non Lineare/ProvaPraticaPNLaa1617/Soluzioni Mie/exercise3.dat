@@ -1,0 +1,20 @@
+# Dati del problema
+set PUNTI := A B C D;
+
+param X :=
+A 10
+B 0
+C 1
+D 10;
+
+param Y :=
+A 0
+B 0
+C 10
+D 10;
+
+param Z :=
+A 2
+B 0
+C 1
+D 5;

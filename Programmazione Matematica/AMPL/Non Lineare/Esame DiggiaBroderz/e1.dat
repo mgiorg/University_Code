@@ -1,0 +1,5 @@
+param V_batteria := 1;  # Volume di ogni batteria
+
+param L := 40;  # Lunghezza della cella in metri
+param W := 35;  # Larghezza della cella in metri
+param H := 30;  # Altezza della cella in metri

@@ -8,4 +8,4 @@ option solver Ipopt;
 solve;
 
 display rischio;
-display x, delta;
+display x, delta, rischio;

@@ -1,0 +1,8 @@
+reset;
+
+model e2.mod;
+
+option solver ipopt;
+solve;
+
+display Profitto;

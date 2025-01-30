@@ -1,0 +1,9 @@
+reset;
+
+model e1.mod;
+data e1.dat;
+
+option solver Couenne;
+solve;
+
+display r, h, n_x, n_y, n_h, TotaleBatterie;

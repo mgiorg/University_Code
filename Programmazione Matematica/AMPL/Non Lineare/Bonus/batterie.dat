@@ -1,0 +1,4 @@
+param raggio_cono := 100;
+param altezza_cono := 40;
+
+param volume_batteria := 1;

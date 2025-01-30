@@ -1,0 +1,7 @@
+reset;
+
+model e22.mod;
+data e21.dat;
+option solver ipopt;
+solve;
+display a1, a2, a3, m1, m2, m3, q, e;

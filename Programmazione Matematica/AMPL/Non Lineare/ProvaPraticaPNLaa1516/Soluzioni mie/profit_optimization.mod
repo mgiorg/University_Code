@@ -1,20 +1,15 @@
-
-# File: profit_optimization.mod
-
-# Sets and Parameters
-set MARKETS;  # Mercati
-param a {MARKETS};  # Parametri della funzione di domanda inversa
-param b {MARKETS};  # Coefficienti quadratici
+set MARKETS;  # Set dei mercati
+param a {MARKETS};  # Coefficienti a_i delle funzioni di domanda inverse
+param b {MARKETS};  # Coefficienti b_i delle funzioni di domanda inverse
 param cost;         # Costo unitario di produzione
 param Qmax;         # Capacità massima di produzione
 
-# Variables
 var q {MARKETS} >= 0;  # Quantità prodotta per ogni mercato
 
-# Objective: Massimizzare il profitto
+# Funzione obiettivo: Massimizzare il profitto
 maximize Profit:
-    sum {m in MARKETS} (a[m] * q[m] - b[m] * q[m]^2) - cost * sum {m in MARKETS} q[m];
+    sum {i in MARKETS} (a[i] * q[i] - b[i] * q[i]^3 - cost * q[i]);
 
-# Vincolo: Capacità massima di produzione
+# Vincolo sulla capacità totale
 subject to Capacity:
-    sum {m in MARKETS} q[m] <= Qmax;
+    sum {i in MARKETS} q[i] <= Qmax;
