@@ -1,0 +1,41 @@
+body{
+    background-color: black;
+}
+h1{
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(135, 68, 56);
+    border-radius: 10px;
+    color: white;
+}
+#p1{
+    border: 3px solid tomato;
+    border-radius: 10px;
+}
+#p2{
+    border-bottom: 3px solid red;
+    border-top: 3px solid yellow;
+    border-left: 3px solid green;
+    border-right: 3px solid blue;
+    border-radius: 10px;
+}
+/*
+#p1{
+    color: white;
+}
+#p2{
+    color: purple;
+}
+#p3{
+    color: yellow;
+}
+#p4{
+    color: red;
+}*/
+
+.odd{
+    color: tomato;
+}
+.even{
+    color: lightgreen;
+}

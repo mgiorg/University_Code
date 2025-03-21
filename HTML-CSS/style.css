@@ -1,0 +1,29 @@
+#img1{
+    float: left;
+    margin-right: 10px;
+}
+#img2{
+    float: right;
+    margin-left: 10px;
+}
+
+#div1{
+    border: 2px solid;
+    height: 75px;
+    /*overflow: scroll, hidden, visible, clip, auto;*/
+    overflow: scroll;
+}
+
+#div2{
+    background-color: hsl(0, 100%, 75%);
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+span{
+    background-color: hsl(204, 100%, 75%);
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+
